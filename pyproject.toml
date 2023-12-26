@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "reserva-comigo"
+version = "0.0.1"
+description = "Projeto final Entra21"
+authors = ["Angelo Miguel Requenha"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
