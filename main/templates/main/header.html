@@ -1,0 +1,32 @@
+{% load static %}
+
+{% block header %}
+
+<nav>
+    <header>
+        <div id="logo">
+            <img src="img/png.jpg" alt="logo fundo transparente">
+        </div>
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="{% url 'reserva_app:login' %}">Login</a>
+                </li>
+                <li>
+                    <a href="usuario.html">Cadastro de usuário</a>
+                </li>
+                <li>
+                    <a href="espaco.html">Cadastro de espaço</a>
+                </li>
+                <li>
+                    <a href="#sobre-nos-section" id="sobre-nos-btn">Sobre Nós</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section id="banner">
+        <img src="img/background.jpg" alt="fundo">
+    </section>
+</nav>
+
+{% endblock %} 
