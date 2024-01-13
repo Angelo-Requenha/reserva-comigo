@@ -1,9 +1,12 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     height: 100vh;
     margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: Arial, sans-serif;
     padding: 0;
     color: rgb(90, 29, 128);
@@ -27,117 +30,60 @@ body {
 }
 
 /* Cabeçalho */
-nav header {
+nav {
     display: flex;
     width: 100%;
     justify-content: space-between;
     background-color: rgb(48, 98, 71);
-    position: relative;
-    padding: 20px; /* Aumenta o preenchimento do cabeçalho */
 }
 
-#logo img {
-    width: 50px;
-    margin-left: 20px;
-}
 
-#logo {
-    width: 50%;
-    display: flex;
-    align-items: center;
-}
-
-#menu, #cadastro-buttons {
-    position: absolute;
-    top: 20px; /* Ajusta a distância do topo para dar espaço ao aumento do cabeçalho */
-    right: 20px;
-}
-
-#menu ul li, #menu ul, #cadastro-buttons {
+#menu ul li, #menu ul{
     list-style: none;
     display: flex;
     align-items: center;
-}
-
-#menu {
-    position: absolute;
-    top: 50%; /* Centraliza verticalmente no cabeçalho */
-    transform: translateY(-50%);
-    right: 20px;
-}
-
-#menu ul li,
-#cadastro-buttons a {
-    margin: 0 15px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 20px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#menu ul li a,
-#cadastro-buttons a {
-    color: rgb(185, 14, 14);
-    display: inline-block;
     padding: 8px 15px;
 }
 
-#menu ul li:hover,
-#cadastro-buttons a:hover {
-    border: 1px solid rgb(35, 80, 44);
-    cursor: pointer;
+#menu a {
+    color: rgb(185, 14, 14);
+    text-decoration: none;
 }
 
-/* Banner */
-#banner {
-    position: relative;
-}
 
-#banner img {
-    width: 100%;
-    height: auto;
+
+
+#principal {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #sobre-nos-section {
-    position: absolute;
-    top: 95%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: auto;
+
     background-color: rgba(255, 255, 255, 0.115);
     padding: 20px;
-    max-width: 600px;
     text-align: center;
-    z-index: 5;
     border-radius: 10px; /* Adicione o valor desejado para arredondar as bordas */
+    display: flex;
+    flex-direction: column;
 }
 
-#banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.texto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
 
 .titulo {
     font-size: 3em;
-    margin-bottom: 10px;
+    margin: auto;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
 }
 
 .subtitulo {
     font-size: 1.2em;
+    margin: auto;
 }
 
 /* Corpo Principal (Main) */
@@ -150,13 +96,14 @@ main {
     width: 90%;
     margin: auto;
     padding: 50px 20px;
-    margin-bottom: 20px;
+
 }
 
 /* Rodapé */
 footer {
+    background-color: black;
     width: 100%;
-    color: #000;
+    height: 70px;
+    color: #ffffff;
     text-align: center;
-    padding: 20px;
 }
