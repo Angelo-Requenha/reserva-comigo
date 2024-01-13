@@ -9,7 +9,7 @@ body {
     display: flex;
     font-family: Arial, sans-serif;
     padding: 0;
-    color: rgb(90, 29, 128);
+    color: #DB5609;;
     flex-direction: column;
 }
 
@@ -30,11 +30,15 @@ body {
 }
 
 /* Cabeçalho */
+header {
+    background-color: #376666;
+}
+
 nav {
+    font-size: 20px;
     display: flex;
     width: 100%;
     justify-content: space-between;
-    background-color: rgb(48, 98, 71);
 }
 
 
@@ -46,12 +50,13 @@ nav {
 }
 
 #menu a {
-    color: rgb(185, 14, 14);
+    color: #DB5609;
     text-decoration: none;
 }
 
-
-
+.caixa-login a {
+    color: #DB5609;
+}
 
 #principal {
     margin: auto;
@@ -92,11 +97,10 @@ body main h1 {
 }
 
 main {
-    border: 1px solid rgb(252, 81, 24);
+    border: 1px solid #DB5609;;
     width: 90%;
     margin: auto;
     padding: 50px 20px;
-
 }
 
 /* Rodapé */
