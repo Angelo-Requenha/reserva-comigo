@@ -7,7 +7,7 @@ def cadastro(request):
         email = request.POST['email']
         senha = request.POST['senha']
         # Use create_superuser para criar um superusuário
-        usuario = CustomUser.objects.create_superuser(email=email, password=senha)
+        usuario = CustomUser.objects.create_user(email=email, password=senha)
         return redirect('reserva_app:login')  # Redirecione para a página de login após o registro bem-sucedido
     return render(request, 'register/cadastro.html')  # Renderize o formulário de registro
 
