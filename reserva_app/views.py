@@ -19,10 +19,10 @@ def login(request):
             usuario = CustomUser.objects.get(email=email)
             if usuario.check_password(senha):
                 # Lógica de sucesso de login
-                return redirect('main:index')  # Redireciona para a página inicial após o login bem-sucedido
+                return redirect('reserva_app:init_page')  # Redireciona para a página inicial após o login bem-sucedido
             else:
                 # Lógica para lidar com senha incorreta
-                return render(request, 'register/init_page.html', {'error_message': 'Senha incorreta. Tente novamente.'})
+                return render(request, 'register/login.html', {'error_message': 'Senha incorreta. Tente novamente.'})
         except CustomUser.DoesNotExist:
             # Lógica para lidar com usuário inexistente
             return render(request, 'register/login.html', {'error_message': 'Usuário não encontrado. Tente novamente.'})
