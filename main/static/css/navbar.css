@@ -1,0 +1,25 @@
+/* Cabeçalho */
+header {
+    background-color: #376666;
+    display: flex;
+    justify-content: end;
+}
+
+nav {
+    font-size: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#menu ul li, #menu ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+#menu a {
+    color: #DB5609;
+    text-decoration: none;
+}
