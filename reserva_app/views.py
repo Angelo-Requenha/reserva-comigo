@@ -31,3 +31,6 @@ def login(request):
 
 def init_page(request):
     return render(request, 'pages/init_page.html')
+
+def sobre_nos(request):
+    return render(request, 'pages/sobre_nos.html')
