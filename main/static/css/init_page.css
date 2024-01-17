@@ -1,7 +1,59 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f3f0ee;
+}
+
+
 .container_init_page {
     width: 65%;
     margin: 100px auto;
     padding: 40px;
-    border: solid 1px #DB5609;
     text-align: center;
-} 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div input[type="button"] { 
+    width: 400px;
+    padding: 25px;
+    margin: 10px 0;
+    border: 2px solid #DB5609;
+    background-color: #DB5609;
+    box-sizing: border-box;
+    font-size: medium;
+    border-radius: 5px;
+}
+
+input[type="button"]:hover { 
+    background-color: #A83E11; /* ou qualquer outra cor desejada ao passar o mouse */
+}
+ 
+.div_bot {
+    display: flex;
+    flex-direction: row;
+}
+
+.div_bot input[type="button"] {
+    margin-right: 10px; /* Ajuste a margem direita para criar espaço entre os botões */
+}
+
+.logo {
+    position: absolute;
+    top: 40px; /* Ajuste a posição vertical conforme necessário */
+    left: 40px; /* Ajuste a posição horizontal conforme necessário */
+    width: 120px; /* Ajuste a largura conforme necessário */
+    height: auto;
+}
+
+h1 {
+    font-size: 4em; /* Ajuste o tamanho da fonte conforme necessário */
+}
