@@ -1,40 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700&display=swap');
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f3f0ee;
+    margin: 20px; /* Adicionando margem ao redor de tudo */
+    background-color: #e9eeee;
 }
 
 
 .container_init_page {
-    width: 65%;
+    width: 53%;
     margin: 100px auto;
     padding: 40px;
     text-align: center;
+    background-color: #93cece;
+    border: 1px solid #93cece;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adicionando uma sombra */
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'M PLUS 1p';;
+}
+
+form input[type="button"]{
+    font-size: medium;
+}
+
+h1.custom-font,
+div input[type="button"].custom-font {
+    font-family: 'M PLUS 1p';
 }
 
 div input[type="button"] { 
     width: 400px;
     padding: 25px;
     margin: 10px 0;
-    border: 2px solid #DB5609;
+    border: 0px solid #DB5609;
     background-color: #DB5609;
     box-sizing: border-box;
     font-size: medium;
     border-radius: 5px;
+    box-shadow: 0 0 10px #db560954; /* Adicionando uma sombra */
 }
 
 input[type="button"]:hover { 
     background-color: #A83E11; /* ou qualquer outra cor desejada ao passar o mouse */
+    box-shadow: 0 0 10px #db560954;; /* Adicionando uma sombra */
 }
  
 .div_bot {
@@ -47,13 +64,22 @@ input[type="button"]:hover {
 }
 
 .logo {
-    position: absolute;
-    top: 40px; /* Ajuste a posição vertical conforme necessário */
-    left: 40px; /* Ajuste a posição horizontal conforme necessário */
-    width: 120px; /* Ajuste a largura conforme necessário */
+    position: relative; /* Alterado para relativo para posicionar em relação ao elemento pai (body) */
+    margin-top: 30px;
+    width: 250px;
     height: auto;
 }
 
 h1 {
-    font-size: 4em; /* Ajuste o tamanho da fonte conforme necessário */
+    color: #000;
+    text-align: center;
+    font-family: 'M PLUS 1p';
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+form input[type="button"] {
+    font-size: large;
 }
