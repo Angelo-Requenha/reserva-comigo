@@ -11,7 +11,8 @@ body {
 
 
 .container_init_page {
-    width: 53%;
+    height: 90%;
+    width: 50%;
     margin: 100px auto;
     padding: 40px;
     text-align: center;
@@ -38,7 +39,7 @@ div input[type="button"].custom-font {
 }
 
 div input[type="button"] { 
-    width: 400px;
+    width: 20rem;
     padding: 25px;
     margin: 10px 0;
     border: 0px solid #DB5609;
