@@ -1,11 +1,13 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reserva-Comigo</title>
     <link rel="stylesheet" href="{% static 'css/init_page.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/logo_fundotransparente.png' %}" type="image/x-icon">
 </head>
 <body>
     <section class="container_init_page">
@@ -14,8 +16,13 @@
         <p></p>
         <form action="">
             <div class='div_bot'> 
+<<<<<<< HEAD
                 <input type="button" class="custom-font" value="Registrar-se como usuario">
                 <input type="button" class="custom-font" value="Registrar-se como estabelecimento">
+=======
+            <a href="{% url 'reserva_app:cadastro' %}"><input type="button" value="Registrar-se como usuario"></a>
+            <input type="button" value="Registrar-se como estebelecimento">
+>>>>>>> dev-angelo
             </div>
             <div class='div_bot'>
                 <input type="button" class="custom-font" value="Login">
