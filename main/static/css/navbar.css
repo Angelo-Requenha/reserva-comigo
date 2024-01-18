@@ -2,23 +2,14 @@
 header {
     background-color: #333;
     display: flex;
-    justify-content: end;
     width: 15%;
 }
 
-.header_section {
-    background-color: #333;
-    display: flex;
-    justify-content: end;
-    position: fixed;
-    height: 100%; /* Ocupa toda a altura da tela */
-}
-
 nav {
-    font-size: 20px;
+    width: 100%;
+    font-size: 1.3rem;
     display: flex;
     flex-direction: column;
-    width: 100%;
     justify-content: space-between;
 }
 
