@@ -1,0 +1,36 @@
+/* Cabeçalho */
+header {
+    background-color: #333;
+    display: flex;
+    justify-content: end;
+    width: 15%;
+}
+
+.header_section {
+    background-color: #333;
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    height: 100%; /* Ocupa toda a altura da tela */
+}
+
+nav {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#menu ul li, #menu ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+#menu a {
+    color: #DB5609;
+    text-decoration: none;
+}
