@@ -19,11 +19,12 @@
     <main>
         {% block content %}
         {% endblock %}
+        <footer>
+            {% block footer %}
+                {% include 'main/footer.html' %}
+            {% endblock %} 
+        </footer>
     </main>
-    <footer>
-        {% block footer %}
-            {% include 'main/footer.html' %}
-        {% endblock %} 
-    </footer>
+    
 </body>
 </html>

@@ -9,9 +9,8 @@ body {
     display: flex;
     font-family: Arial, sans-serif;
     padding: 0;
-    color: #DB5609;;
-    flex-direction: column;
-
+    color: #DB5609;
+    flex-direction: row;
 }
 
 .caixa-login {
@@ -34,15 +33,21 @@ body {
     color: #DB5609;
 }
 
-#principal {
+.principal {
+    flex: 1;
     margin: auto;
     display: flex;
     flex-direction: column;
+    border: 1px solid #DB5609;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+    width: 70%;
+    margin: 80px auto;
+    padding: 20px;
 }
 
 #sobre-nos-section {
     margin: auto;
-
     background-color: rgba(255, 255, 255, 0.115);
     padding: 20px;
     text-align: center;
@@ -68,15 +73,16 @@ body {
 }
 
 /* Corpo Principal (Main) */
-body main h1 {
-    text-align: center;
-}
 
 main {
-    border: 1px solid #DB5609;;
-    width: 90%;
-    margin: auto;
-    padding: 50px 20px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+body .main h1 {
+    text-align: center;
 }
 
 /* Rodapé */
