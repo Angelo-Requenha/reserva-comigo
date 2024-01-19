@@ -17,8 +17,10 @@
         {% endblock %} 
     </header>
     <main>
+        <section class="principal">
         {% block content %}
         {% endblock %}
+        </section>
         <footer>
             {% block footer %}
                 {% include 'main/footer.html' %}
