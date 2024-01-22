@@ -8,11 +8,14 @@ def cadastro(request):
         senha = request.POST['senha']
         confirmar_senha = request.POST['confirmar_senha']
         # Use create_superuser para criar um superusuário
-        if confirmar_senha != senha:
-            return redirect('reserva_app:cadastro')
+        if email and senha and confirmar_senha:
+            if confirmar_senha != senha:
+                return redirect('reserva_app:cadastro')
+            else:
+                usuario = CustomUser.objects.create_user(email=email, password=senha)
+                return redirect('reserva_app:login')  # Redirecione para a página de login após o registro bem-sucedido
         else:
-            usuario = CustomUser.objects.create_user(email=email, password=senha)
-            return redirect('reserva_app:login')  # Redirecione para a página de login após o registro bem-sucedido
+            return redirect('reserva_app:cadastro')
     return render(request, 'register/cadastro.html')  # Renderize o formulário de registro
 
 def login(request):
