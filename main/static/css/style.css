@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap');
+
 html {
     margin: 0;
     padding: 0;
@@ -58,18 +60,31 @@ body {
 }
 
 .titulo {
-    font-size: 2.5em;
-    margin: auto;
+    font-size: 40px;
+    margin: 10px auto 10px auto;
+    font-family: 'M PLUS 1p';
+    color: #DB5609; /* Adicione a cor desejada */
+    text-align: center; /* Centralizar o texto */
+    margin-bottom: 10px; /* Adicione margem inferior para espaçamento */
 }
 
 .texto {
-    display: flex;
-    flex-direction: column;
+    color: #000;
+    font-family: Inter;
+    font-size: 25px;
+    font-family: 'M PLUS 1p';
+    font-weight: 400;
+    line-height: normal;
 }
 
 .subtitulo {
-    font-size: 1.3em;
-    margin: auto;
+    color: #000;
+    text-align: center;
+    font-family: 'M PLUS 1p';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
 }
 
 main {
