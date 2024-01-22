@@ -1,16 +1,42 @@
-{% extends "main/base.html" %}
 {% load static %}
 
-{% block content %}
-
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    <label for="email">Email:</label><br>
-    <input type="text" id="email" name="email"><br>
-    <label for="senha">Senha:</label><br>
-    <input type="password" id="senha" name="senha"><br><br>
-    <input type="submit" value="Enviar">
-</form>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login-registro.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body>
+    <main class="register-box">
+        <form id="box_login" class="box" method="post">
+            {% csrf_token %}
+            <div class="logo">
+                <img src="{% static 'images/logo_fundotransparente.png' %}" alt="">
+            </div>
+            <div class="input-group mb-3">
+            <span class="input-group-text"><img src="{% static 'images/user-line.svg' %}" alt=""></span>
+                <div class="form-floating">
+                    <input type="email" class="form-control"  placeholder="Username" id="email" name="email">
+                    <label for="email"><p>Email address</p></label>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+            <span class="input-group-text"><img src="{% static 'images/git-repository-private-line.svg' %}" alt=""></span>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Username">
+                    <label for="senha">Password</label>
+                </div>
+            </div>
+            <div class="forgot-password">
+                <a href="#">Esqueceu sua senha?</a>
+                <a href="{% url 'reserva_app:cadastro' %}">Registrar-se</a>
+            </div>
+            <input type="submit" class="btn btn-outline-primary" value="Enviar">
+        </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
