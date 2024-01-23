@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "reserva-comigo"
+name = "reserva-projeto"
 version = "0.1.0"
 description = ""
 authors = ["Victor Zuchi <zuchii.victor@gmail.com>"]
