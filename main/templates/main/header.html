@@ -2,25 +2,24 @@
 
 {% block header %}
 
-<header>
-    <nav>
-        <div id="menu">
-            <ul>
-                <li>
-                    <a href="{% url 'reserva_app:login' %}">Login</a>
-                </li>
-                <li>
-                    <a href="usuario.html">Cadastro de usuário</a>
-                </li>
-                <li>
-                    <a href="espaco.html">Cadastro de espaço</a>
-                </li>
-                <li>
-                    <a href="#sobre-nos-section" id="sobre-nos-btn">Sobre Nós</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<nav class='paginas'>
+    <div id="menu">
+        <ul>
+            <li>
+                <a href="{% url 'reserva_app:init_page_usuario' %}">Página Inicial</a>
+            </li>
+            <li>
+                <a href="{% url 'reserva_app:sobre_nos' %}">Sobre Nós</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="registro_login">
+    <ul>
+        <li><a href="{% url 'reserva_app:login' %}">Login</a></li>
+        <li><a href="{% url 'reserva_app:cadastro' %}">Registrar-se</a></li>
+    </ul>
+</nav>
 
 {% endblock %} 

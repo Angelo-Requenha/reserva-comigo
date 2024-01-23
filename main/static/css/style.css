@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap');
+
 html {
     margin: 0;
     padding: 0;
@@ -9,8 +11,9 @@ body {
     display: flex;
     font-family: Arial, sans-serif;
     padding: 0;
-    color: rgb(90, 29, 128);
-    flex-direction: column;
+    color: #DB5609;;
+    flex-direction: row;
+    text-align: center;
 }
 
 .caixa-login {
@@ -29,39 +32,25 @@ body {
     box-sizing: border-box;
 }
 
-/* Cabeçalho */
-nav {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    background-color: rgb(48, 98, 71);
+.caixa-login a {
+    color: #DB5609;
 }
 
-
-#menu ul li, #menu ul{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    padding: 8px 15px;
-}
-
-#menu a {
-    color: rgb(185, 14, 14);
-    text-decoration: none;
-}
-
-
-
-
-#principal {
+.principal {
+    flex: 1;
     margin: auto;
     display: flex;
     flex-direction: column;
+    border: 1px solid #DB5609;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+    width: 70%;
+    margin: 80px auto;
+    padding: 20px;
 }
 
 #sobre-nos-section {
     margin: auto;
-
     background-color: rgba(255, 255, 255, 0.115);
     padding: 20px;
     text-align: center;
@@ -70,33 +59,43 @@ nav {
     flex-direction: column;
 }
 
-
 .titulo {
-    font-size: 3em;
-    margin: auto;
+    font-size: 40px;
+    margin: 10px auto 10px auto;
+    font-family: 'M PLUS 1p';
+    color: #DB5609; /* Adicione a cor desejada */
+    text-align: center; /* Centralizar o texto */
+    margin-bottom: 10px; /* Adicione margem inferior para espaçamento */
 }
 
 .texto {
-    display: flex;
-    flex-direction: column;
+    color: #000;
+    font-family: Inter;
+    font-size: 25px;
+    font-family: 'M PLUS 1p';
+    font-weight: 400;
+    line-height: normal;
 }
 
 .subtitulo {
-    font-size: 1.2em;
-    margin: auto;
-}
-
-/* Corpo Principal (Main) */
-body main h1 {
+    color: #000;
     text-align: center;
+    font-family: 'M PLUS 1p';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
 }
 
 main {
-    border: 1px solid rgb(252, 81, 24);
-    width: 90%;
-    margin: auto;
-    padding: 50px 20px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 
+body .main h1 {
+    text-align: center;
 }
 
 /* Rodapé */
