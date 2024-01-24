@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "main",
     "reserva_app",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,8 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_ROOT = '~/reserva-comigo/main/static/css/'
+
+
+LOGIN_REDIRECT_URL = 'init_page_usuario/'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
