@@ -2,7 +2,7 @@
 
 {% block header %}
 
-<nav>
+<nav class='paginas'>
     <div id="menu">
         <ul>
             <li>
@@ -13,6 +13,13 @@
             </li>
         </ul>
     </div>
+</nav>
+
+<nav class="registro_login">
+    <ul>
+        <li><a href="{% url 'reserva_app:login' %}">Login</a></li>
+        <li><a href="{% url 'reserva_app:cadastro' %}">Registrar-se</a></li>
+    </ul>
 </nav>
 
 {% endblock %} 
