@@ -10,14 +10,15 @@
     <title>Login</title>
 </head>
 <body>
-    <section class="container_init_page">
-        <img class="logo" src="{% static 'images/logo_fundotransparente.png' %}" alt="Logo">
-        <h1>Resgistar ou logar</h1>
-        <p></p>
-        <form action="">
+    <main class="main_box">
+        <form id="container_init_page" class="box" method="post">
+            <div class="logo">
+                <img src="{% static 'images/logo_fundotransparente.png' %}" alt="">
+            </div>
+            <h1>Logar ou Registrar</h1>
             <div class='div_bot'> 
-            <a href="{% url 'reserva_app:cadastro' %}"><input type="button" value="Registrar-se como usuario"></a>
-            <input type="button" value="Registrar-se como estebelecimento">
+                <a href="{% url 'reserva_app:cadastro' %}"><input type="button" value="Registrar-se como usuario"></a>
+                <input type="button" value="Registrar-se como estebelecimento">
             </div>
             <div class='div_bot'>
                 <a href="{% url 'reserva_app:login' %}"><input type="button" value="Login"></a>
