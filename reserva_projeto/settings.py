@@ -128,6 +128,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATIC_ROOT = '~/reserva-comigo/main/static/css/'
 
 
-LOGIN_REDIRECT_URL = 'init_page_usuario/'
+LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
