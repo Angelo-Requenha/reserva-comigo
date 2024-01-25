@@ -25,5 +25,4 @@ def register(request):
                   'registration/register.html',
                   {'user_form': user_form})
 
-def home (request):
-    return render(request, 'home.html')
+
