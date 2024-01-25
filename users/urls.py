@@ -19,6 +19,4 @@ urlpatterns = [
 
     # Cadastro de usuário
     path('register/', views.register, name='register'),
-
-
 ]
