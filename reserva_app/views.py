@@ -9,3 +9,6 @@ def sobre_nos(request):
 
 def init_page_usuario(request):
     return render(request, 'pages/init_page_usuario.html')
+
+def home (request):
+    return render(request, 'pages/home.html')

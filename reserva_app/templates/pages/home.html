@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <h1>Dashboard</h1>
+    Olá, {{ request.user.username }}
+    <p>Seja bem-vindo à sua página</p>
+    <p>Você pode alterar a sua senha <a href="{% url 'alterar_senha' %}">aqui</a></p>
+
+    <!-- Formulário para realizar o logout -->
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Sair</button>
+    </form>
+{% endblock %}
