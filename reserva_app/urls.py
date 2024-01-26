@@ -8,5 +8,5 @@ app_name = 'reserva_app'
 urlpatterns = [
     path('', init_page, name='init_page'),
     path('sobre_nos/', sobre_nos, name='sobre_nos'),
-    path('init_page_usuario/', init_page_usuario, name='init_page_usuario'),
+    path('login/init_page_usuario/', init_page_usuario, name='init_page_usuario'),
 ]
