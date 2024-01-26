@@ -12,8 +12,8 @@ urlpatterns = [
     path('alterar_senha/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/senha_alterada.html'), name='password_change_done'),
  
     # Resetar a senha do usuário
-    path('resetar_senha/', auth_views.PasswordResetView.as_view(), name='password_reset'),
-    path('resetar_senha/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),  
 

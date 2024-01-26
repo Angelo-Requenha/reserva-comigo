@@ -45,23 +45,6 @@ class UserRegistrationForm(UserCreationForm):
             raise forms.ValidationError('As senhas não condizem')
         return cd['password2']
 
-    def clean(self):
-        cleaned_data = super().clean()
-        tipo_usuario = cleaned_data.get('tipo_usuario')
 
-        if tipo_usuario == 'cliente':
-            # Tornar campos específicos para cliente visíveis
-            self.fields['first_name'].widget = forms.TextInput()
-            self.fields['last_name'].widget = forms.TextInput()
-            self.fields['endereco'].widget = forms.HiddenInput()
-            self.fields['telefone'].widget = forms.HiddenInput()
-        elif tipo_usuario == 'estabelecimento':
-            # Tornar campos específicos para estabelecimento visíveis
-            self.fields['first_name'].widget = forms.HiddenInput()
-            self.fields['last_name'].widget = forms.TextInput()
-            self.fields['endereco'].widget = forms.TextInput()
-            self.fields['telefone'].widget = forms.TextInput()
-
-        return cleaned_data
 
 
