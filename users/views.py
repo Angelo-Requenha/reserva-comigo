@@ -1,11 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .forms import *
+from .forms import UserRegistrationForm
+
 
 # Create your views here.
 
-
 def register(request):
+    if request.user.is_authenticated:
+        # Redireciona para a página desejada se o usuário já estiver autenticado
+        return redirect('reserva_app:init_page')
+    
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -13,7 +18,7 @@ def register(request):
             new_user = user_form.save(commit=False)
             # Define a senha escolhida
             new_user.set_password(
-                user_form.cleaned_data['password'])
+                user_form.cleaned_data['password1'])
             # Salva o objeto de usuário
             new_user.save()
             return render(request,
