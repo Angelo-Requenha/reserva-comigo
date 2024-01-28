@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # Login e Logout do usuário
-    path('login/', auth_views.LoginView.as_view(),name='login'),
+    path('login/', views.custom_login ,name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
 
     # Alteração de senha do usuário
