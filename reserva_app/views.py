@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from .models import CustomUser
 
 def init_page(request):
     return render(request, 'pages/init_page.html')
