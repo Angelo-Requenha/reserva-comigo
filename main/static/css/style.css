@@ -51,7 +51,7 @@ body {
 
 #sobre-nos-section {
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.115);
+    background-color: rgba(80, 92, 102, 0.115);
     padding: 20px;
     text-align: center;
     border-radius: 10px; /* Adicione o valor desejado para arredondar as bordas */
@@ -92,6 +92,7 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
+    background-color: rgba(240, 240, 240, 0.555);
 }
 
 body .main h1 {
@@ -103,6 +104,35 @@ footer {
     background-color: black;
     width: 100%;
     height: 70px;
-    color: #ffffff;
+    color: |#DB5609;
     text-align: center;
+    text-align: center; /* Alinhamento do texto ao centro */
+    font-weight: bold;
 }
+
+ul {
+    list-style-type: none; /* Remove os marcadores de lista */
+    padding: 0; /* Remove o espaçamento interno da lista */
+}
+
+li {
+    display: inline-block; /* Exibe os itens da lista em linha */
+    margin-right: 15px; /* Espaçamento à direita entre os itens */
+}
+
+a {
+    text-decoration: none; /* Remove a sublinhado padrão dos links */
+    color: #DB5609; /* Cor do texto dos links */
+    font-weight:lighter; /* Define a espessura da fonte como negrito */
+}
+
+a:hover {
+    color: #1d8d8d; /* Cor do texto dos links ao passar o mouse */
+}
+
+
+.logo {
+    text-align: center; /* Centraliza a logo */
+    margin-bottom: 10px; /* Adiciona um espaçamento menor abaixo da logo */
+}
+
