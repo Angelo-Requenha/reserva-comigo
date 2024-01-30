@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import psycopg2
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -78,16 +79,16 @@ WSGI_APPLICATION = "reserva_projeto.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'django',
 #        'USER': 'postgres',
 #        'PASSWORD': 'postgres',
-#        'HOST': 'localhost',
+#        'HOST': '191.240.216.191',
 #        'PORT': '5432',
 #    }
-#}
+# }
 
 DATABASES = {
     "default": {
