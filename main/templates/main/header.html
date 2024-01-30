@@ -2,24 +2,30 @@
 
 {% block header %}
 
-<nav class='paginas'>
-    <div id="menu">
-        <ul>
-            <li>
-                <a href="{% url 'reserva_app:init_page_usuario' %}">Página Inicial</a>
-            </li>
-            <li>
-                <a href="{% url 'reserva_app:sobre_nos' %}">Sobre Nós</a>
-            </li>
-        </ul>
+<header>
+    <div class="logo">
+        <img src="{% static 'images/logo_fundotransparente.png' %}">
     </div>
-</nav>
+    
+    <nav class='paginas'>
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="{% url 'reserva_app:init_page_usuario' %}">Página Inicial</a>
+                </li>
+                <li>
+                    <a href="{% url 'reserva_app:sobre_nos' %}">Sobre Nós</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-<nav class="registro_login">
-    <ul>
-        <li><a href="{% url 'reserva_app:login' %}">Login</a></li>
-        <li><a href="{% url 'reserva_app:cadastro' %}">Registrar-se</a></li>
-    </ul>
-</nav>
+    <nav class="registro_login">
+        <ul>
+            <li><a href="{% url 'reserva_app:login' %}">Login</a></li>
+            <li><a href="{% url 'reserva_app:cadastro' %}">Registrar-se</a></li>
+        </ul>
+    </nav>
+</header>
 
-{% endblock %} 
+{% endblock %}

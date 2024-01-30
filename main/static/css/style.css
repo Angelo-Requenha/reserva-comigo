@@ -93,6 +93,7 @@ main {
     flex-direction: column;
     flex: 1;
     background-color: rgba(240, 240, 240, 0.555);
+    margin-left: 15%;
 }
 
 body .main h1 {
