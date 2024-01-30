@@ -12,3 +12,6 @@ def init_page_usuario(request):
 
 def home (request):
     return render(request, 'pages/home.html')
+
+def pagina_convidativa (request):
+    return render(request, 'pages/pagina_convidativa.html')

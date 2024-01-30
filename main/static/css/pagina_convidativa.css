@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100%;
+}
+html {
+    height: 100%;
+}
+
+/* div do logo */
+.logo {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    background-color: #2F9E9E
+    ;
+}
+
+/* IMG */
+ img {
+    width: 220px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+h1 {
+    color: #000;
+    text-align: center;
+    font-family: 'M PLUS 1p';
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+.texto_convidativo {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+h4 {
+    color: #000;
+    text-align: center;
+    font-family: 'M PLUS 1p';
+    font-style: normal;
+    line-height: normal;
+}
+
+p {
+    color: #000;
+    text-align: center;
+    font-family: 'M PLUS 1p';
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* div do user */
+.texto_usuario {
+    position: absolute;
+    left: 0px;
+    width: 50%;
+    border-right: 2px solid black;
+    border-top: 4px solid black;
+    padding: 10px;
+    background-color: #DB5609;
+}
+
+.texto_espaco {
+    position: absolute;
+    right: 0px;
+    width: 50%;
+    border-left: 2px solid black;
+    border-top: 4px solid black;
+    padding: 10px;
+    background-color: #DB5609;
+}
+
+/* .barrinha{
+
+} */
