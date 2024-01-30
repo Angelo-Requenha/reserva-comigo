@@ -8,6 +8,8 @@ from django.contrib.auth import login
 
 
 def register_cliente(request):
+    if request.user.is_authenticated:
+        return redirect('reserva_app:home')
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -29,6 +31,8 @@ def register_cliente(request):
 
 
 def register_estab(request):
+    if request.user.is_authenticated:
+        return redirect('reserva_app:home')
     if request.method == 'POST':
         estab_form = EstabRegistrationForm(request.POST)
         if estab_form.is_valid():
@@ -40,3 +44,19 @@ def register_estab(request):
     else:
         estab_form = EstabRegistrationForm()
     return render(request, 'registration/register_estab.html', {'estab_form': estab_form})
+
+
+def custom_login(request):
+    if request.user.is_authenticated:
+        return redirect('reserva_app:home')
+
+    if request.method == 'POST':
+        form = CustomLoginForm(request.POST)
+        if form.is_valid():
+            login(request, form.user_cache)
+            return redirect('reserva_app:home')
+
+    else:
+        form = CustomLoginForm()
+
+    return render(request, 'registration/login.html', {'form': form})

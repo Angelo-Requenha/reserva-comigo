@@ -41,5 +41,32 @@ class EstabRegistrationForm(UserCreationForm):
         return cd['password2']
 
 
+class CustomLoginForm(forms.Form):
+    email = forms.EmailField(label='Email', required=True)
+    password = forms.CharField(label='Senha', widget=forms.PasswordInput)
 
+    def __init__(self, *args, **kwargs):
+        self.user_cache = None
+        super().__init__(*args, **kwargs)
+
+    def clean(self):
+        email = self.cleaned_data.get('email')
+        password = self.cleaned_data.get('password')
+
+        if email and password:
+            # Tenta encontrar o usuário na tabela Cliente
+            cliente_user = Cliente.objects.filter(email=email).first()
+
+            # Tenta encontrar o usuário na tabela Estabelecimento
+            estabelecimento_user = Estabelecimento.objects.filter(email=email).first()
+
+            # Verifica se encontrou um usuário em alguma das tabelas e valida a senha
+            if cliente_user and cliente_user.check_password(password):
+                self.user_cache = cliente_user
+            elif estabelecimento_user and estabelecimento_user.check_password(password):
+                self.user_cache = estabelecimento_user
+            else:
+                raise forms.ValidationError('Por favor, insira um email e senha corretos.')
+
+        return self.cleaned_data
 
