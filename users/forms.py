@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Estabelecimento
+from .models import Estabelecimento, Cliente
 from django.contrib.auth.forms import UserCreationForm
 
 class UserRegistrationForm(forms.ModelForm):
@@ -12,8 +12,8 @@ class UserRegistrationForm(forms.ModelForm):
     username = forms.CharField(label='Nome de usuário')
 
     class Meta:
-        model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
+        model = Cliente
+        fields = ('username', 'first_name', 'last_name', 'email', 'telefone')
 
     def clean_password2(self):
         cd = self.cleaned_data
@@ -26,12 +26,13 @@ class UserRegistrationForm(forms.ModelForm):
 class EstabRegistrationForm(UserCreationForm):
     password1 = forms.CharField(label='Senha', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirme sua senha', widget=forms.PasswordInput)
-    first_name = forms.CharField(label='Nome do estabelecimento', widget=forms.PasswordInput)
-    endereco = forms.CharField(label='Endereço do seu estabelecimento', widget=forms.PasswordInput)
+    first_name = forms.CharField(label='Nome do estabelecimento')
+    endereco = forms.CharField(label='Endereço do seu estabelecimento')
+    username = forms.CharField(label='Nome de usuário')
 
     class Meta:
         model = Estabelecimento
-        fields = ('first_name', 'endereco', 'email', 'telefone', 'password1', 'password2')
+        fields = ('username', 'first_name', 'endereco', 'email', 'telefone', 'password1', 'password2')
 
     def clean_password2(self):
         cd = self.cleaned_data

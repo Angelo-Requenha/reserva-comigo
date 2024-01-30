@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .forms import *
+from django.contrib.auth import login
+
 
 # Create your views here.
 
 
-def register(request):
+def register_cliente(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -26,3 +28,15 @@ def register(request):
                   {'user_form': user_form})
 
 
+def register_estab(request):
+    if request.method == 'POST':
+        estab_form = EstabRegistrationForm(request.POST)
+        if estab_form.is_valid():
+            new_estab = estab_form.save(commit=False)
+            new_estab.set_password(estab_form.cleaned_data['password1'])
+            new_estab.save()
+            login(request, new_estab)
+            return render(request, 'registration/register_done.html', {'new_user': new_estab})
+    else:
+        estab_form = EstabRegistrationForm()
+    return render(request, 'registration/register_estab.html', {'estab_form': estab_form})
