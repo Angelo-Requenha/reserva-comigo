@@ -1,14 +1,18 @@
 [tool.poetry]
-name = "reserva-comigo"
-version = "0.0.1"
-description = "Projeto final Entra21"
-authors = ["Angelo Miguel Requenha"]
+name = "reserva-projeto"
+version = "0.1.0"
+description = ""
+authors = ["Victor Zuchi <zuchii.victor@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+<<<<<<< HEAD
 django = "^5.0"
 psycopg2 = "^2.9.9"
+=======
+django = "^5.0.1"
+>>>>>>> origin/dev-zuchi
 
 
 [build-system]
