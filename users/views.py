@@ -24,8 +24,10 @@ def register(request):
             return render(request,'registration/register_done.html',{'new_user': new_user})
     else:        
         user_form = UserRegistrationForm()
-        
-    return render(request, 'registration/register.html', {'user_form': user_form})
+    return render(request,
+                  'registration/register_cliente.html',
+                  {'user_form': user_form})
+
 
 def custom_login(request):
     if request.user.is_authenticated:
