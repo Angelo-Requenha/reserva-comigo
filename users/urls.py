@@ -2,9 +2,11 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 
+app_name = 'users'
+
 urlpatterns = [
     # Login e Logout do usuário
-    path('login/', views.custom_login ,name='login'),
+    path('login/', views.custom_login, name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
 
     # Alteração de senha do usuário
@@ -18,5 +20,6 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),  
 
     # Cadastro de usuário
-    path('register_cliente/', views.register, name='register_cliente'),
+    path('register_cliente/', views.register_cliente, name='register_cliente'),
+    path('register_estab/', views.register_estab, name='register_estab'),
 ]

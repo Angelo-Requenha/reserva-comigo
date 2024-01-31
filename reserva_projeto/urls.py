@@ -21,4 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include('reserva_app.urls')), 
     path("auth/", include('users.urls')), 
+    path("cliente/", include('cliente_app.urls')),
 ]
