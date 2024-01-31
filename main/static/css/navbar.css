@@ -5,7 +5,8 @@ header {
     background-color: #1d8d8d93;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
+    align-items: center;
+    justify-content: space-between; /* Espaço uniforme entre os elementos */
     position: fixed;
     top: 0;
     left: 0;
@@ -15,7 +16,7 @@ header {
     box-sizing: border-box;
     z-index: 1000;
     font-family: 'M PLUS 1p';
-    font-weight: bold; /* Aqui está a definição do negrito */
+    font-weight: bold;
 }
 
 .logo img {
@@ -43,18 +44,17 @@ header .paginas, header .registro_login {
     margin-bottom: 20px; /* Adjust spacing between menu items */
 }
 
-.registro_login ul {
-    list-style: none;
+/*.registro_login a {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    margin-right: 10px; 
 }
 
-.registro_login ul li {
-    margin-bottom: 20px; /* Adjust spacing between menu items */
-}
+.registro_login img {
+    width: 24px; 
+    height: 24px;
+    border-radius: 50%;
+}*/
 
 header a {
     color: #DB5609;
@@ -72,7 +72,57 @@ header a.active {
     color: #A83E11;
 }
 
-/* Position "Registro" links at the bottom */
-.registro_login {
-    margin-top: auto; /* Push the links to the bottom */
+/* Estilo para a imagem de perfil */
+.registro_login img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Estilo para o texto "Perfil" */
+.registro_login span {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* Ajustes para manter a largura de 100% no link */
+.registro_login a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #DB5609;
+}
+
+/* Estilo para a lista de páginas */
+.paginas ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.paginas a {
+    color: #DB5609;
+    text-decoration: none;
+}
+
+.paginas a:hover {
+    color: #A83E11;
+}
+
+.paginas li {
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+}
+
+/* Estilo para o link ativo */
+.paginas a.active {
+    font-weight: bold;
+    color: #A83E11;
+}
+
+/* Ajustes para a posição de Página Inicial e Sobre Nós */
+.paginas {
+    margin-bottom: auto; /* Move para a parte superior */
 }

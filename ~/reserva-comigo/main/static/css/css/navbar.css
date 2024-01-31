@@ -1,43 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
+
 /* Cabeçalho */
 header {
-    background-color: rgba(29, 141, 141, 0.58); /* Transparent background color */
+    background-color: #1d8d8d93;
     display: flex;
-    flex-direction: row; /* Change from column to row */
-    align-items: center;
-    justify-content: space-between; /* Distribute content evenly */
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Set width to 100% to span the entire screen */
-    height: 60px; /* Adjust the height as needed */
-    padding: 0 20px; /* Add padding to the left and right */
-    box-sizing: border-box; /* Include padding and border in the total width/height */
-    z-index: 1000; /* Ensure the header appears above other elements */
+    width: 15%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+    font-family: 'M PLUS 1p';
+    font-weight: bold; /* Aqui está a definição do negrito */
 }
 
 .logo img {
-    width: 100px; /* Adjust the width of the logo */
-    height: auto; /* Maintain aspect ratio */
+    width: 100px;
+    height: auto;
 }
 
-header nav,
-.registro_login {
+header .paginas, header .registro_login {
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
 }
 
-header nav ul,
-.registro_login ul {
+#menu ul, .paginas ul {
     list-style: none;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
-#menu ul li,
-.registro_login ul li {
-    margin-right: 20px; /* Adjust spacing between menu items */
+#menu ul li, .paginas ul li {
+    margin-bottom: 20px; /* Adjust spacing between menu items */
 }
+
+/*.registro_login a {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; 
+}
+
+.registro_login img {
+    width: 24px; 
+    height: 24px;
+    border-radius: 50%;
+}*/
 
 header a {
     color: #DB5609;
@@ -45,15 +61,23 @@ header a {
 }
 
 /* Hover effect for links */
-header a:hover,
-.registro_login a:hover {
+header a:hover {
     color: #A83E11;
 }
 
 /* Styling for active link */
-header a.active,
-.registro_login a.active {
+header a.active {
     font-weight: bold;
     color: #A83E11;
 }
 
+/* Position "Registro" links at the bottom */
+.registro_login {
+    margin-top: auto; /* Push the links to the bottom */
+}
+
+.registro_login a {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
