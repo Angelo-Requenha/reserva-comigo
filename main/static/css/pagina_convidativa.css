@@ -6,9 +6,55 @@
 body {
     margin: 0;
     height: 100%;
+    background-color: #f5f5f5;
 }
 html {
     height: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+/* div da nav bar */
+.navbar1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px 0;
+    height: 85px;
+    background-color: #2bafaf;
+    border: 2px solid #DB5609;
+    border-right: 0px;
+}
+
+.navbar2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px 0;
+    height: 85px;
+    background-color: #2bafaf;
+    border: 2px solid #DB5609;
+    border-left: 0px;
+}
+
+.navbar1 a,
+.navbar2 a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar1 a:hover,
+.navbar2 a:hover {
+    color: #DB5609; /* Altere para a cor desejada no hover */
+    text-decoration: underline; /* Adicione um sublinhado no hover */
+    transform: scale(1.1);
 }
 
 /* div do logo */
@@ -16,8 +62,11 @@ html {
     margin: auto;
     width: 100%;
     padding: 10px;
-    background-color: #2F9E9E
-    ;
+    background-color: #20cccc;
+}
+
+.logo h1 {
+    color: #DB5609;
 }
 
 /* IMG */
@@ -27,6 +76,23 @@ html {
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+}
+
+.logo img:hover {
+    transform: scale(1.2);
+}
+
+h1:hover {
+    transform: scale(1.1);
+}
+
+h4:hover {
+    transform: scale(1.1);
+}
+
+h1, h4, p {
+    border-radius: 8px;
+    padding: 10px;
 }
 
 h1 {
@@ -44,8 +110,21 @@ h1 {
     padding: 10px;
 }
 
+.texto_usuario h4, .texto_espaco h4 {
+    color:#DB5609;
+}
+
+.texto_usuario img, .texto_espaco img {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Adicione algum espaço entre as imagens */
+    transition: transform 0.3s ease-in-out;
+}
+
+.texto_usuario, .texto_espaco {
+    background-color: #2bafaf;
+}
+
 h4 {
-    color: #000;
     text-align: center;
     font-family: 'M PLUS 1p';
     font-style: normal;
@@ -66,22 +145,20 @@ p {
     position: absolute;
     left: 0px;
     width: 50%;
-    border-right: 2px solid black;
-    border-top: 4px solid black;
     padding: 10px;
-    background-color: #DB5609;
+    border: 2px solid #DB5609;
+    border-right: 1px solid #DB5609;
 }
 
 .texto_espaco {
     position: absolute;
     right: 0px;
     width: 50%;
-    border-left: 2px solid black;
-    border-top: 4px solid black;
     padding: 10px;
-    background-color: #DB5609;
+    border: 2px solid #DB5609;
+    border-left: 1px solid #DB5609;
 }
 
-/* .barrinha{
-
-} */
+a, h1, h4, p, img {
+    transition: color 0.2s ease; /* Adicione um efeito de transição suave de 0.2 segundos */
+}
