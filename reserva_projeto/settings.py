@@ -132,6 +132,7 @@ AUTH_USER_MODEL = 'users.Cliente'
 
 
 AUTHENTICATION_BACKENDS = [
+    'users.backends.CustomBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 

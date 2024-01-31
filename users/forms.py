@@ -54,13 +54,9 @@ class CustomLoginForm(forms.Form):
         password = self.cleaned_data.get('password')
 
         if email and password:
-            # Tenta encontrar o usuário na tabela Cliente
-            cliente_user = Cliente.objects.filter(email=email).first()
+            cliente_user = Cliente.objects.filter(email__iexact=email).first()
+            estabelecimento_user = Estabelecimento.objects.filter(email__iexact=email).first()
 
-            # Tenta encontrar o usuário na tabela Estabelecimento
-            estabelecimento_user = Estabelecimento.objects.filter(email=email).first()
-
-            # Verifica se encontrou um usuário em alguma das tabelas e valida a senha
             if cliente_user and cliente_user.check_password(password):
                 self.user_cache = cliente_user
             elif estabelecimento_user and estabelecimento_user.check_password(password):
@@ -69,4 +65,3 @@ class CustomLoginForm(forms.Form):
                 raise forms.ValidationError('Por favor, insira um email e senha corretos.')
 
         return self.cleaned_data
-
