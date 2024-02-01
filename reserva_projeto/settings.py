@@ -128,8 +128,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_ROOT = '~/reserva-comigo/main/static/css/'
 
-AUTH_USER_MODEL = 'users.Cliente'
-
 
 AUTHENTICATION_BACKENDS = [
     'users.backends.CustomBackend',
