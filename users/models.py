@@ -1,16 +1,16 @@
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
 
-class CustomUser(AbstractUser):
+class Estabelecimento(AbstractUser):
+    username = models.CharField(max_length=150, unique=True)
     telefone = models.CharField(max_length=20, blank=True, null=True)
-    endereco = models.CharField(max_length=255, blank=True, null=True)
-    
-    TIPOS_USUARIO = [
-        ('cliente', 'Cliente'),
-        ('estabelecimento', 'Estabelecimento'),
-    ]
-    tipo_usuario = models.CharField(max_length=20, choices=TIPOS_USUARIO)
+    endereco = models.CharField(max_length=255)
+    groups = models.ManyToManyField(Group, related_name='estabelecimento_groups')
+    user_permissions = models.ManyToManyField(Permission, related_name='estabelecimento_user_permissions')
 
-    def __str__(self):
-        return self.username
+
+class Cliente(AbstractUser):
+    telefone = models.CharField(max_length=20, blank=True, null=True)
+    groups = models.ManyToManyField(Group, related_name='cliente_groups')
+    user_permissions = models.ManyToManyField(Permission, related_name='cliente_user_permissions')
 
