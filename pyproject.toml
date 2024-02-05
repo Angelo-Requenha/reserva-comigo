@@ -7,7 +7,12 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+<<<<<<< HEAD
 django = "^5.0.1"
+=======
+django = "^5.0"
+psycopg2 = "^2.9.9"
+>>>>>>> dev-fabio
 
 
 [build-system]
