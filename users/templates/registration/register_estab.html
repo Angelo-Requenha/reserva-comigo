@@ -8,4 +8,12 @@
     {{ form.as_p }}
     <button type="submit">Registrar</button>
   </form>
+
+  <!-- Adicione isso no final do seu template base.html -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('[title]').tooltip();  // Inicializar tooltips para todos os elementos com o atributo 'title'
+      });
+  </script>
 {% endblock %}

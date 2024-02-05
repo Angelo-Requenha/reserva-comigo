@@ -13,4 +13,11 @@
         <p><input type="submit" value="Criar minha conta" class="btn btn-outline-primary"></p>
     </form>
 
+    <!-- Adicione isso no final do seu template base.html -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('[title]').tooltip();  // Inicializar tooltips para todos os elementos com o atributo 'title'
+        });
+    </script>
 {% endblock %}
