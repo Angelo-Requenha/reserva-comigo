@@ -26,9 +26,10 @@ header {
     width: 50%;
     padding: 10px 0;
     height: 85px;
-    background-color: #2bafaf;
-    border: 2px solid #DB5609;
+    background-color: black;
+    border: 3px solid #DB5609;
     border-right: 0px;
+    color: white;
 }
 
 .navbar2 {
@@ -39,14 +40,15 @@ header {
     width: 50%;
     padding: 10px 0;
     height: 85px;
-    background-color: #2bafaf;
+    background-color: black;
     border: 2px solid #DB5609;
     border-left: 0px;
+    color: white;
 }
 
 .navbar1 a,
 .navbar2 a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -62,7 +64,11 @@ header {
     margin: auto;
     width: 100%;
     padding: 10px;
-    background-color: #20cccc;
+    background-color: white;
+}
+
+.logo p {
+    color: black;
 }
 
 .logo h1 {
@@ -96,12 +102,16 @@ h1, h4, p {
 }
 
 h1 {
-    color: #000;
+    color: white;
     text-align: center;
     font-family: 'M PLUS 1p';
     font-style: normal;
     font-weight: 200;
     line-height: normal;
+}
+
+.texto_usuario h1, .texto_espaco h1 {
+    color: white;
 }
 
 .texto_convidativo {
@@ -121,7 +131,7 @@ h1 {
 }
 
 .texto_usuario, .texto_espaco {
-    background-color: #2bafaf;
+    background-color: black;
 }
 
 h4 {
@@ -132,7 +142,7 @@ h4 {
 }
 
 p {
-    color: #000;
+    color: white;
     text-align: center;
     font-family: 'M PLUS 1p';
     font-style: normal;
@@ -140,25 +150,78 @@ p {
     line-height: normal;
 }
 
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
 /* div do user */
 .texto_usuario {
-    position: absolute;
     left: 0px;
     width: 50%;
     padding: 10px;
-    border: 2px solid #DB5609;
-    border-right: 1px solid #DB5609;
+    border: 4px solid #DB5609;
+    border-right: 2px solid #DB5609;
 }
 
 .texto_espaco {
-    position: absolute;
     right: 0px;
     width: 50%;
     padding: 10px;
-    border: 2px solid #DB5609;
-    border-left: 1px solid #DB5609;
+    border: 4px solid #DB5609;
+    border-left: 2px solid #DB5609;
 }
 
 a, h1, h4, p, img {
     transition: color 0.2s ease; /* Adicione um efeito de transição suave de 0.2 segundos */
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+}
+
+/* div do botao */
+.div_botao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;    
+    width: 100%;
+    height: 300px;
+    padding: 100px;
+    background-color: white;
+}
+
+.div_botao a {
+    border: 1px solid #DB5609;
+    background-color: #DB5609;
+    color: white;
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 40px;
+    padding: 10px;
+}
+
+.div_botao a:hover {
+    transform: scale(1.2);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    background-color: black;
+    border: 3px solid #DB5609;
+    width: 100%;
+    height: 100px;
+    color: #ffffff;
+    text-align: center;
 }
