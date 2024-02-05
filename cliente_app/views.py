@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def grupos(request):
     return render(request, 'grupos.html')
+
+def feed(request):
+    return render(request, 'feed.html')

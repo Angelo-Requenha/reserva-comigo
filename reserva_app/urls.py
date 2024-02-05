@@ -10,4 +10,5 @@ urlpatterns = [
     path('sobre_nos/', sobre_nos, name='sobre_nos'),
     path('init_page_usuario/', init_page_usuario, name='init_page_usuario'),
     path('home', home, name='home'),
+
 ]

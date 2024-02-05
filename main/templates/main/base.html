@@ -29,11 +29,6 @@
                 src="{% static 'images/logo_fundotransparente.png' %}"
                 alt="Logo"
               />
-              <img
-                class="sidebar-img_2"
-                src="{% static 'images/logo_fundotransparente.png' %}"
-                alt="Logo"
-              />
             </div>
           </div>
           <div class="sidebar-search_input">
@@ -54,10 +49,15 @@
             </form>
           </div>
           <ul class="nav nav-pills flex-column mb-auto sidebar-ul">
-            <li class="nav-item"><a href="#">Texto1</a></li>
-            <li class="nav-item"><a href="#">Texto2</a></li>
-            <li class="nav-item"><a href="#">Texto3</a></li>
-            <li class="nav-item"><a href="#"></a></li>
+            <li class="nav-item">
+              <a href="{% url 'reserva_app:sobre_nos' %}">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'cliente_app:feed' %}">Feed</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'cliente_app:grupos' %}">grupos</a>
+            </li>
           </ul>
           <hr />
           <div class="dropdown">
@@ -81,12 +81,8 @@
         </div>
       </section>
       <section class="content">
-        {% block header %}
-          {% include 'main/header.html' %}
-        {% endblock %}
-         
-        {% block content %} 
-        {% endblock %}
+        {% block header %} {% include 'main/header.html' %} {% endblock %}
+        {%block content %} {% endblock %}
       </section>
     </main>
     <script
