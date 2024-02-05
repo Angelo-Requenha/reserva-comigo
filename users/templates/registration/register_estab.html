@@ -5,7 +5,7 @@
   <p>Cadastre-se usando o formulário abaixo</p>
   <form method="post" class="form">
     {% csrf_token %}
-    {{ estab_form.as_p }}
+    {{ form.as_p }}
     <button type="submit">Registrar</button>
   </form>
 {% endblock %}

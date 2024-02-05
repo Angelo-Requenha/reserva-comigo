@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser
 
 class ClienteForm(UserCreationForm):
@@ -34,3 +34,6 @@ class EstabelecimentoForm(UserCreationForm):
             'tipo': forms.HiddenInput(attrs={'value': 'E'}),
         }
 
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username_field = CustomUser._meta.get_field('email')

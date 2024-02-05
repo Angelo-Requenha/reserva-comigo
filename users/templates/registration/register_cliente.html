@@ -6,7 +6,7 @@
     <h1>Crie sua conta</h1>
     <p>Cadastre-se usando o formulário abaixo</p>
     <form method="post">
-        {{ user_form.as_p }}
+        {{ form.as_p }}
         {% csrf_token %}
         <p><input type="submit" value="Criar minha conta"></p>
     </form>
