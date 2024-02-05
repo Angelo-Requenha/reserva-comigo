@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100%;
+}
+html {
+    height: 100%;
+}
+
+/* RGB */
+#box_login {
+    position: relative;
+    width: 35%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #fff;
+}
+#box_cadastro {
+    position: relative;
+    width: 35%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: #fff;
+}
+.box::before, .box::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: calc(35% + 10px);
+    height: calc(80% + 10px);
+    background: linear-gradient(45deg, #16DBDA, #DB5609, #16DBDA);
+    background-size: 300%;
+    border-radius: 10px;
+    animation: border 3s linear alternate infinite;
+}
+
+.box::after {
+    filter: blur(10px);
+}
+
+@keyframes border {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+/* IMG */
+.logo img {
+    width: 220px;
+}
+
+/* INPUTs */
+.form-control {
+    width: 50%;
+}
+
+.input-group {
+    width: 70% !important;
+}
+
+.input-group img {
+    width: 30px;
+}
+
+/* BOTÃO */
+input[type="submit"] {
+    width: 60%;
+    color: #DB5609 !important;
+    border: 1px #DB5609 solid !important;
+    margin: 20px !important;
+}
+
+input[type="submit"]:hover {
+    background-color: #DB5609 !important;
+    color: white !important;
+}
+
+/* ESQUECEU A SENHA */
+.forgot-password {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}

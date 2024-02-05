@@ -1,0 +1,39 @@
+/* Cabeçalho */
+header {
+    background-color: #1d8d8d93;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    width: 15%;
+}
+
+header nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#menu ul li, #menu ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+header a {
+    color: #DB5609;
+    text-decoration: none;
+}
+
+.registro_login ul li, .registro_login ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 15px;
+    margin-top: auto; 
+}
