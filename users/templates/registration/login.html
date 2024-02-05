@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+    {% if form.errors %}
+    <p>
+    Por favor, confira seu nome de usuário ou senha
+    </p>
+    {% else %}
+    <p>
+        Por favor, utilize o seguinte formuário para login. Caso não tenha uma conta, cadastre-se aqui como <a href="{% url 'register_cliente' %}"> Usuário </a> ou <a href="{% url 'register_estab' %}"> Estabelecimento </a>
+    </p>
+    {% endif %}
+    <div class="login-form">
+        <form action="{% url 'login' %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <p>
+              <input type="submit" value="Entrar" />
+            </p>
+        </form>
+        <p>
+            <a href="{% url 'password_reset' %}">
+                Esqueceu sua senha?
+            </a>
+        </p>
+    </div>
+{% endblock %}

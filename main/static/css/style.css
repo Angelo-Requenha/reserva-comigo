@@ -38,16 +38,19 @@ body {
 }
 
 .principal {
-    flex: 1;
-    margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border: 1px solid #DB5609;
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
     width: 70%;
-    margin: 80px auto;
-    padding: 20px;
+    margin: 10px auto;
+    padding: 0px 0px 0px 5px;
+}
+
+.principal:hover {
+    width: 72%;
 }
 
 #sobre-nos-section {
@@ -93,8 +96,7 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    background-color: #ffffff;
-    margin-left: 15%;
+    background-color: rgba(240, 240, 240, 0.555);
 }
 
 body .main h1 {
@@ -181,3 +183,40 @@ a:hover {
     margin-top: 60px; /* Ajuste conforme necessário para evitar sobreposição com a barra de pesquisa */
 }
 
+.grupos {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.botoes_grupo {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.botoes_grupo input {
+    width: 200px;
+    height: 50px;
+    border: none;
+    color: #DB5609;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    transition: 100ms;
+}
+
+.botoes_grupo input:hover {
+    color: #ebebeb;
+    background-color: #DB5609;
+}
+
+.grupo_nome {
+    font-size: 30px;
+    border-top: solid 1px #DB5609;
+    border-left: solid 1px #DB5609;
+    border-bottom: solid 1px #DB5609;
+    border-radius: 5px 0px 0px 5px;
+    padding: 7px 7px 7px 7px;
+}

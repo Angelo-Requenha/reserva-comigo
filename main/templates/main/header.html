@@ -2,33 +2,8 @@
 
 {% block header %}
 
-<header>
-    <div class="logo">
-        <img src="{% static 'images/logo_fundotransparente.png' %}">
-    </div>
-    
-    <nav class='paginas'>
-        <div id="menu">
-            <ul>
-                <li>
-                    <a href="{% url 'reserva_app:init_page_usuario' %}">Feed</a>
-                </li>
-                <li>
-                    <a href="{% url 'reserva_app:sobre_nos' %}">Grupos</a>
-                </li>
-                <li>
-                    <a href="{% url 'reserva_app:sobre_nos' %}">Sobre nós</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="registro_login">
-        <a href="{% url 'reserva_app:login' %}">
-            <img src="{% static 'images/user-line.svg' %}" alt="foto_perfil">
-            <p>Perfil</p>
-        </a>
-    </div>
+<header class="header">
+    <h1>Painel</h1>
 </header>
 
-{% endblock %}
+{% endblock %} 
