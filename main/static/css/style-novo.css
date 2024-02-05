@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -14,6 +16,7 @@ main {
 /* SIDEBAR */
 .sidebar-section {
     height: 100%;
+    background-color: #246464;
 }
 .sidebar {
     height: 100% !important;
@@ -50,8 +53,8 @@ main {
 }
 
 /*= ROTAÇÃO DAS IMAGENS =*/
-.sidebar-img_2 { width: 140px;animation: rotate 5s linear infinite; }
-.sidebar-img_1 { width: 140px;animation: rotate2 5s linear infinite; }
+.sidebar-img_2 { width: 140px; }
+.sidebar-img_1 { width: 140px; }
 
 @keyframes rotate {
     0% {
@@ -149,8 +152,30 @@ header {
     justify-content: center;
 }
 
+.sidebar-search_input {
+    margin-bottom: 30px; /* Adiciona mais espaço entre a barra de pesquisa e o título */
+}
+
 .content h1 {
-    margin: 50px;
+    margin: 20px 0; /* Reduz o espaço entre o título e o subtítulo */
+    font-family: 'M PLUS 1p';
+    color: #DB5609; /* Adicione a cor desejada */
+    text-align: center; /* Centralizar o texto */
+    font-weight: bold;
+    font-size: 3em; /* Aumenta o tamanho do título */
+}
+
+.content h2 {
+    font-family: 'M PLUS 1p';
+    font-weight: bold;
+    font-size: 2em; /* Aumenta o tamanho do subtítulo */
+    margin-bottom: 10px; /* Adiciona espaço abaixo do subtítulo */
+}
+
+.content p {
+    font-family: 'M PLUS 1p', sans-serif;
+    font-size: 1.5em; /* Aumenta o tamanho do texto */
+    margin: 20px 30px; /* Adiciona mais espaço acima e abaixo do texto e à esquerda e à direita */
 }
 
 /* ADICIONAR CONTEUDO DIV */
