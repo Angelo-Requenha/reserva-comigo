@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     "main",
     "reserva_app",
     "users",
+    "cliente_app",
 ]
 
 MIDDLEWARE = [
@@ -77,16 +79,16 @@ WSGI_APPLICATION = "reserva_projeto.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'django',
 #        'USER': 'postgres',
 #        'PASSWORD': 'postgres',
-#        'HOST': 'localhost',
+#        'HOST': '191.240.216.191',
 #        'PORT': '5432',
 #    }
-#}
+# }
 
 DATABASES = {
     "default": {
@@ -138,7 +140,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_ROOT = '~/reserva-comigo/main/static/css/'
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = 'users.Cliente'
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 LOGIN_REDIRECT_URL = 'reserva_app:home'
 LOGOUT_REDIRECT_URL = 'reserva_app:init_page'

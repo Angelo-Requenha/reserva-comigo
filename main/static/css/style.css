@@ -37,21 +37,24 @@ body {
 }
 
 .principal {
-    flex: 1;
-    margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     border: 1px solid #DB5609;
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
     width: 70%;
-    margin: 80px auto;
-    padding: 20px;
+    margin: 10px auto;
+    padding: 0px 0px 0px 5px;
+}
+
+.principal:hover {
+    width: 72%;
 }
 
 #sobre-nos-section {
     margin: auto;
-    background-color: rgba(255, 255, 255, 0.115);
+    background-color: rgba(80, 92, 102, 0.115);
     padding: 20px;
     text-align: center;
     border-radius: 10px; /* Adicione o valor desejado para arredondar as bordas */
@@ -91,7 +94,7 @@ main {
     width: 85%;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    background-color: rgba(240, 240, 240, 0.555);
 }
 
 body .main h1 {
@@ -103,6 +106,72 @@ footer {
     background-color: black;
     width: 100%;
     height: 70px;
-    color: #ffffff;
+    color: #DB5609;
     text-align: center;
+    text-align: center; /* Alinhamento do texto ao centro */
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none; /* Remove os marcadores de lista */
+    padding: 0; /* Remove o espaçamento interno da lista */
+}
+
+li {
+    display: inline-block; /* Exibe os itens da lista em linha */
+    margin-right: 15px; /* Espaçamento à direita entre os itens */
+}
+
+a {
+    text-decoration: none; /* Remove a sublinhado padrão dos links */
+    color: #DB5609; /* Cor do texto dos links */
+    font-weight:lighter; /* Define a espessura da fonte como negrito */
+}
+
+a:hover {
+    color: #1d8d8d; /* Cor do texto dos links ao passar o mouse */
+}
+
+
+.logo {
+    text-align: center; /* Centraliza a logo */
+    margin-bottom: 10px; /* Adiciona um espaçamento menor abaixo da logo */
+}
+
+.grupos {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.botoes_grupo {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.botoes_grupo input {
+    width: 200px;
+    height: 50px;
+    border: none;
+    color: #DB5609;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    transition: 100ms;
+}
+
+.botoes_grupo input:hover {
+    color: #ebebeb;
+    background-color: #DB5609;
+}
+
+.grupo_nome {
+    font-size: 30px;
+    border-top: solid 1px #DB5609;
+    border-left: solid 1px #DB5609;
+    border-bottom: solid 1px #DB5609;
+    border-radius: 5px 0px 0px 5px;
+    padding: 7px 7px 7px 7px;
 }
