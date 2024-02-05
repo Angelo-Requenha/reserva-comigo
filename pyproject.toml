@@ -2,11 +2,11 @@
 name = "reserva-comigo"
 version = "0.1.0"
 description = ""
-authors = ["Angelo"]
+authors = ["Angelo Miguel Requenha"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.11"
+python = "^3.11"
 django = "^5.0.1"
 
 
