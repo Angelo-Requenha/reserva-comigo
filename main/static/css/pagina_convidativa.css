@@ -6,15 +6,22 @@
 body {
   margin: 0;
   height: 100%;
-  background-imagens: url("static/imagens/recepcionista-do-hotel-no-trabalho.jpg");
+  background-image: url("../images/medium-shot-friends-with-beer-pub.jpg");
+  background-size: cover; /* Para cobrir todo o contêiner */
+  background-position: center;
 }
 html {
   height: 100%;
 }
 
 header {
+  top: 0;
+  width: 100%;
+  position: fixed;
   display: flex;
+  height: 7rem;
   flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.666);
 }
 
 /* div da nav bar */
@@ -26,8 +33,6 @@ header {
   width: 50%;
   padding: 10px 0;
   height: 85px;
-  background-color: black;
-  border: 2px solid #db5609;
   border-right: 0px;
   color: white;
 }
@@ -40,8 +45,6 @@ header {
   width: 50%;
   padding: 10px 0;
   height: 85px;
-  background-color: black;
-  border: 2px solid #db5609;
   border-left: 0px;
   color: white;
 }
@@ -50,6 +53,7 @@ header {
 .navbar2 a {
   color: white;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 .navbar1 a:hover,
@@ -57,42 +61,40 @@ header {
   color: #db5609; /* Altere para a cor desejada no hover */
   text-decoration: underline; /* Adicione um sublinhado no hover */
   transform: scale(1.1);
+  text-decoration: none;
 }
 
 /* div do logo */
 .logo {
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  margin: 10% auto;
   width: 100%;
   padding: 10px;
+
 }
 
 .logo p {
   color: black;
+  background-color: #eeeeee;
+  border: solid 3px #db5609;
+  border-radius: 40px;
 }
 
 .logo h1 {
+  font-size: 3.5rem;
   color: #db5609;
+  margin-top: 1.5rem;
+  margin-bottom: 13.5rem;
 }
 
 /* IMG */
 img {
-  width: 220px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
-}
-
-.logo img:hover {
-  transform: scale(1.2);
-}
-
-h1:hover {
-  transform: scale(1.1);
-}
-
-h4:hover {
-  transform: scale(1.1);
+  width: 10%;
 }
 
 h1,
@@ -111,11 +113,6 @@ h1 {
   line-height: normal;
 }
 
-.texto_usuario h1,
-.texto_espaco h1 {
-  color: white;
-}
-
 .texto_convidativo {
   margin: auto;
   width: 70%;
@@ -125,6 +122,7 @@ h1 {
 .texto_usuario h4,
 .texto_espaco h4 {
   color: #db5609;
+  font-size: 2.5rem;
 }
 
 .texto_usuario img,
@@ -136,7 +134,7 @@ h1 {
 
 .texto_usuario,
 .texto_espaco {
-  background-color: #2f343a;
+  background-color: #eeeeee;
 }
 
 h4 {
@@ -147,7 +145,6 @@ h4 {
 }
 
 p {
-  color: white;
   text-align: center;
   font-family: "M PLUS 1p";
   font-style: normal;
@@ -166,16 +163,12 @@ main {
   left: 0px;
   width: 50%;
   padding: 10px;
-  border: 4px solid #db5609;
-  border-right: 2px solid #db5609;
 }
 
 .texto_espaco {
   right: 0px;
   width: 50%;
   padding: 10px;
-  border: 4px solid #db5609;
-  border-left: 2px solid #db5609;
 }
 
 a,
@@ -206,6 +199,7 @@ footer {
   height: 300px;
   padding: 100px;
   background-color: white;
+
 }
 
 .div_botao a {
@@ -216,10 +210,14 @@ footer {
   font-weight: 200;
   font-size: 40px;
   padding: 10px;
+  transition: 0.5s;
+  border-radius: 10px;
 }
 
 .div_botao a:hover {
-  transform: scale(1.2);
+  transform: scale(1.08);
+  background-color: white;
+  color: #db5609;
 }
 
 .footer {
@@ -227,8 +225,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   margin: auto;
-  background-color: #2f343a;
-  border: 3px solid #db5609;
+  background-color: #303030;
   width: 100%;
   height: 100px;
   color: #ffffff;
@@ -237,7 +234,7 @@ footer {
 
 .animacao {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.3s ease-in-out;
 }
 
 .animacao-ativa {
