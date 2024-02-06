@@ -13,7 +13,7 @@ class register_cliente(CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('reserva_app:home')
+            return redirect('cliente_app:grupos')
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -24,7 +24,7 @@ class register_cliente(CreateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return reverse('reserva_app:home')
+        return reverse('cliente_app:grupos')
     
 
 class register_estab(CreateView):
