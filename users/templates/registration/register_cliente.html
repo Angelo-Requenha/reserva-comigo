@@ -5,13 +5,19 @@
 {% block title %}Crie sua conta{% endblock %}
 
 {% block content %}
-    
-    <form class="box" method="post">
-        <h1>Crie sua conta</h1>
-        <p>Cadastre-se usando o formulário abaixo</p>
-        {{ user_form.as_p }}
+    <h1>Registro de Cliente</h1>
+    <p>Cadastre-se usando o formulário abaixo</p>
+    <form method="post">
+        {{ form.as_p }}
         {% csrf_token %}
         <p><input type="submit" value="Criar minha conta" class="btn btn-outline-primary"></p>
     </form>
 
+    <!-- Adicione isso no final do seu template base.html -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('[title]').tooltip();  // Inicializar tooltips para todos os elementos com o atributo 'title'
+        });
+    </script>
 {% endblock %}
