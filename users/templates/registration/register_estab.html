@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Registro de Estabelecimento</h2>
+  <h1>Registro de Estabelecimento</h1>
   <p>Cadastre-se usando o formulário abaixo</p>
   <form method="post" class="form">
     {% csrf_token %}
-    {{ estab_form.as_p }}
+    {{ form.as_p }}
     <button type="submit">Registrar</button>
   </form>
+
+  <!-- Adicione isso no final do seu template base.html -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('[title]').tooltip();  // Inicializar tooltips para todos os elementos com o atributo 'title'
+      });
+  </script>
 {% endblock %}

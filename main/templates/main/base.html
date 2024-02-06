@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/style-novo.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/usermenu.css' %}" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -20,17 +21,12 @@
       <section class="sidebar-section">
         <div
           class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-          style="width: 280px"
+          style="width: 220px"
         >
           <div class="sidebar-logo">
             <div class="sidebar-logo-img">
               <img
                 class="sidebar-img_1"
-                src="{% static 'images/logo_fundotransparente.png' %}"
-                alt="Logo"
-              />
-              <img
-                class="sidebar-img_2"
                 src="{% static 'images/logo_fundotransparente.png' %}"
                 alt="Logo"
               />
@@ -54,14 +50,20 @@
             </form>
           </div>
           <ul class="nav nav-pills flex-column mb-auto sidebar-ul">
-            <li class="nav-item"><a href="#">Texto1</a></li>
-            <li class="nav-item"><a href="#">Texto2</a></li>
-            <li class="nav-item"><a href="#">Texto3</a></li>
-            <li class="nav-item"><a href="#"></a></li>
+            <li class="nav-item">
+              <a href="{% url 'reserva_app:sobre_nos' %}">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'cliente_app:feed' %}">Feed</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'cliente_app:grupos' %}">grupos</a>
+            </li>
           </ul>
           <hr />
           <div class="dropdown">
-            <a
+            <div 
+              id="openModal"
               href=""
               class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
               id="dropdownUser1"
@@ -69,24 +71,21 @@
               aria-expanded="false"
             >
               <img
-                src="3198fbab733b9ad1b4f9d97ce4232313.jpg"
+                src="{% static 'images/download (1).png' %}"
                 alt=""
                 width="52"
                 height="52"
                 class="rounded-circle me-2"
               />
-              <strong>Usuário</strong>
-            </a>
+                <strong>{{ request.user.first_name }}</strong>
+          </div>
+          {% block usermenu %} {% include 'main/usermenu.html' %} {% endblock %}
           </div>
         </div>
       </section>
       <section class="content">
-        {% block header %}
-          {% include 'main/header.html' %}
-        {% endblock %}
-         
-        {% block content %} 
-        {% endblock %}
+        {% block header %} {% include 'main/header.html' %} {% endblock %}
+        {%block content %} {% endblock %}
       </section>
     </main>
     <script
