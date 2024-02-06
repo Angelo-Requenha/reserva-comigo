@@ -1,43 +1,53 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from .forms import *
-from .forms import UserRegistrationForm
-from django.contrib.auth import authenticate, login
+from django.views.generic.edit import CreateView
+from .models import CustomUser
+from .forms import ClienteForm, EstabelecimentoForm, CustomAuthenticationForm
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.urls import reverse_lazy, reverse
+from django.shortcuts import redirect
 
+class register_cliente(CreateView):
+    model = CustomUser
+    form_class = ClienteForm
+    template_name = 'registration/register_cliente.html'
 
-# Create your views here.
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('cliente_app:grupos')
+        return super().dispatch(request, *args, **kwargs)
 
-def register(request):
-    if request.user.is_authenticated:
-        # Redireciona para a página desejada se o usuário já estiver autenticado
-        return redirect('reserva_app:init_page')
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.set_password(form.cleaned_data['password1'])
+        user.save()
+        login(self.request, user)
+        return super().form_valid(form)
     
-    if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        if user_form.is_valid():
-            # Cria um novo objeto de usuário mas não salva ainda
-            new_user = user_form.save(commit=False)
-            # Define a senha escolhida
-            new_user.set_password(user_form.cleaned_data['password1'])
-            # Salva o objeto de usuário
-            new_user.save()
-            return render(request,'registration/register_done.html',{'new_user': new_user})
-    else:        
-        user_form = UserRegistrationForm()
-        
-    return render(request, 'registration/register.html', {'user_form': user_form})
-
-def custom_login(request):
-    if request.user.is_authenticated:
-        return redirect('reserva_app:init_page')
+    def get_success_url(self):
+        return reverse('cliente_app:grupos')
     
-    if request.method == 'POST':
-        form = CustomLoginForm(request.POST)
-        if form.is_valid():
-            login(request, form.user_cache)
+
+class register_estab(CreateView):
+    model = CustomUser
+    form_class = EstabelecimentoForm
+    template_name = 'registration/register_estab.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
             return redirect('reserva_app:home')
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.tipo = form.cleaned_data.get('tipo', 'E')
+        user.set_password(form.cleaned_data['password1'])
+        user.save()
+        login(self.request, user)
+        return super().form_valid(form)
     
-    else:
-        form = CustomLoginForm()
-        
-    return render(request, 'registration/login.html', {'form': form})
+    def get_success_url(self):
+        return reverse('reserva_app:home')
+    
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    authentication_form = CustomAuthenticationForm
