@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/pagina_convidativa.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>Reserva-Comigo</title>
+  </head>
+  <body>
+    <header>
+        <div class="navbar1">
+            <a href="{% url 'users:register_cliente' %}">Register Usuário</a>
+            <a href="{% url 'users:login' %}">Login Usuário</a>
+        </div>
+    
+        <div class="navbar2">
+            <a href="">Register Estabelecimento</a>
+            <a href="">Login Estabelecimento</a>
+        </div>
+    </header>
+
+    <div class="logo">
+      <img src="{% static 'images/logo_fundotransparente.png' %}" alt="" />
+      <h1>🫵 Sua Reserva, Sua Experiência 🥳</h1>
+      <br />
+      <div class="texto_convidativo">
+        <p>
+          O Reserva Comigo é mais do que uma plataforma de reservas; é uma
+          jornada colaborativa para criar momentos únicos. Permitindo que cada
+          membro do grupo participe ativamente na escolha do local, definição de
+          horários e processos de pagamento, o Reserva Comigo coloca o poder nas
+          mãos dos usuários.
+        </p>
+      </div>
+    </div>
+    <main>
+      <div class="texto_usuario">
+        <br />
+        <h1>👋 Bem-Vindo Usuário 👨‍💼</h1>
+
+        <br /><br />
+        <h4>1- Tenha Escolha Ativa:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Seja o protagonista nas decisões de reserva, escolhendo locais,
+            datas e horários de forma colaborativa.
+          </p>
+        </div>
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+
+        <br /><br />
+        <h4>2- Crie Grupos Personalizados:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Forme grupos exclusivos para eventos específicos, tornando a reserva
+            mais adaptável às suas necessidades.
+          </p>
+        </div>
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+
+        <br /><br />
+        <h4>3- Vote e Decida em Conjunto:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Participe de votações dentro do grupo para determinar o melhor dia,
+            horário e local para todos.
+          </p>
+        </div>
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+
+        <br /><br />
+        <h4>4- Pagamento Integrado:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Realize pagamentos coletivos com todos os convidados do seu grupo de
+            forma integrada no próprio aplicativo, sem complicações.
+          </p>
+        </div>
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+
+        <br /><br />
+        <h4>5- Um Feed Personalizado:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Fique conectado e crie memórias com quem você ama, acesse nosso feed
+            personalizado e escolha os melhores estabelecimentos perto de você.
+          </p>
+        </div>
+        <br /><img
+          src="{% static 'images/imagem_sem_imagem.png' %}"
+          alt=""
+        /><br />
+      </div>
+
+      <div class="texto_espaco">
+        <br />
+        <h1>👋 Bem-Vindo Estabelecimento 🏢</h1>
+
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+        <br /><br />
+        <h4>1- Agenda Personalizada:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Visualize facilmente os horários ocupados pelos clientes através de
+            uma agenda personalizada.
+          </p>
+        </div>
+
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+        <br /><br />
+        <h4>2- Aceite ou Recuse Reservas:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Gerencie solicitações de reserva, mantendo controle total sobre a
+            disponibilidade do seu espaço.
+          </p>
+        </div>
+
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+        <br /><br />
+        <h4>3- Estilize seu Perfil:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Destaque as características únicas do seu negócio personalizando o
+            perfil do seu estabelecimento.
+          </p>
+        </div>
+
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+        <br /><br />
+        <h4>4- Pagamento Seguro e Atrativo:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Poupamos o seu cliente de impecílhos ao pagar pelo seu serviço, para
+            que o pagamento seja a parte mais fácil ao reservar.
+          </p>
+        </div>
+
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
+        <br /><br />
+        <h4>5- Integração Eficiente:</h4>
+        <br />
+        <div class="texto_convidativo">
+          <p class="animacao">
+            Integre-se de maneira eficiente ao ecossistema do Reserva-Comigo
+            para maximizar a visibilidade e atrair clientes alinhados com sua
+            proposta.
+          </p>
+        </div>
+        <br />
+      </div>
+    </main>
+
+    <section class="secao_botao">
+      <div class="div_botao">
+        <a href="{% url 'reserva_app:init_page' %}">Junte-se a nós</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer">
+        <p>Todos os direitos reservados</p>
+      </div>
+    </footer>
+    <script src="{% static 'js/animacao.js' %}"></script>
+  </body>
+  
+</html>
