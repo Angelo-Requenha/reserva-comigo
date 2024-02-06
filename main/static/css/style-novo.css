@@ -271,3 +271,7 @@ header {
   display: flex;
   justify-content: flex-star;
 }
+
+#dropdown {
+  cursor: dropdownUser1;
+}
