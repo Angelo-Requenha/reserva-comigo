@@ -180,6 +180,14 @@
       </div>
     </footer>
     <script src="{% static 'js/animacao.js' %}"></script>
+    <script>
+      window.addEventListener('scroll', function(){
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var body = document.querySelector('body');
+        var speed = 0.5; // Ajuste a velocidade conforme necessário
+        body.style.backgroundPositionY = scrollTop * speed + 'px';
+      });
+    </script>
   </body>
   
 </html>
