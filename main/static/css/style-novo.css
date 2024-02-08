@@ -238,13 +238,6 @@ header {
 }
 
 /* Paginas */
-.caixa_texto_borda_laranja {
-  border: solid 3px #db5609;
-  padding: 10px;
-  border-radius: 5px;
-  width: 90%;
-  margin: 0 auto;
-}
 
 .principal {
   display: flex;

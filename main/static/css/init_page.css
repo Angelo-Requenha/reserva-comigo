@@ -102,7 +102,7 @@ input[type="button"]:hover {
     background-color: #A83E11; /* ou qualquer outra cor desejada ao passar o mouse */
     box-shadow: 0 0 10px #db560954;; /* Adicionando uma sombra */
 }
- 
+
 .div_bot {
     display: flex;
     flex-direction: row;
