@@ -1,0 +1,42 @@
+/* Estilo para a janela modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100% !important; 
+    height: 100% !important;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.731); /* Fundo escurecido */
+  }
+  
+  /* Conteúdo da janela modal */
+  .modal-content {
+    color: black !important;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90% !important;
+    height: 90% !important;
+    overflow: auto;
+  }
+
+  
+  /* Botão de fechar */
+  .close {
+    width: 5%;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  

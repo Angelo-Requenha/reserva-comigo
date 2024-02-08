@@ -148,7 +148,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-LOGIN_REDIRECT_URL = 'reserva_app:home'
+LOGIN_REDIRECT_URL = 'cliente_app:grupos'
 LOGOUT_REDIRECT_URL = 'reserva_app:init_page'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
