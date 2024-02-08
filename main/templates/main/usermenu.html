@@ -4,9 +4,18 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-
+        <h1>Menu de Usuário</h1>
+        Olá, {{ request.user.first_name }}
+        <p>Seja bem-vindo à sua página</p>
+        <p>Você pode alterar a sua senha <a href="{% url 'users:alterar_senha' %}">aqui</a></p>
+      
+        <form method="post" action="{% url 'users:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Sair</button>
+        </form>
     </div>
 </div>
+
   
 <script src="{% static 'js/usermenu.js' %}"></script>
 

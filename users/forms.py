@@ -17,8 +17,9 @@ class ClienteForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'first_name', 'last_name', 'telefone', 'password1', 'password2']
+        fields = ['email', 'first_name', 'last_name', 'telefone', 'foto_perfil', 'password1', 'password2']
         labels = {
+            'foto_perfil': 'Foto de Perfil',
             'email': 'Email',
             'first_name': 'Nome',
             'last_name': 'Sobrenome',
