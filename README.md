@@ -4,18 +4,18 @@ O Reserva Comigo é um webapp concebido para redefinir a experiência de reserva
 
 # DIAGRAMA DO PROJETO
 
-![texto](/main/static/images/logo_fundotransparente.png)
+![texto](/main/static/images/diagrama_fundo_transparente.png)
 
 # REQUISITOS
 
-. Versão do Python: 3.10.12
-. VISUAL STUDIO CODE
-. DJANGO 5.0
-. HTML 5
-. JAVASCRIPT
-. POSTGRESQL
-. CSS 3
-. POETRY
+. PYTHON: 3.10.12  
+. VISUAL STUDIO CODE  
+. DJANGO 5.0  
+. HTML 5  
+. JAVASCRIPT  
+. POSTGRESQL  
+. CSS 3  
+. POETRY  
 . GIT/GITHUB
 
 Se você deseja testar o Reserva Comigo localmente, siga os passos abaixo:
@@ -31,8 +31,8 @@ Se você deseja testar o Reserva Comigo localmente, siga os passos abaixo:
     ```
 
 # USO
-Para iniciar o programa execute os seguintes comandos
-. python manage.py migrate
+Para iniciar o programa execute os seguintes comandos  
+. python manage.py migrate  
 . python manage.py runserver
 
 # ESTADO DO PROJETO
@@ -54,11 +54,14 @@ Email: equipereservacomigo@gmail.com
 
 # AUTORES
 
-Identificação com Foto dos integrantes da equipe desemvolvedora com QRCODE
+![texto](/main/static/images/ReservaComigo.png)
 
-ANGELO MIGUEL REQUENHA, 
-FABIO HENRIQUE PEIXE, 
-ISABELA CAROLINE REITER, 
+Integrantes da Equipe Reserva-Comigo  
+
 IVANIR STANO, 
 VICTOR GOMES MENDES, 
-VICTOR LUÍS ZUCHI.
+ANGELO MIGUEL REQUENHA, 
+VICTOR LUÍS ZUCHI,
+ISABELA CAROLINE REITER,
+FABIO HENRIQUE PEIXE.
+ 
