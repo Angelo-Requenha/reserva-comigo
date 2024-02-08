@@ -271,3 +271,11 @@ header {
   display: flex;
   justify-content: flex-star;
 }
+
+#dropdown {
+  cursor: dropdownUser1;
+}
+
+.botao_logout {
+  background-color: red;
+}
