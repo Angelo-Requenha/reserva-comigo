@@ -1,13 +1,18 @@
 [tool.poetry]
-name = "reserva-projeto"
+name = "reserva-comigo"
 version = "0.1.0"
 description = ""
-authors = ["Victor Zuchi <zuchii.victor@gmail.com>"]
+authors = ["Angelo Miguel Requenha"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
+<<<<<<< HEAD
 django = "^5.0.1"
+=======
+django = "^5.0"
+psycopg2 = "^2.9.9"
+>>>>>>> dev-fabio
 
 
 [build-system]
