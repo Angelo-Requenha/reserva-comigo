@@ -86,8 +86,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-<<<<<<< HEAD
-content-hash = "16dd33bc6574ff9a837710060c0907bd7361f5a3efeb08e383900d3267da1066"
-=======
 content-hash = "555eec1b42fee69dfdf70dc79e754435cd4e39180276096c5cfabfcdf2fd2ec3"
->>>>>>> dev-fabio
