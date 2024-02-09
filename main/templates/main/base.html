@@ -61,6 +61,7 @@
             </li>
           </ul>
           <hr />
+          {% if user.is_authenticated %}
           <div class="dropdown">
             <div 
               id="openModal"
@@ -78,7 +79,7 @@
               height="52"
               class="rounded-circle me-2"
             />
-          {% else %}
+            {% else %}
             <img
               src="{% static 'images/download (1).png' %}"
               alt=""
@@ -86,8 +87,11 @@
               height="52"
               class="rounded-circle me-2"
             />
-          {% endif %}
+            {% endif %}
                 <strong>{{ request.user.first_name }}</strong>
+          {% else %}
+          <a href="{% url 'users:login' %}">Fazer login</a>
+          {% endif %}
           </div>
           {% block usermenu %} {% include 'main/usermenu.html' %} {% endblock %}
           </div>
