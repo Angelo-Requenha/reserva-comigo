@@ -237,34 +237,6 @@ header {
   background-color: #ad7101;
 }
 
-/* TABLE */
-.table-form {
-  width: 60%;
-}
-
-table {
-  width: 100%;
-  border: 1px solid;
-}
-th {
-  text-align: center;
-  border-right: 1px solid !important;
-  border-left: 2px solid black !important;
-  color: white;
-  background-color: black;
-}
-tr td {
-}
-tr:nth-child(even):hover {
-  background-color: #f0f0f0;
-}
-tr:nth-child(odd) {
-  background-color: #ffa600;
-}
-tr:nth-child(odd):hover {
-  background-color: #ec9a00;
-}
-
 /* Paginas */
 .caixa_texto_borda_laranja {
   border: solid 3px #db5609;
@@ -285,10 +257,11 @@ tr:nth-child(odd):hover {
   width: 70%;
   margin: 10px auto;
   padding: 0px 0px 0px 5px;
+  transition: transform 0.3s ease;
 }
 
 .principal:hover {
-  width: 71%;
+  transform: scale(1.03);
   background-color: #f2f2f2;
   cursor: pointer;
 }
