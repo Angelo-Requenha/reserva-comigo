@@ -1,0 +1,9 @@
+{% extends "main/base.html" %} {% load static %} {% block content %}
+
+<h2>Responder à solicitação de amizade</h2>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Responder</button>
+</form>
+
+{% endblock %}
