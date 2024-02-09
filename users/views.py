@@ -20,7 +20,6 @@ class register_cliente(CreateView):
         user = form.save(commit=False)
         user.set_password(form.cleaned_data['password1'])
         user.save()
-        print(user.foto_perfil)
         return super().form_valid(form)
     
     def get_success_url(self):
