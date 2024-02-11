@@ -2,6 +2,8 @@
 {% load static %} 
 {% block content %}
 
-  
+    {% for usuario in usuarios %}
+    <h1>{{ usuario.first_name }}</h1>
+    {% endfor %}
 
 {% endblock %}

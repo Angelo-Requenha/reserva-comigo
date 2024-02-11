@@ -13,16 +13,15 @@
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
     
+    {% for grupo in grupos %}
     <section class="principal">
         <div>
-            <!-- Exibir os grupos criados dinamicamente -->
-            {% for grupo in grupos %}
             <div class='grupos'>
                 <h2 class='grupo_nome'>{{ grupo.nome }}</h2>
                 <p>{{ grupo.criador }}</p>
             </div>
-            {% endfor %}
         </div>
     </section>
+    {% endfor %}
 
 {% endblock %}

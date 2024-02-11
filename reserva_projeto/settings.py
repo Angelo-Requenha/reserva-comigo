@@ -147,7 +147,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_REDIRECT_URL = 'cliente_app:grupos'
-LOGOUT_REDIRECT_URL = 'reserva_app:init_page'
+LOGOUT_REDIRECT_URL = 'reserva_app:pagina_convidativa'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
