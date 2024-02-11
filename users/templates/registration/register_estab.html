@@ -6,6 +6,8 @@
   <form method="post" class="form">
     {% csrf_token %}
     {{ form.as_p }}
+
+
     <button type="submit">Registrar</button>
   </form>
 
@@ -15,5 +17,5 @@
       $(document).ready(function() {
           $('[title]').tooltip();  // Inicializar tooltips para todos os elementos com o atributo 'title'
       });
-  </script>
+  </script> 
 {% endblock %}

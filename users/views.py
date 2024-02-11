@@ -4,7 +4,11 @@ from .forms import ClienteForm, EstabelecimentoForm, CustomAuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
+from googlemaps import Client
+
+
+
 
 class register_cliente(CreateView):
     model = CustomUser
@@ -36,16 +40,23 @@ class register_estab(CreateView):
             return redirect('users:login')
         return super().dispatch(request, *args, **kwargs)
 
+
     def form_valid(self, form):
+
         user = form.save(commit=False)
         user.tipo = form.cleaned_data.get('tipo', 'E')
+
         user.set_password(form.cleaned_data['password1'])
         user.save()
         return super().form_valid(form)
-    
+        
     def get_success_url(self):
         return reverse('users:login')
+    
     
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
     authentication_form = CustomAuthenticationForm
+
+
+
