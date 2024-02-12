@@ -127,7 +127,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyA7Ta6Dty0RKOYkQDjM3bToETR3d6Yi358'
+GOOGLE_API_KEY = 'AIzaSyA7Ta6Dty0RKOYkQDjM3bToETR3d6Yi358'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -154,6 +154,8 @@ LOGIN_REDIRECT_URL = 'cliente_app:grupos'
 LOGOUT_REDIRECT_URL = 'reserva_app:init_page'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+BASE_COUNTRY = 'BR'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
