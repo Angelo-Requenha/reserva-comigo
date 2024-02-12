@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva-Comigo</title>
+    <link rel="shortcut icon" href="{% static 'images/logo_fundotransparente.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<body>
+    <header>
+        {% block header %}
+            {% include 'main/header.html' %}
+        {% endblock %} 
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+        <footer>
+            {% block footer %}
+                {% include 'main/footer.html' %}
+            {% endblock %} 
+        </footer>
+    </main>
+    
+</body>
+</html>

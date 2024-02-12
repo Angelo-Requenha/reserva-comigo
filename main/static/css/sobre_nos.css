@@ -1,0 +1,24 @@
+.psobre_nos {
+    max-width: 90%; /* Defina a largura máxima desejada */
+    margin-left: auto; /* Alinha o parágrafo à esquerda */
+    text-align: justify; /* Justifica o texto */
+    margin: 0 auto; /* Define margens superior e inferior como 0 e margens laterais automáticas */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide a tela em duas colunas iguais */
+    gap: 20px; /* Espaçamento entre as colunas */
+}
+
+.content, .image {
+    display: flex;
+    align-items: center; /* Alinha verticalmente o conteúdo */
+}
+
+.image img {
+    max-width: 50%; /* Ajusta a largura máxima da imagem */
+    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+    margin: auto;
+
+}

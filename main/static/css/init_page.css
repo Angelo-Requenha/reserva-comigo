@@ -22,14 +22,14 @@ html {
 /* RGB */
 #container_init_page {
     position: relative;
-    width: 40rem;
-    height: 35rem;
+    width: 50rem; /* Ajuste a largura do container aqui */
+    height: 40rem; /* Ajuste a altura do container aqui */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background: #fff;
+    background: rgba(240, 240, 240, 0.767);
 }
 .box::before, .box::after {
     content: "";
@@ -56,13 +56,13 @@ html {
     }
 }
 
-h1 {
+div h1 {
     color: #000;
     text-align: center;
     font-family: 'M PLUS 1p';
-    font-size: 70px;
-    font-style: normal;
-    font-weight: 200;
+    font-size: 50px;
+    font-style:normal;
+    font-weight: 300;
     line-height: normal;
 }
 
@@ -81,12 +81,13 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #DB5609 !important;
-    color: white !important;
+    color: rgba(240, 240, 240, 0.555) !important;
 }
 
 /* ESQUECEU A SENHA */
 div input[type="button"] { 
-    width: 19rem;
+    width: 22rem; /* Ajuste a largura do botão aqui */
+    height: 65px; /* Ajuste a altura do botão aqui */
     padding: 20px;
     margin: 5px 0;
     border: 0px solid #DB5609;
@@ -101,10 +102,11 @@ input[type="button"]:hover {
     background-color: #A83E11; /* ou qualquer outra cor desejada ao passar o mouse */
     box-shadow: 0 0 10px #db560954;; /* Adicionando uma sombra */
 }
- 
+
 .div_bot {
     display: flex;
     flex-direction: row;
+    font-family: 'M PLUS 1p';
 }
 
 .div_bot input[type="button"] {
