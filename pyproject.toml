@@ -12,6 +12,7 @@ psycopg2 = "^2.9.9"
 pillow = "^10.2.0"
 googlemaps = "^4.10.0"
 requests = "^2.31.0"
+django-places = "^0.1"
 
 
 [build-system]

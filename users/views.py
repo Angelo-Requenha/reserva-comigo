@@ -5,17 +5,12 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect, render, reverse
-from googlemaps import Client
+import googlemaps
 from django.conf import settings
-from django.http import JsonResponse
-from reserva_projeto.mixins import(
-	AjaxFormMixin, 
-	FormErrors,
-	RedirectParams,
-	)
+from django.views.generic import FormView
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
-result = "Error"
-message = "Houve um erro, tente novamente"
 
 class register_cliente(CreateView):
     model = CustomUser
@@ -69,33 +64,48 @@ class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
 
 
+@login_required
+def register_address(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST)
 
-def profile_view(request):
-	'''
-	function view to allow users to update their profile
-	'''
-	user = request.user
-	up = user.userprofile
+        if form.is_valid():
+            user_profile = form.save(commit=False)
 
-	form = UserProfileForm(instance = up) 
+            # Chave da API do Google Places
+            api_key = settings.GOOGLE_API_KEY
+            gmaps = googlemaps.Client(key=api_key)
 
-	if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-		form = UserProfileForm(data = request.POST, instance = up)
-		if form.is_valid():
-			obj = form.save()
-			obj.has_profile = True
-			obj.save()
-			result = "Success"
-			message = "Seu perfil foi atualizado!"
-		else:
-			message = FormErrors(form)
-		data = {'result': result, 'message': message}
-		return JsonResponse(data)
+            # Construa o endereço completo
+            full_address = f"{user_profile.endereco}, {user_profile.cidade}, {user_profile.estado}, {user_profile.pais}"
 
-	else:
+            # Faça uma solicitação à API Places para obter detalhes do lugar
+            try:
+                response = gmaps.places(query=full_address)
 
-		context = {'form': form}
-		context['google_api_key'] = settings.GOOGLE_API_KEY
-		context['base_country'] = settings.BASE_COUNTRY
+                # Extraia os detalhes do primeiro resultado (supondo que seja o mais relevante)
+                result = response['results'][0]
 
-		return render(request, 'estab_app:profile.html', context)
+                # Preencha os campos do formulário com os detalhes obtidos
+                user_profile.endereco = result.get('formatted_address', '')
+                user_profile.cidade = result.get('address_components', [])[0].get('long_name', '')
+                user_profile.estado = result.get('address_components', [])[2].get('long_name', '')
+                user_profile.pais = result.get('address_components', [])[3].get('long_name', '')
+                user_profile.cep = result.get('address_components', [])[6].get('long_name', '')
+                user_profile.longitude = result.get('geometry', {}).get('location', {}).get('lng', '')
+                user_profile.latitude = result.get('geometry', {}).get('location', {}).get('lat', '')
+
+                user_profile.has_profile = True
+                user_profile.save()
+
+                messages.success(request, 'Endereço registrado com sucesso!')
+
+                return redirect('estab/profile')
+
+            except Exception as e:
+                messages.error(request, f'Erro ao obter detalhes do endereço: {e}')
+
+    else:
+        form = UserProfileForm()
+
+    return render(request, 'estab_app/profile.html', {'form': form})
