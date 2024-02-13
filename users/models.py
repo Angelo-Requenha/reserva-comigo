@@ -26,10 +26,8 @@ class UserProfile(models.Model):
     email = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
     endereco = models.CharField(verbose_name="Endereço", max_length=255, blank=True, null=True)
-    cidade = models.CharField(verbose_name="Cidade", max_length=255, blank=True, null=True)
-    estado = models.CharField(verbose_name="Estado", max_length=255, blank=True, null=True)
     pais = models.CharField(verbose_name="País", max_length=255, blank=True, null=True)
-    cep = models.CharField(verbose_name="CEP", max_length=8, blank=True, null=True)
+    cep = models.CharField(verbose_name="CEP", max_length=9, blank=True, null=True)
     longitude = models.CharField(verbose_name="Longitude",max_length=50, null=True, blank=True)
     latitude = models.CharField(verbose_name="Latitude",max_length=50, null=True, blank=True)
 

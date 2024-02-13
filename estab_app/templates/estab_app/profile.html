@@ -5,20 +5,15 @@
 {% block content %}
   <h2>Registrar Endereço</h2>
 
+  <!-- Adicione um input para a pesquisa de endereço -->
+  <input id="autocomplete" placeholder="Digite seu endereço" onFocus="geolocate()" type="text"></input>
+
   <form method="post" action="{% url 'estab_app:profile' %}">
     {% csrf_token %}
-    
-    <!-- Adicione um input para a pesquisa de endereço -->
-    <input id="autocomplete" placeholder="Digite seu endereço" onFocus="geolocate()" type="text"></input>
 
     <!-- Adicione campos ocultos para armazenar os resultados da API Places -->
-    {{ form.endereco }}
-    {{ form.cidade }}
-    {{ form.estado }}
-    {{ form.cep }}
-    {{ form.pais }}
-    {{ form.longitude }}
-    {{ form.latitude }}
+    {{ form.as_p }}
+
 
     <button type="submit">Registrar Endereço</button>
   </form>
@@ -36,14 +31,14 @@
       autocomplete.addListener('place_changed', function() {
         var place = autocomplete.getPlace();
         fillFormFields(place);
+
+      document.getElementById('registration-form').style.display = 'block';
       });
     }
 
     // Preenche os campos do formulário com os detalhes do lugar
     function fillFormFields(place) {
       document.getElementById('id_endereco').value = place.formatted_address || '';
-      document.getElementById('id_cidade').value = getAddressComponent(place, 'locality') || '';
-      document.getElementById('id_estado').value = getAddressComponent(place, 'administrative_area_level_1') || '';
       document.getElementById('id_cep').value = getAddressComponent(place, 'postal_code') || '';
       document.getElementById('id_pais').value = getAddressComponent(place, 'country') || '';
       document.getElementById('id_longitude').value = place.geometry.location.lng() || '';
@@ -78,7 +73,7 @@
             center: geolocation,
             radius: position.coords.accuracy
           });
-          
+
         });
       }
     }

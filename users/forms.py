@@ -62,16 +62,14 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 class UserProfileForm(forms.ModelForm):
 
-	endereco = forms.CharField(max_length=100, required=True, widget = forms.HiddenInput())
-	cidade = forms.CharField(max_length=100, required=True, widget = forms.HiddenInput())
-	estado = forms.CharField(max_length=100, required=True, widget = forms.HiddenInput())
-	cep = forms.CharField(max_length=8, required=True, widget = forms.HiddenInput())
-	pais = forms.CharField(max_length=40, required=True, widget = forms.HiddenInput())
-	longitude = forms.CharField(max_length=50, required=True, widget = forms.HiddenInput())
-	latitude = forms.CharField(max_length=50, required=True, widget = forms.HiddenInput())
+	endereco = forms.CharField(max_length=100)
+	cep = forms.CharField(max_length=9)
+	pais = forms.CharField(max_length=40)
+	longitude = forms.CharField(max_length=50)
+	latitude = forms.CharField(max_length=50)
 
 
 	class Meta:
 		model = UserProfile
-		fields = ('endereco', 'cidade', 'estado', 'cep',
+		fields = ('endereco',  'cep',
 		 'pais', 'longitude', 'latitude')
