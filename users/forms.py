@@ -17,8 +17,9 @@ class ClienteForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'first_name', 'last_name', 'telefone', 'password1', 'password2']
+        fields = ['foto_perfil', 'email', 'first_name', 'last_name', 'telefone', 'password1', 'password2']
         labels = {
+            'foto_perfil': 'Foto de Perfil',
             'email': 'Email',
             'first_name': 'Nome',
             'last_name': 'Sobrenome',
@@ -41,8 +42,9 @@ class EstabelecimentoForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'first_name', 'endereco', 'telefone', 'password1', 'password2']
+        fields = ['foto_perfil', 'email', 'first_name', 'endereco', 'telefone', 'password1', 'password2']
         labels = {
+            'foto_perfil': 'Foto de Perfil',
             'email': 'Email',
             'first_name': 'Nome do estabelecimento',
             'endereco': 'Endereço',
