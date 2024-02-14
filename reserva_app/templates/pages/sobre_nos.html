@@ -5,20 +5,30 @@
 
 <div class="container">
     <div class="content">
-        <h2>Texto</h2>
-        <p class="psobre_nos">Lorem ipsum, dolor sit amet awdawdadawdaw afsefsef elit. Accusamus mollitia magni odit? Illo, velit libero. Accusamus aperiam architecto quos nobis eveniet id libero ab sit animi unde? Nulla, reprehenderit qui?</p>
+        <h2>Prazer em conhece-lo!</h2>
+        <p class="psobre_nos">Somos a equipe ReservaComigo! Formada por Angelo Miguel Requenha, Fabio Henrique Peixe, Isabela Caroline Reiter, Ivanir Stano, Victor Gomes Mendes e Victor Luís Zuchi. </p>
     </div>
-    <div class="image">
-        <img src="{% static 'images/agui.png' %}" alt="Descrição da imagem">
+    <div class="videosobrenos" id="videosobrenos">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/oCarp4WjKKg?si=d-u4ApgxtfBSdrPd?version=3&amp;loop=1&amp;playlist=lrf-GAYUOkQ&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;disablekb=1&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=1&amp;showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="background-iframe"></iframe>
+        
     </div>
+
+    <div id="modal_video" class="modal_video">
+        <div class="modal_video_content">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/oCarp4WjKKg?si=d-u4ApgxtfBSdrPd?version=3&amp;loop=1&amp;playlist=lrf-GAYUOkQ&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;disablekb=1&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=1&amp;showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
     <div class="image">
         <img src="{% static 'images/urso-carinhoso.png' %}" alt="Descrição da outra imagem">
     </div>
     <div class="content">
-        <h2>Texto</h2>
-        <p>Seu texto vai aqui...</p>
+        <h2>Missão</h2>
+        <p class="psobre_nos">Seu texto vai aqui...</p>
     </div>
 </div>
 
+<script src="{% static 'js/usermenu.js' %}"></script>
 
 {% endblock %}
