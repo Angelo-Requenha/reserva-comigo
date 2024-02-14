@@ -63,6 +63,14 @@ class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
     authentication_form = CustomAuthenticationForm
 
+    def get_success_url(self):
+
+        if self.request.user.tipo == 'C':
+            return reverse_lazy('cliente_app:grupos')
+        elif self.request.user.tipo == 'E':
+            return reverse_lazy('estab_app:profile')
+        else:
+            return reverse_lazy('cliente_app:grupos')
 
 @login_required
 def register_address(request):
