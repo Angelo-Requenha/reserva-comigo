@@ -21,7 +21,7 @@
       <section class="sidebar-section">
         <div
           class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-          style="width: 280px"
+          style="width: 190px"
         >
           <div class="sidebar-logo">
             <div class="sidebar-logo-img">
@@ -50,10 +50,15 @@
             </form>
           </div>
           <ul class="nav nav-pills flex-column mb-auto sidebar-ul">
-            <li class="nav-item"><a href="#">Texto1</a></li>
-            <li class="nav-item"><a href="#">Texto2</a></li>
-            <li class="nav-item"><a href="#">Texto3</a></li>
-            <li class="nav-item"><a href="#"></a></li>
+            <li class="nav-item">
+              <a href="{% url 'reserva_app:sobre_nos' %}">Sobre nós</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'cliente_app:feed' %}">Feed</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'cliente_app:grupos' %}">grupos</a>
+            </li>
           </ul>
           <hr />
           {% if user.is_authenticated %}

@@ -153,8 +153,20 @@ header {
   justify-content: center;
 }
 
-.sidebar-search_input {
-    margin-bottom: 30px; /* Adiciona mais espaço entre a barra de pesquisa e o título */
+.sidebar-search_input form {
+  margin-bottom: 0;
+}
+
+.sidebar-search_input input {
+  width: 70%;
+  border: none;
+  outline: none;
+}
+
+.sidebar-search_input button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .content h1 {
@@ -307,16 +319,18 @@ header {
 }
 
 .feed_container {
-  border: solid 1px black;
-  width: 95%;
+  border: solid 3px orange; /* borda laranja de 3px */
+  border-radius: 5px; /* cantos arredondados */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* sombra */
+  background-color: red; /* cor de fundo vermelha */
+  width: 80%; /* largura reduzida */
   height: 200px;
   margin-bottom: 5px;
-  border-radius: 1%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  color: black
+  color: black;
+  position: relative; /* Adiciona posição relativa para posicionar a imagem absolutamente */
 }
 
 .feed_container:hover {
@@ -326,5 +340,16 @@ header {
 }
 
 .feed_div {
-  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  flex-grow: 1; /* Ocupa todo o espaço restante */
+}
+
+.feed_container img {
+  width: 100px; /* Define a largura da imagem */
+  height: 100px; /* Define a altura da imagem */
+  position: absolute; /* Posiciona a imagem absolutamente */
+  right: 10px; /* Coloca a imagem 10px da borda direita */
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%); /* Ajusta para centralizar verticalmente */
 }
