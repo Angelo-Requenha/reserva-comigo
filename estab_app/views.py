@@ -4,6 +4,7 @@ from users.models import CustomUser
 
 # Create your views here.
 
+<<<<<<< HEAD
 def pagina_estab(request, info_especifica):
     
     info = CustomUser.objects.filter(first_name=info_especifica)
@@ -13,3 +14,5 @@ def pagina_estab(request, info_especifica):
         }
     
     return render(request, 'pagina_estab.html', context)
+=======
+>>>>>>> dev
