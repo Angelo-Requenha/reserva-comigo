@@ -1,5 +1,5 @@
 from django.views.generic.edit import CreateView
-from .models import CustomUser, UserProfile
+from .models import CustomUser, UserProfile, FotosEstab
 from .forms import ClienteForm, EstabelecimentoForm, CustomAuthenticationForm, UserProfileForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate, login
@@ -19,7 +19,10 @@ class register_cliente(CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('users:login')
+            if self.request.user.tipo == 'C':
+                return redirect('cliente_app:grupos')
+            if self.request.user.tipo == 'E':
+                return redirect('estab_app:profile')
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -39,7 +42,10 @@ class register_estab(CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('users:login')
+            if self.request.user.tipo == 'C':
+                return redirect('cliente_app:grupos')
+            if self.request.user.tipo == 'E':
+                return redirect('estab_app:profile')
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -52,6 +58,7 @@ class register_estab(CreateView):
         user.save()
 
         UserProfile.objects.create(email=user)
+        FotosEstab.objects.create(email=user)
 
         return super().form_valid(form)
         
@@ -62,6 +69,14 @@ class register_estab(CreateView):
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
     authentication_form = CustomAuthenticationForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            if self.request.user.tipo == 'C':
+                return redirect('cliente_app:grupos')
+            if self.request.user.tipo == 'E':
+                return redirect('estab_app:profile')
+        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
 
@@ -74,7 +89,7 @@ class CustomLoginView(LoginView):
 
 @login_required
 def register_address(request):
-    user_profile = request.user.userprofile  # Obtém o UserProfile associado ao usuário
+    user_profile = request.user.userprofile  
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=user_profile)
@@ -82,15 +97,12 @@ def register_address(request):
         if form.is_valid():
             form.save()
 
-            # Atualiza o status de has_profile
             user_profile.has_profile = True
             user_profile.save()
 
             messages.success(request, 'Endereço registrado com sucesso!')
             return redirect('estab_app:profile')
         else:
-            # Imprima os erros para entender por que o formulário não é válido
-            print('Erros no formulário:', form.errors)
             messages.error(request, 'Por favor, corrija os erros no formulário.')
     else:
         form = UserProfileForm(instance=user_profile)
