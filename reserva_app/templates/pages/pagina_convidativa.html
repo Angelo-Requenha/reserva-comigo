@@ -17,13 +17,12 @@
   <body>
     <header>
         <div class="navbar1">
-            <a href="{% url 'users:register_cliente' %}">Register Usuário</a>
-            <a href="{% url 'users:login' %}">Login Usuário</a>
+            <a href="{% url 'users:register_cliente' %}">Registro de Usuário</a>
+            <a href="{% url 'users:register_estab' %}">Registro de Estabelecimento</a>
         </div>
         <img src="{% static 'images/logo_fundotransparente.png' %}" alt="" />
         <div class="navbar2">
-            <a href="">Register Estabelecimento</a>
-            <a href="">Login Estabelecimento</a>
+            <a href="{% url 'users:login' %}">Login</a>
         </div>
     </header>
 
