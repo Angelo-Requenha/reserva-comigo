@@ -8,11 +8,14 @@
   <!-- Adicione um input para a pesquisa de endereço -->
   <input id="autocomplete" placeholder="Digite seu endereço" onFocus="geolocate()" type="text"></input>
 
-  <form method="post" action="{% url 'estab_app:profile' %}">
+  <form method="post" action="{% url 'estab_app:profile' %}" enctype="multipart/form-data">
     {% csrf_token %}
 
-    <!-- Adicione campos ocultos para armazenar os resultados da API Places -->
-    {{ form.as_p }}
+    <!-- Campos do formulário de perfil -->
+    {{ profile_form.as_p }}
+    
+    <!-- Campos do formulário de fotos -->
+    {{ photos_form.as_p }}
 
 
     <button type="submit">Registrar Endereço</button>
