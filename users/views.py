@@ -5,7 +5,6 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect, render, reverse
-import googlemaps
 from django.conf import settings
 from django.views.generic import FormView
 from django.contrib.auth.decorators import login_required
