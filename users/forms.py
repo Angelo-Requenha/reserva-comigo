@@ -1,76 +1,89 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .models import CustomUser, UserProfile, FotosEstab
 from django.contrib.auth.models import User
-from .models import Estabelecimento, Cliente
-from django.contrib.auth.forms import UserCreationForm
-
-class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Senha', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirme sua senha', widget=forms.PasswordInput)
-    first_name = forms.CharField(label='Nome')
-    last_name = forms.CharField(label='Sobrenome')
-    email = forms.CharField(label='Email')
-    username = forms.CharField(label='Nome de usuário')
-
-    class Meta:
-        model = Cliente
-        fields = ('username', 'first_name', 'last_name', 'email', 'telefone')
-
-    def clean_password2(self):
-        cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
-            raise forms.ValidationError('As senhas não condizem')
-        return cd['password2']
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate
 
 
-
-class EstabRegistrationForm(UserCreationForm):
-    password1 = forms.CharField(label='Senha', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirme sua senha', widget=forms.PasswordInput)
-    first_name = forms.CharField(label='Nome do estabelecimento')
-    endereco = forms.CharField(label='Endereço do seu estabelecimento')
-    username = forms.CharField(label='Nome de usuário')
-
-    class Meta:
-        model = Estabelecimento
-        fields = ('username', 'first_name', 'endereco', 'email', 'telefone', 'password1', 'password2')
-
-    def clean_password2(self):
-        cd = self.cleaned_data
-        if cd['password1'] != cd['password2']:
-            raise forms.ValidationError('As senhas não condizem')
-        return cd['password2']
-    
-
-class CustomLoginForm(forms.Form):
-    email = forms.EmailField(label='Email', required=True)
-    password = forms.CharField(label='Senha', widget=forms.PasswordInput)
-
-class CustomLoginForm(forms.Form):
-    email = forms.EmailField(label='Email', required=True)
-    password = forms.CharField(label='Senha', widget=forms.PasswordInput)
-
+class ClienteForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
-        self.user_cache = None
-        super().__init__(*args, **kwargs)
+        super(ClienteForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].help_text = ''
+        self.fields['password2'].help_text = ''
+
+        self.fields['password1'].widget.attrs['title'] = 'Sua senha precisa conter pelo menos 8 caracteres. Sua senha não pode ser uma senha comumente utilizada. Sua senha não pode ser inteiramente numérica.'
+        self.fields['password2'].widget.attrs['title'] = 'Informe a mesma senha informada anteriormente, para verificação.'
+
+    class Meta:
+        model = CustomUser
+        fields = ['foto_perfil', 'email', 'first_name', 'last_name', 'telefone', 'password1', 'password2']
+        labels = {
+            'foto_perfil': 'Foto de Perfil',
+            'email': 'Email',
+            'first_name': 'Nome',
+            'last_name': 'Sobrenome',
+            'telefone': 'Telefone',
+            'password1': 'Senha',
+            'password2': 'Confirme a senha',
+        }
+        widgets = {
+            'tipo': forms.HiddenInput(attrs={'value': 'C'}),
+        }
+
+class EstabelecimentoForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super(EstabelecimentoForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].help_text = ''
+        self.fields['password2'].help_text = ''
+
+        self.fields['password1'].widget.attrs['title'] = 'Sua senha precisa conter pelo menos 8 caracteres. Sua senha não pode ser uma senha comumente utilizada. Sua senha não pode ser inteiramente numérica.'
+        self.fields['password2'].widget.attrs['title'] = 'Informe a mesma senha informada anteriormente, para verificação.'
+
+    class Meta:
+        model = CustomUser
+        fields = ['foto_perfil', 'email', 'first_name', 'telefone', 'password1', 'password2']
+        labels = {
+            'foto_perfil': 'Foto de Perfil',
+            'email': 'Email',
+            'first_name': 'Nome do estabelecimento',
+            'telefone': 'Telefone',
+            'password1': 'Senha',
+            'password2': 'Confirme a senha',
+        }
+        widgets = {
+            'tipo': forms.HiddenInput(attrs={'value': 'E'}),
+        }
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username_field = CustomUser._meta.get_field('email')
+
+
+class UserProfileForm(forms.ModelForm):
+
+	endereco = forms.CharField(max_length=100)
+	cep = forms.CharField(max_length=9)
+	pais = forms.CharField(max_length=40)
+	longitude = forms.CharField(max_length=50)
+	latitude = forms.CharField(max_length=50)
+
+
+	class Meta:
+		model = UserProfile
+		fields = ('endereco',  'cep',
+		 'pais', 'longitude', 'latitude')
+          
+
+class FotosEstabForm(forms.ModelForm):
+    class Meta:
+        model = FotosEstab
+        fields = ['foto1', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6']
 
     def clean(self):
-        email = self.cleaned_data.get('email')
-        password = self.cleaned_data.get('password')
+        cleaned_data = super().clean()
+        # Adicione qualquer validação adicional aqui, se necessário
 
-        if email and password:
-            # Tenta encontrar o usuário na tabela Cliente
-            cliente_user = Cliente.objects.filter(email=email).first()
-
-            # Tenta encontrar o usuário na tabela Estabelecimento
-            estabelecimento_user = Estabelecimento.objects.filter(email=email).first()
-
-            # Verifica se encontrou um usuário em alguma das tabelas e valida a senha
-            if cliente_user and cliente_user.check_password(password):
-                self.user_cache = cliente_user
-            elif estabelecimento_user and estabelecimento_user.check_password(password):
-                self.user_cache = estabelecimento_user
-            else:
-                raise forms.ValidationError('Por favor, insira um email e senha corretos.')
-
-        return self.cleaned_data
-
+        # Exemplo: Verifique se pelo menos uma foto foi fornecida
+        if not any(cleaned_data.get(foto) for foto in ['foto1', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6']):
+            raise forms.ValidationError('Pelo menos uma foto deve ser fornecida.')

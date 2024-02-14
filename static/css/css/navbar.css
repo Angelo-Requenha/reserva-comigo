@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
+
+/* Cabeçalho */
+header {
+    background-color: #1d8d8d93;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+    font-family: 'M PLUS 1p';
+    font-weight: bold; /* Aqui está a definição do negrito */
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+header .paginas, header .registro_login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+#menu ul, .paginas ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li, .paginas ul li {
+    margin-bottom: 20px; /* Adjust spacing between menu items */
+}
+
+/*.registro_login a {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; 
+}
+
+.registro_login img {
+    width: 24px; 
+    height: 24px;
+    border-radius: 50%;
+}*/
+
+header a {
+    color: #DB5609;
+    text-decoration: none;
+}
+
+/* Hover effect for links */
+header a:hover {
+    color: #A83E11;
+}
+
+/* Styling for active link */
+header a.active {
+    font-weight: bold;
+    color: #A83E11;
+}
+
+/* Position "Registro" links at the bottom */
+.registro_login {
+    margin-top: auto; /* Push the links to the bottom */
+}
+
+.registro_login a {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}

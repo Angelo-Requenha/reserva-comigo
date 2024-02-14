@@ -1,26 +1,27 @@
-{% extends "main/base.html" %}
+{% extends "main/base_cliente.html" %}
 {% load static %}
 
 {% block content %}
     <section class='botoes_grupo'>
-        <input type='button' value="Criar grupo"></input>
+        <input type='button' value="Criar grupo" class="btn btn-outline-success" id="botao_colorido"></input>
     </section>
 
-    <section class="principal">
-        <div class='grupos'>
-            <div>
-                <h2 class='grupo_nome'>Nome teste</h2>
-                <p>Evendo de teste</p>
-            </div>
-        </div>
-    </section>
+    <!-- Adicione o formulário de criação de grupo aqui -->
+    <form method="post">
+        {% csrf_token %}
+        {{ grupo_form.as_p }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
     
     <section class="principal">
-        <div class='grupos'>
-            <div>
-                <h2 class='grupo_nome'>Nome teste</h2>
-                <p>Evendo de teste</p>
+        <div>
+            <!-- Exibir os grupos criados dinamicamente -->
+            {% for grupo in grupos %}
+            <div class='grupos'>
+                <h2 class='grupo_nome'>{{ grupo.nome }}</h2>
+                <p>{{ grupo.criador }}</p>
             </div>
+            {% endfor %}
         </div>
     </section>
 

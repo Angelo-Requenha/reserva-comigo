@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap');
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    color: #DB5609;;
+    flex-direction: row;
+    text-align: center;
+}
+
+.caixa-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.caixa-login input{
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.caixa-login a {
+    color: #DB5609;
+}
+
+.principal {
+    flex: 1;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #DB5609;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+    width: 70%;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+#sobre-nos-section {
+    margin: auto;
+    background-color: rgba(80, 92, 102, 0.115);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px; /* Adicione o valor desejado para arredondar as bordas */
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    font-size: 40px;
+    margin: 10px auto 10px auto;
+    font-family: 'M PLUS 1p';
+    color: #DB5609; /* Adicione a cor desejada */
+    text-align: center; /* Centralizar o texto */
+    margin-bottom: 10px; /* Adicione margem inferior para espaçamento */
+}
+
+.texto {
+    color: #000;
+    font-family: Inter;
+    font-size: 25px;
+    font-family: 'M PLUS 1p';
+    font-weight: 400;
+    line-height: normal;
+}
+
+.subtitulo {
+    color: #000;
+    text-align: center;
+    font-family: 'M PLUS 1p';
+    font-size: 25px; /* Ajuste o tamanho do subtitulo conforme necessário */
+    font-style: normal;
+    font-weight: 300; /* Use um valor menor para tornar o subtitulo mais leve */
+    line-height: normal;
+    margin-bottom: 15px; /* Adicione margem inferior para espaçamento */
+}
+
+main {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #ffffff;
+    margin-left: 15%;
+}
+
+body .main h1 {
+    text-align: center;
+}
+
+/* Rodapé */
+footer {
+    background-color: black;
+    width: 100%;
+    height: 70px;
+    color: #DB5609;
+    text-align: center;
+    text-align: center; /* Alinhamento do texto ao centro */
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none; /* Remove os marcadores de lista */
+    padding: 0; /* Remove o espaçamento interno da lista */
+}
+
+li {
+    display: inline-block; /* Exibe os itens da lista em linha */
+    margin-right: 15px; /* Espaçamento à direita entre os itens */
+}
+
+a {
+    text-decoration: none; /* Remove a sublinhado padrão dos links */
+    color: #DB5609; /* Cor do texto dos links */
+    font-weight:lighter; /* Define a espessura da fonte como negrito */
+}
+
+a:hover {
+    color: #1d8d8d; /* Cor do texto dos links ao passar o mouse */
+}
+
+
+.logo {
+    text-align: center; /* Centraliza a logo */
+    margin-bottom: 10px; /* Adiciona um espaçamento menor abaixo da logo */
+}
+

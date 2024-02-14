@@ -1,0 +1,24 @@
+{% load static %} {% block usermenu %}
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img
+      src="{% static 'images/download (1).png' %}"
+      alt=""
+      width="52"
+      height="52"
+      class="rounded-circle me-2"
+    />
+    <strong>{{ request.user.first_name }} {{ request.user.last_name }}</strong>
+    {{ request.user.email }}
+    <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+      {% csrf_token %}
+      <button type="submit" class="botao_logout">Logout</button>
+    </form>
+  </div>
+</div>
+
+<script src="{% static 'js/usermenu.js' %}"></script>
+
+{% endblock %}
