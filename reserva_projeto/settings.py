@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     "reserva_app",
     "users",
     "cliente_app",
+    "estab_app",
 ]
 
 MIDDLEWARE = [
@@ -131,6 +131,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATIC_URL = "static/"
 
 # Default primary key field type
@@ -147,7 +150,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_REDIRECT_URL = 'cliente_app:grupos'
-LOGOUT_REDIRECT_URL = 'reserva_app:init_page'
+LOGOUT_REDIRECT_URL = 'reserva_app:pagina_convidativa'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
