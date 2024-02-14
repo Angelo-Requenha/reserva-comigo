@@ -82,8 +82,6 @@ class FotosEstabForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        # Adicione qualquer validação adicional aqui, se necessário
 
-        # Exemplo: Verifique se pelo menos uma foto foi fornecida
         if not any(cleaned_data.get(foto) for foto in ['foto1', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6']):
             raise forms.ValidationError('Pelo menos uma foto deve ser fornecida.')
