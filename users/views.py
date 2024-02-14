@@ -5,9 +5,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect, render
-from googlemaps import Client
-
-
+# from googlemaps import Client
 
 
 class register_cliente(CreateView):
