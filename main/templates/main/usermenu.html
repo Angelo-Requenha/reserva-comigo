@@ -12,9 +12,9 @@
     />
     <strong>{{ request.user.first_name }} {{ request.user.last_name }}</strong>
     {{ request.user.email }}
-    <a href="{% url 'users:logout' %}"
-      ><button class="botao_logout">Logout</button></a
-    >
+    <form action="{% url 'users:login' %}" method="post">
+      <a href="{% url 'users:logout' %}"><button class="botao_logout">Logout</button></a>
+    </form>
   </div>
 </div>
 
