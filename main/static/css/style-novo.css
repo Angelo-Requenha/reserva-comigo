@@ -123,6 +123,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto; /* permite a rolagem */
 }
 
 header {
@@ -278,4 +279,27 @@ header {
 
 .botao_logout {
   background-color: red;
+}
+
+.feed_container {
+  border: solid 1px black;
+  width: 95%;
+  height: 200px;
+  margin-bottom: 5px;
+  border-radius: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: black
+}
+
+.feed_container:hover {
+  background-color: #d1d1d1;
+  cursor: pointer;
+  scale: 101%;
+}
+
+.feed_div {
+  display: flex;
 }
