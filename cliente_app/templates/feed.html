@@ -1,7 +1,35 @@
-{% extends "main/base.html" %}
+{% extends "main/base_cliente.html" %}
 {% load static %} 
 {% block content %}
 
-  <p>testestesteteste</p>
+    {% for usuario in usuarios %}
+        <a href="{% url 'estab_app:pagina_estab' usuario.first_name %}" class="feed_container">
+            <div>
+            <!--LOGO-->
+            </div>
+            <div>
+              
+              <div class="feed_div"> 
+                  <h1>{{ usuario.first_name }}</h1>
+              </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+  
+                          <img   src="..." class="d-block w-100" alt="...">
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </a>
+  
+    {% endfor %}
 
 {% endblock %}
+    

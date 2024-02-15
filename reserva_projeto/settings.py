@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,6 +43,7 @@ INSTALLED_APPS = [
     "estabelecimento",
     "users",
     "cliente_app",
+    "estab_app",
 ]
 
 MIDDLEWARE = [
@@ -128,9 +128,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+GOOGLE_API_KEY = 'AIzaSyA7Ta6Dty0RKOYkQDjM3bToETR3d6Yi358'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = "static/"
 
@@ -147,10 +151,11 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-LOGIN_REDIRECT_URL = 'cliente_app:grupos'
-LOGOUT_REDIRECT_URL = 'reserva_app:init_page'
+LOGOUT_REDIRECT_URL = 'reserva_app:pagina_convidativa'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+BASE_COUNTRY = 'BR'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -159,3 +164,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'reservacomigo@gmail.com'
 EMAIL_HOST_PASSWORD = '@ReservaComigo21'
 EMAIL_USE_TLS = True
+
+
