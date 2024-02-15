@@ -31,6 +31,14 @@ class UserProfile(models.Model):
     longitude = models.CharField(verbose_name="Longitude",max_length=50, null=True, blank=True)
     latitude = models.CharField(verbose_name="Latitude",max_length=50, null=True, blank=True)
 
+    valor_aluguel = models.DecimalField(max_digits=10, decimal_places=2, default=0)  
+    capacidade_pessoas = models.PositiveIntegerField(default=0)  
+    TIPOS_HORARIO = [
+        ('hora', 'Por Hora'),
+        ('noite', 'Por Noite'),
+    ]
+    tipo_horario = models.CharField(max_length=5, choices=TIPOS_HORARIO, default='hora')
+
     has_profile = models.BooleanField(default = False)
 	
     is_active = models.BooleanField(default = True)
@@ -57,3 +65,4 @@ class FotosEstab(models.Model):
 
     def __str__(self):
         return f'{self.email}'
+    
