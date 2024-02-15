@@ -60,7 +60,6 @@ class register_estab(CreateView):
 
         UserProfile.objects.create(email=user)
         FotosEstab.objects.create(email=user)
-        PrecoEstab.objects.create(email=user)
 
         return super().form_valid(form)
         
