@@ -6,10 +6,13 @@ authors = ["Angelo Miguel Requenha"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 django = "^5.0"
 psycopg2 = "^2.9.9"
 pillow = "^10.2.0"
+googlemaps = "^4.10.0"
+requests = "^2.31.0"
+django-places = "^0.1"
 
 
 [build-system]
