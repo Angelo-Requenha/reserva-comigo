@@ -1,0 +1,93 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    color: #DB5609;;
+    flex-direction: row;
+    text-align: center;
+}
+
+.caixa-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.caixa-login input{
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.caixa-login a {
+    color: #DB5609;
+}
+
+.principal {
+    flex: 1;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #DB5609;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px -5px rgba(0,0,0,0.75);
+    width: 70%;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+#sobre-nos-section {
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.115);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px; /* Adicione o valor desejado para arredondar as bordas */
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    font-size: 2.5em;
+    margin: auto;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitulo {
+    font-size: 1.3em;
+    margin: auto;
+}
+
+main {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+body .main h1 {
+    text-align: center;
+}
+
+/* Rodapé */
+footer {
+    background-color: black;
+    width: 100%;
+    height: 70px;
+    color: #ffffff;
+    text-align: center;
+}
