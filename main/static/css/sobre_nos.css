@@ -1,0 +1,35 @@
+.psobre_nos {
+    max-width: 90%;
+    margin-left: auto;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+}
+
+.content, .image {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    
+}
+
+.image img {
+    max-width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.videosobrenos {
+    flex: 10;
+
+}
