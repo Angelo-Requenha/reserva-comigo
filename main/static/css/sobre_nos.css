@@ -16,6 +16,13 @@
     align-items: center;
 }
 
+.content {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    
+}
+
 .image img {
     max-width: 50%;
     text-align: center;
