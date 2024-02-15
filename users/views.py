@@ -60,6 +60,7 @@ class register_estab(CreateView):
 
         UserProfile.objects.create(email=user)
         FotosEstab.objects.create(email=user)
+        PrecoEstab.objects.create(email=user)
 
         return super().form_valid(form)
         
@@ -88,33 +89,12 @@ class CustomLoginView(LoginView):
         else:
             return reverse_lazy('cliente_app:grupos')
 
-# @login_required
-# def register_address(request):
-#     user_profile = request.user.userprofile  
-
-#     if request.method == 'POST':
-#         form = UserProfileForm(request.POST, instance=user_profile)
-
-#         if form.is_valid():
-#             form.save()
-
-#             user_profile.has_profile = True
-#             user_profile.save()
-
-#             messages.success(request, 'Endereço registrado com sucesso!')
-#             return redirect('estab_app:profile')
-#         else:
-#             messages.error(request, 'Por favor, corrija os erros no formulário.')
-#     else:
-#         form = UserProfileForm(instance=user_profile)
-
-#     return render(request, 'estab_app/profile.html', {'form': form})
-
 
 @login_required
 def register_profile(request):
     user_profile = request.user.userprofile
     user_fotos = get_object_or_404(FotosEstab, email=request.user)
+    
 
 
     if request.method == 'POST':
