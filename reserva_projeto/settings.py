@@ -44,21 +44,7 @@ INSTALLED_APPS = [
     "cliente_app",
     "estab_app",
     'schedule',
-    'djangobower',
 ]
-
-# Django-Schedule
-STATICFILES_FINDERS = [
-    'djangobower.finders.BowerFinder',
-]
-
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'estab_app')
-
-BOWER_INSTALLED_APPS = (
-    'jquery',
-    'jquery-ui',
-    'bootstrap'
-)
 
 
 MIDDLEWARE = [
@@ -84,6 +70,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
             ],
         },
     },
