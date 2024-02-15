@@ -56,6 +56,9 @@
             <li class="nav-item">
               <a href="{% url 'estab_app:profile' %}">Editar perfil</a>
             </li>
+            <li class="nav-item">
+              <a href="{% url 'estab_app:pagina_estab' user.first_name %}">Pagina publica</a>
+            </li>
           </ul>
           <hr />
           {% if user.is_authenticated %}

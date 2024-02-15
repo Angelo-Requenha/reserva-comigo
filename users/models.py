@@ -37,3 +37,23 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f'{self.email}'
+
+
+class FotosEstab(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    email = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+
+    foto1 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto2 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto3 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto4 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto5 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto6 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+
+    has_fotos = models.BooleanField(default = False)
+	
+    is_active = models.BooleanField(default = True)
+
+    def __str__(self):
+        return f'{self.email}'

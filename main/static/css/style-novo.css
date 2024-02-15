@@ -303,3 +303,47 @@ header {
 .feed_div {
   display: flex;
 }
+
+/* CALENDARIO */
+.disponivel {
+  background-color: green;
+}
+.indisponivel {
+  background-color: red;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Estilizando os dias da semana */
+.weekday {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilizando os dias do mês */
+.day {
+  cursor: pointer;
+}
+
+/* Estilizando os dias fora do mês */
+.noday {
+  color: #ccc;
+}
