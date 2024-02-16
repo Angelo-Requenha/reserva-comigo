@@ -142,7 +142,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_ROOT = '~/reserva-comigo/main/static/css/'
+STATIC_ROOT = '~/reserva-comigo/main/static/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 

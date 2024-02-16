@@ -20,13 +20,8 @@
     <main>
       <section class="sidebar-section">
         <div
-<<<<<<<<< Temporary merge branch 1
-          class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white"
-          style="width: 280px"
-=========
           class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
           style="width: 190px"
->>>>>>>>> Temporary merge branch 2
         >
           <div class="sidebar-logo">
             <div class="sidebar-logo-img">
@@ -55,12 +50,6 @@
             </form>
           </div>
           <ul class="nav nav-pills flex-column mb-auto sidebar-ul">
-<<<<<<<<< Temporary merge branch 1
-            <li class="nav-item"><a href="#">Feed</a></li>
-            <li class="nav-item"><a href="#">Grupos</a></li>
-            <li class="nav-item"><a href="#">Sobre nós</a></li>
-            <li class="nav-item"><a href="#"></a></li>
-=========
             <li class="nav-item">
               <a href="{% url 'reserva_app:sobre_nos' %}">Sobre nós</a>
             </li>
@@ -70,7 +59,6 @@
             <li class="nav-item">
               <a href="{% url 'cliente_app:grupos' %}">grupos</a>
             </li>
->>>>>>>>> Temporary merge branch 2
           </ul>
           <hr />
           {% if user.is_authenticated %}
@@ -119,5 +107,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="{% static 'js/autocomplete.js' %}"></script>
   </body>
 </html>
