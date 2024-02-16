@@ -4,11 +4,7 @@ from .forms import ClienteForm, EstabelecimentoForm, CustomAuthenticationForm, U
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
-<<<<<<< HEAD
-from django.shortcuts import redirect, render, reverse
-=======
 from django.shortcuts import redirect, render, reverse, get_object_or_404
->>>>>>> dev-angelo
 from django.conf import settings
 from django.views.generic import FormView
 from django.contrib.auth.decorators import login_required
