@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import CustomUser, UserProfile
+from .models import CustomUser, UserProfile, FotosEstab
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
@@ -73,3 +73,15 @@ class UserProfileForm(forms.ModelForm):
 		model = UserProfile
 		fields = ('endereco',  'cep',
 		 'pais', 'longitude', 'latitude')
+          
+
+class FotosEstabForm(forms.ModelForm):
+    class Meta:
+        model = FotosEstab
+        fields = ['foto1', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6']
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        if not any(cleaned_data.get(foto) for foto in ['foto1', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6']):
+            raise forms.ValidationError('Pelo menos uma foto deve ser fornecida.')
