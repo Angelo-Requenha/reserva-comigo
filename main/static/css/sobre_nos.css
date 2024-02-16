@@ -11,16 +11,20 @@
     gap: 20px;
 }
 
-.content, .image {
+.content1, .image {
     display: flex;
     align-items: center;
 }
 
-.content {
+.content1 {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .image img {
@@ -31,5 +35,6 @@
 
 .videosobrenos {
     flex: 10;
-
 }
+
+
