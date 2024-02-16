@@ -8,5 +8,5 @@ app_name = 'estab_app'
 
 urlpatterns = [
     path('profile', register_profile, name='profile'),
-    path('pagina_estab/<str:info_especifica>/', pagina_estab, name='pagina_estab'),
+    path('pagina_estab/<int:info_especifica>/', pagina_estab, name='pagina_estab'),
 ]

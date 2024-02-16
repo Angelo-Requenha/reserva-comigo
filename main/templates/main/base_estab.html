@@ -59,6 +59,9 @@
             <li class="nav-item">
               <a href="{% url 'cliente_app:grupos' %}">grupos</a>
             </li>
+            <li class="nav-item">
+              <a href="{% url 'estab_app:pagina_estab' request.user.id %}">Minha página</a>
+            </li>
           </ul>
           <hr />
           {% if user.is_authenticated %}
