@@ -3,8 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 20px; /* Adicionando margem ao redor de tudo */
-    background-color: #e9eeee;
+    margin: 0;
 }
 
 header {
