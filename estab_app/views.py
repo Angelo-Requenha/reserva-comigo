@@ -58,3 +58,14 @@ def salvar(request):
         
         DiaMarcado.objects.create(ano=year, mes=month, dia=day)
         return redirect(reverse('estab_app:pagina_estab', args=[request.user.first_name]))
+
+    
+    # context = {
+    #     'info': info,
+    #     'user': request.user
+    # }
+    
+    # template_name = "pagina_estab_cliente.html" if request.user.tipo == 'C' else "pagina_estab_estab.html"
+    # return render(request, template_name, context)
+
+
