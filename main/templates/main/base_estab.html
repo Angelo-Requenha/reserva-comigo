@@ -14,7 +14,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <title>Alterra - Tickets</title>
+    <title>Estabelecimento</title>
   </head>
   <body>
     <main>
@@ -55,6 +55,13 @@
             </li>
             <li class="nav-item">
               <a href="{% url 'estab_app:pagina_estab' request.user.id %}">Minha página</a>
+            </li>
+            <li class="nav-item">
+<<<<<<< HEAD
+              <a href="{% url 'estab_app:schedule' %}">Agenda</a>
+=======
+              <a href="{% url 'estab_app:pagina_estab' user.first_name %}">Pagina publica</a>
+>>>>>>> dev-angelo
             </li>
           </ul>
           <hr />

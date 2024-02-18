@@ -1,6 +1,64 @@
 {% extends "main/base_cliente.html" %}
 {% load static %} 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/feed.css' %}"/>
+<style>
+    .escudo-container {
+        position: relative;
+        width: 100%;
+        height: 550px;
+        overflow: hidden;
+    }
+
+    .escudo-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 275px; /* Altura do retângulo */
+        background-image: url("{% static 'images/amigos_bebendo.jpg' %}");
+        background-size: cover;
+        z-index: 2; /* Colocando o retângulo acima do losango */
+    }
+
+    .escudo-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("{% static 'images/amigos_bebendo.jpg' %}");
+        background-size: cover;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        z-index: 1; /* Colocando o losango abaixo do retângulo */
+    }
+
+    .escudo-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px; /* Tamanho do texto */
+        color: #fff; /* Cor do texto */
+        text-align: center;
+        z-index: 3; /* Colocando o texto acima de tudo */
+    }
+</style>
+
+<header>
+    <div class="sidebar-search_input" style="margin-left: auto; padding: 3px;">
+        <form class="d-flex sidebar-form" role="search">
+            <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search" style="margin: 0;">
+            <button id="botao_colorido" class="btn btn-outline-success search-button" type="submit" style="margin: 0;">Search</button>
+        </form>
+    </div>
+</header>
+
+<div class="escudo-container">
+    <div class="escudo-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, quod voluptatibus ex quaerat tempora eveniet corporis odio id officia unde blanditiis commodi dolores libero. Eos architecto nihil nulla a repellat.</div>
+</div>
 
     {% for usuario in usuarios %}
         <a href="{% url 'estab_app:pagina_estab' usuario.id %}" class="feed_container">

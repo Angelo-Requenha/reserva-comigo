@@ -1,0 +1,33 @@
+{% extends "main/base_estab.html" %}
+
+
+{% load static %} 
+{% block content %}
+
+    {% for info in info %}
+        <p>telefone: {{ info.telefone }}</p>
+        <p>tipo: {{ info.tipo }}</p>
+        <p>first_name: {{ info.first_name }}</p>
+        <p>email: {{ info.email }}</p>
+        <p>endereco: {{ info.endereco }}</p>
+    {% endfor %}
+
+    
+    <script>
+        // Obtém todos os elementos de célula de data no HTML
+        const celulasData = document.querySelectorAll('.data-celula');
+
+        // Adiciona um ouvinte de evento a cada célula de data
+        celulasData.forEach((celula) => {
+            celula.addEventListener('click', () => {
+                // Alterne a disponibilidade da data quando clicada
+                celula.classList.toggle('disponivel');
+            });
+        });
+    </script>
+    
+    <h1>Calendário</h1>
+    {{ calendario|safe }}
+    
+
+{% endblock %}

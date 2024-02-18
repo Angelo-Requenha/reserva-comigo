@@ -1,3 +1,7 @@
+# models.py
 from django.db import models
 
-# Create your models here.
+
+class DataDisponibilidade(models.Model):
+    data = models.DateField()
+    disponivel = models.BooleanField(default=True)

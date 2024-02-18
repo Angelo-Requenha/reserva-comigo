@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Adicionando espaço entre os elementos do cabeçalho */
+    align-items: center;
+    width: 100%; /* Ocupando toda a largura do container */
+    padding: 10px; /* Adicionando preenchimento interno ao cabeçalho */
+}
+
