@@ -31,9 +31,38 @@ class UserProfile(models.Model):
     longitude = models.CharField(verbose_name="Longitude",max_length=50, null=True, blank=True)
     latitude = models.CharField(verbose_name="Latitude",max_length=50, null=True, blank=True)
 
+    valor_aluguel = models.DecimalField(max_digits=10, decimal_places=2, default=0)  
+    capacidade_pessoas = models.PositiveIntegerField(default=0)  
+    TIPOS_HORARIO = [
+        ('hora', 'Por Hora'),
+        ('noite', 'Por Noite'),
+    ]
+    tipo_horario = models.CharField(max_length=5, choices=TIPOS_HORARIO, default='hora')
+
     has_profile = models.BooleanField(default = False)
 	
     is_active = models.BooleanField(default = True)
 
     def __str__(self):
         return f'{self.email}'
+
+
+class FotosEstab(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    email = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+
+    foto1 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto2 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto3 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto4 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto5 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+    foto6 = models.ImageField(upload_to='foto_estab', blank=True, null=True)
+
+    has_fotos = models.BooleanField(default = False)
+	
+    is_active = models.BooleanField(default = True)
+
+    def __str__(self):
+        return f'{self.email}'
+    

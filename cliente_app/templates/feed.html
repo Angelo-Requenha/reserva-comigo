@@ -2,6 +2,37 @@
 {% load static %} 
 {% block content %}
 
+    {% for usuario in usuarios %}
+        <a href="{% url 'estab_app:pagina_estab' usuario.id %}" class="feed_container">
+            <div>
+            <!--LOGO-->
+            </div>
+            <div>
+              
+              <div class="feed_div"> 
+                  <h1>{{ usuario.first_name }}</h1>
+              </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <img src="{{ usuario.fotoestab.foto1.url }}" class="d-block w-100" alt="Foto de Estabelecimento"
+                          width="30"
+                          height="52"
+                          class="rounded-circle me-2">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="..." class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
   
+                          <img   src="..." class="d-block w-100" alt="...">
+                      </div>
+                  </div>
+                </div>
+              </div>
+        </a>
+  
+    {% endfor %}
 
 {% endblock %}
+    
