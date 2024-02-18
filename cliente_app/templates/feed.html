@@ -7,6 +7,7 @@
         position: relative;
         width: 100%;
         height: 550px;
+        overflow: ;
     }
 
     .escudo-container::before {
@@ -33,6 +34,17 @@
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
         z-index: 1; /* Colocando o losango abaixo do retângulo */
     }
+
+    .escudo-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px; /* Tamanho do texto */
+        color: #fff; /* Cor do texto */
+        text-align: center;
+        z-index: 3; /* Colocando o texto acima de tudo */
+    }
 </style>
 
 <header>
@@ -44,7 +56,9 @@
     </div>
 </header>
 
-<div class="escudo-container"></div>
+<div class="escudo-container">
+    <div class="escudo-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, quod voluptatibus ex quaerat tempora eveniet corporis odio id officia unde blanditiis commodi dolores libero. Eos architecto nihil nulla a repellat.</div>
+</div>
 
     {% for usuario in usuarios %}
         <a href="{% url 'estab_app:pagina_estab' usuario.first_name %}" class="feed_container">
