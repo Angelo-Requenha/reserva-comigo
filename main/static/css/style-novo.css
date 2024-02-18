@@ -347,3 +347,7 @@ td {
 .noday {
   color: #ccc;
 }
+
+.destaque {
+  background-color: red;
+}

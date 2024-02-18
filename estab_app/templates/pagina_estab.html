@@ -13,21 +13,34 @@
     {% endfor %}
 
     
-    <script>
-        // Obtém todos os elementos de célula de data no HTML
-        const celulasData = document.querySelectorAll('.data-celula');
+    <h2>Calendário</h2>
+    <form action="{% url 'estab_app:pagina_estab' user.first_name %}" method="get">
+        <label for="year">Ano:</label>
+        <input type="text" id="year" name="year" value="{{ year }}">
+        <label for="month">Mês:</label>
+        <input type="text" id="month" name="month" value="{{ month }}">
+        <input type="submit" value="Atualizar">
+    </form>
+    <form action="{% url 'estab_app:salvar'%}" method="post">
+        {% csrf_token %}
+        <label for="day">Dia a ser marcado:</label>
+        <input type="text" id="day" name="day">
+        <input type="hidden" id="year" name="year" value="{{ year }}">
+        <input type="hidden" id="month" name="month" value="{{ month }}">
+        <input type="submit" value="Salvar Dia">
+    </form>
+    <hr>
+    {{ calendar_html|safe }}
 
-        // Adiciona um ouvinte de evento a cada célula de data
-        celulasData.forEach((celula) => {
-            celula.addEventListener('click', () => {
-                // Alterne a disponibilidade da data quando clicada
-                celula.classList.toggle('disponivel');
-            });
+    <script>
+        // Seleciona todos os spans dentro de td
+        var spans = document.querySelectorAll('td span');
+
+        // Itera sobre os spans encontrados
+        spans.forEach(function(span) {
+            // Acessa o pai do span (o td) e adiciona a classe nele
+            span.parentNode.classList.add('destaque');
         });
     </script>
-    
-    <h1>Calendário</h1>
-    {{ calendario|safe }}
-    
 
 {% endblock %}
