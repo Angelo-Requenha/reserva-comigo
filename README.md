@@ -22,17 +22,18 @@ Se você deseja testar o Reserva Comigo localmente, siga os passos abaixo:
 
 1. Clone o repositório
     ```bash
-    git clone https://github.com/seu-usuario/reserva-comigo.git
+    git clone git@github.com:Angelo-Requenha/reserva-comigo.git
     ```
 
 2. Instale as dependências
     ```bash
-    npm install
+    poetry install
     ```
 
 # USO
 Para iniciar o programa execute os seguintes comandos  
-. python manage.py migrate  
+. poetry shell
+. python manage.py migrate
 . python manage.py runserver
 
 # ESTADO DO PROJETO
