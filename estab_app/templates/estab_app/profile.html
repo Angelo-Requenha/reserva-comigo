@@ -25,13 +25,14 @@
   </form>
 
   <h2>Calendário</h2>
-  <form action="{% url 'estab_app:pagina_estab' user.first_name %}" method="get">
+  <form action="{% url 'estab_app:profile' %}" method="get">
       <label for="year">Ano:</label>
       <input type="text" id="year" name="year" value="{{ year }}">
       <label for="month">Mês:</label>
       <input type="text" id="month" name="month" value="{{ month }}">
       <input type="submit" value="Atualizar">
   </form>
+
   <form action="{% url 'estab_app:salvar'%}" method="post">
       {% csrf_token %}
       <label for="day">Dia a ser marcado:</label>
