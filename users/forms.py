@@ -62,17 +62,17 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 class UserProfileForm(forms.ModelForm):
 
-	endereco = forms.CharField(max_length=100)
-	cep = forms.CharField(max_length=9)
-	pais = forms.CharField(max_length=40)
-	longitude = forms.CharField(max_length=50)
-	latitude = forms.CharField(max_length=50)
+	endereco = forms.CharField(max_length=100, widget = forms.HiddenInput())
+	cep = forms.CharField(max_length=9, widget = forms.HiddenInput())
+	pais = forms.CharField(max_length=40, widget = forms.HiddenInput())
+	longitude = forms.CharField(max_length=50, widget = forms.HiddenInput())
+	latitude = forms.CharField(max_length=50, widget = forms.HiddenInput())
 
 
 	class Meta:
 		model = UserProfile
 		fields = ('endereco',  'cep',
-		 'pais', 'longitude', 'latitude')
+		 'pais', 'longitude', 'latitude', 'valor_aluguel', 'capacidade_pessoas', 'tipo_horario')
           
 
 class FotosEstabForm(forms.ModelForm):
@@ -82,8 +82,7 @@ class FotosEstabForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        # Adicione qualquer validação adicional aqui, se necessário
 
-        # Exemplo: Verifique se pelo menos uma foto foi fornecida
         if not any(cleaned_data.get(foto) for foto in ['foto1', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6']):
             raise forms.ValidationError('Pelo menos uma foto deve ser fornecida.')
+        

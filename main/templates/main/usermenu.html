@@ -3,6 +3,15 @@
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
+    {% if user.foto_perfil %}
+    <img
+      src="{{ user.foto_perfil.url }}"
+      alt="Foto de Perfil"
+      width="52"
+      height="52"
+      class="rounded-circle me-2"
+    />
+    {% else %}
     <img
       src="{% static 'images/download (1).png' %}"
       alt=""
@@ -10,11 +19,17 @@
       height="52"
       class="rounded-circle me-2"
     />
+    {% endif %}
     <strong>{{ request.user.first_name }} {{ request.user.last_name }}</strong>
     {{ request.user.email }}
+<<<<<<< HEAD
     <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
       {% csrf_token %}
       <button type="submit" class="botao_logout">Logout</button>
+=======
+    <form action="{% url 'users:login' %}" method="post">
+      <a href="{% url 'users:logout' %}"><button class="botao_logout">Logout</button></a>
+>>>>>>> dev-mendes
     </form>
   </div>
 </div>
