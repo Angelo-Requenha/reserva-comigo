@@ -2,16 +2,12 @@ from django.views.generic.edit import CreateView
 from .models import CustomUser, UserProfile, FotosEstab
 from .forms import ClienteForm, EstabelecimentoForm, CustomAuthenticationForm, UserProfileForm, FotosEstabForm
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect, render, reverse, get_object_or_404
-from django.conf import settings
-from django.views.generic import FormView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.views import View
-from django.utils.decorators import method_decorator
-
+from estab_app.models import DiaMarcado
+import calendar
 
 class register_cliente(CreateView):
     model = CustomUser
@@ -89,11 +85,25 @@ class CustomLoginView(LoginView):
             return reverse_lazy('cliente_app:grupos')
 
 
+def generate_calendar(year, month):
+    cal = calendar.HTMLCalendar().formatmonth(int(year), int(month))
+    highlighted_days = []
+    for day in range(1, calendar.monthrange(year, month)[1] + 1):
+        if DiaMarcado.objects.filter(ano=year, mes=month, dia=day).exists():
+            highlighted_days.append(str(day))
+    for day in highlighted_days:
+        highlighted_day = f'<span><strong>{day}</strong></span>'
+        cal = cal.replace(f'>{day}<', f'>{highlighted_day}<')
+    return cal
+
 @login_required
 def register_profile(request):
     user_profile = request.user.userprofile
     user_fotos = get_object_or_404(FotosEstab, email=request.user)
     
+    year = int(request.GET.get('year', 2024))
+    month = int(request.GET.get('month', 2))
+    calendar_html = generate_calendar(year, month)
 
 
     if request.method == 'POST':
@@ -117,5 +127,13 @@ def register_profile(request):
     else:
         profile_form = UserProfileForm(instance=user_profile)
         photos_form = FotosEstabForm(instance=user_fotos)
+        
+        context = {
+        'profile_form': profile_form,
+        'photos_form': photos_form,
+        'year': year,
+        'month': month,
+        'calendar_html': calendar_html,
+        }
 
-    return render(request, 'estab_app/profile.html', {'profile_form': profile_form, 'photos_form': photos_form})
+    return render(request, 'estab_app/profile.html', context)

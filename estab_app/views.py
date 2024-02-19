@@ -19,12 +19,11 @@ def generate_calendar(year, month):
     return cal
 
 def pagina_estab(request, info_especifica):
-    
     year = int(request.GET.get('year', 2024))
     month = int(request.GET.get('month', 2))
     calendar_html = generate_calendar(year, month)
 
-    info = CustomUser.objects.filter(first_name=info_especifica)
+    info = CustomUser.objects.filter(id=info_especifica)
     
     context = {
         'info': info,
@@ -35,8 +34,6 @@ def pagina_estab(request, info_especifica):
     
     return render(request, 'pagina_estab.html', context)
 
-
-
 def salvar(request):
     if request.method == 'POST':
         year = int(request.POST['year'])
@@ -44,28 +41,18 @@ def salvar(request):
         day = int(request.POST['day'])
         
         if DiaMarcado.objects.filter(ano=year, mes=month, dia=day).exists():
-            info = CustomUser.objects.filter(first_name=request.user.first_name)
             
             context = {
-                'info': info,
                 'year': year,
                 'month': month,
                 'calendar_html': generate_calendar(year, month),
                 'error_message': 'Este dia já está marcado no calendário!'
             }
             
-            return render(request, 'pagina_estab.html', context)
+            return render(request, 'profile.html', context)
         
         DiaMarcado.objects.create(ano=year, mes=month, dia=day)
-        return redirect(reverse('estab_app:pagina_estab', args=[request.user.first_name]))
+        return redirect(reverse('estab_app:profile'))
 
-    
-    # context = {
-    #     'info': info,
-    #     'user': request.user
-    # }
-    
-    # template_name = "pagina_estab_cliente.html" if request.user.tipo == 'C' else "pagina_estab_estab.html"
-    # return render(request, template_name, context)
 
 

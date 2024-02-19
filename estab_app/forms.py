@@ -7,7 +7,6 @@ class DiaForm(forms.Form):
 class MesForm(forms.Form):
     mes = forms.ChoiceField(label='Mês', choices=[
         (1, 'Janeiro'),
-        
         (2, 'Fevereiro'),
         (3, 'Março'),
         (4, 'Abril'),
