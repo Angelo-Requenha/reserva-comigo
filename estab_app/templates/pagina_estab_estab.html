@@ -10,36 +10,37 @@
         <p>Endereço: {{ info.userprofile.endereco }}</p>
         <p>Capacidade máxima de pessoas: {{ info.userprofile.capacidade_pessoas }}</p>
         <p>Valor do aluguel: R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</p>
-        <div>
-            <img src="{{ info.fotosestab.foto1.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% if info.fotosestab.foto2 %}
-            <img src="{{ info.fotosestab.foto2.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto3 %}
-            <img src="{{ info.fotosestab.foto3.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto4 %}
-            <img src="{{ info.fotosestab.foto4.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto5 %}
-            <img src="{{ info.fotosestab.foto5.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto6 %}
-            <img src="{{ info.fotosestab.foto6.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-        </div>
+        {% if info.fotosestab.foto1 %}
+        <img src="{{ info.fotosestab.foto1.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto2 %}
+        <img src="{{ info.fotosestab.foto2.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto3 %}
+        <img src="{{ info.fotosestab.foto3.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto4 %}
+        <img src="{{ info.fotosestab.foto4.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto5 %}
+        <img src="{{ info.fotosestab.foto5.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto6 %}
+        <img src="{{ info.fotosestab.foto6.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+    </div>
 
 
     {% endfor %}

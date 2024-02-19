@@ -11,9 +11,11 @@
         <p>Capacidade máxima de pessoas: {{ info.userprofile.capacidade_pessoas }}</p>
         <p>Valor do aluguel: R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</p>
         <div>
+            {% if info.fotosestab.foto1 %}
             <img src="{{ info.fotosestab.foto1.url }}" alt="Foto de Estabelecimento"
             width="100"
             height="150">
+            {% endif %}
             {% if info.fotosestab.foto2 %}
             <img src="{{ info.fotosestab.foto2.url }}" alt="Foto de Estabelecimento"
             width="100"
@@ -43,5 +45,7 @@
 
 
     {% endfor %}
+
+    <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
 
 {% endblock %}

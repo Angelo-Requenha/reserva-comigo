@@ -16,3 +16,6 @@ def pagina_estab(request, info_especifica):
     template_name = "pagina_estab_cliente.html" if request.user.tipo == 'C' else "pagina_estab_estab.html"
     return render(request, template_name, context)
 
+
+def criar_grupo(request):
+    return render(request, "criar_grupo.html")
