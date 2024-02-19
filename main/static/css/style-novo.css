@@ -125,10 +125,12 @@ main {
   overflow: auto; /* permite a rolagem */
 }
 
-header {
+.header1 {
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #ffa600;
+
 }
 
 .content h1 {
