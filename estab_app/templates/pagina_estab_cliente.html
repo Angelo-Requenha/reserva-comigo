@@ -43,9 +43,33 @@
             {% endif %}
         </div>
 
-
+        <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
     {% endfor %}
 
-    <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
+    <h2>Calendário</h2>
+    <form action="{% url 'estab_app:pagina_estab' user.id %}" method="get">
+        <label for="year">Ano:</label>
+        <input type="text" id="year" name="year" value="{{ year }}">
+        <label for="month">Mês:</label>
+        <input type="text" id="month" name="month" value="{{ month }}">
+        <input type="submit" value="Atualizar">
+    </form>
+
+    <hr>
+    {{ calendar_html|safe }}
+
+
+
+    <script>
+        // Seleciona todos os spans dentro de td
+        var spans = document.querySelectorAll('td span');
+
+        // Itera sobre os spans encontrados
+        spans.forEach(function(span) {
+            // Acessa o pai do span (o td) e adiciona a classe nele
+            span.parentNode.classList.add('destaque');
+        });
+    </script>
+
 
 {% endblock %}

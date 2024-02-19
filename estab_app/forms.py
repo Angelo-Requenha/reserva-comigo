@@ -1,10 +1,21 @@
 from django import forms
-from .models import Grupo
 
-class GrupoForm(forms.ModelForm):
-    class Meta:
-        model = Grupo
-        fields = ['nome', 'membros', 'estabelecimento', 'data_hora', 'duracao']
-        widgets = {
-            'data_hora': forms.DateTimeInput(attrs={'class': 'datetime-input'}),
-        }
+
+class MesForm(forms.Form):
+    mes = forms.ChoiceField(label='Mês', choices=[
+        (1, 'Janeiro'),
+        (2, 'Fevereiro'),
+        (3, 'Março'),
+        (4, 'Abril'),
+        (5, 'Maio'),
+        (6, 'Junho'),
+        (7, 'Julho'),
+        (8, 'Agosto'),
+        (9, 'Setembro'),
+        (10, 'Outubro'),
+        (11, 'Novembro'),
+        (12, 'Dezembro'),
+    ])
+
+class AnoForm(forms.Form):
+    ano = forms.IntegerField(label='Ano', min_value=2024, max_value=2050)

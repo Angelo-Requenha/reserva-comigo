@@ -3,17 +3,40 @@
 
 {% block content %}
 
-<div class="caixa_texto_borda_laranja">
-    <h2 class="titulo">Sobre Nós</h2> <br>
-    <p class="texto">Somos um grupo dedicado de estudantes provenientes do Entra21, unidos por uma paixão compartilhada pela web e design. 
-        Equipados com habilidades diversas e uma visão coletiva, estamos determinados a criar algo singular e valioso para a nossa comunidade. </br>
-    </br>Os integrantes deste projeto são Angelo Requenha, Daniele Karine, Isabela Caroline Reiter, Ivanir Stano e Victor Gomes Mendes. 
-        Juntos criaram um aplicativo web chamado "Reserva Comigo". </br>
-    </br>O "Reserva Comigo" nasceu a partir de diversas conversas em grupo, onde perceberam a necessidade de simplificar o processo de reserva 
-        de espaços para atividades diversas. e da percepção coletiva de que a praticidade e a eficiência são fundamentais em nosso cotidiano.
-        O aplicativo visa proporcionar uma experiência mais ágil e descomplicada na hora de garantir o local perfeito para seus momentos 
-        especiais. Seja reservando uma quadra para uma animada partida de futebol entre amigos ou agendando um local para celebrar um aniversário, nossa 
-        plataforma intuitiva torna todo o processo fluido e fácil.</p>
+<div class="container">
+    <div class="content1">
+        <h2>Prazer em conhecê-lo!</h2>
+        <p class="psobre_nos">Somos a equipe ReservaComigo! Formada por Angelo Miguel Requenha, Fabio Henrique Peixe, Isabela Caroline Reiter, Ivanir Stano, Victor Gomes Mendes e Victor Luís Zuchi. </p>
+    </div>
+    <div class="videosobrenos" id="videosobrenos">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/W6cCUkFXtRQ?si=yaUZztrcuY6blvg5&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    </div>
+
+    <div class="image">
+        <img src="{% static 'images/questao.png' %}" alt="Descrição da outra imagem">
+    </div>
+    <div class="content1">
+        <h2>O que é o ReservaComigo?</h2>
+        <p class="psobre_nos">A ideia veio a partir do pensamento de que existem varias reservas em grupo que são organziadas por uma pessoa só.</p>
+    </div>
+
+
+    <div class="content1">
+        <h2>Missão</h2>
+        <p class="psobre_nos">Revolucionar, agilizar e facilitar todas as reservas feitas em grupo.</p>
+    </div>
+    <div class="image">
+        <img src="{% static 'images/missao.png' %}" alt="Descrição da imagem">
+    </div>
+
+    <div class="image">
+        <img src="{% static 'images/urso-carinhoso.png' %}" alt="Descrição da imagem">
+    </div>
+    <div class="content1">
+        <h2>Nova Missão</h2>
+        <p class="psobre_nos">Texto sobre a nova missão aqui.</p>
+    </div>
 </div>
 
 {% endblock %}

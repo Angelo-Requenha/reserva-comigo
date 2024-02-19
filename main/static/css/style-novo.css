@@ -116,7 +116,6 @@ main {
 
 .content {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -239,13 +238,6 @@ header {
 }
 
 /* Paginas */
-.caixa_texto_borda_laranja {
-  border: solid 3px #db5609;
-  padding: 10px;
-  border-radius: 5px;
-  width: 90%;
-  margin: 0 auto;
-}
 
 .principal {
   display: flex;
@@ -291,7 +283,7 @@ header {
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 .feed_container:hover {
@@ -303,3 +295,67 @@ header {
 .feed_div {
   display: flex;
 }
+
+/* CALENDARIO */
+.disponivel {
+  background-color: green;
+}
+.indisponivel {
+  background-color: red;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+.calendario_posição {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.calendario {
+  width: auto;
+  background-color: #f2f2f2;
+}
+
+.calendarioForm {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border: solid 1px black;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Estilizando os dias da semana */
+.weekday {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilizando os dias do mês */
+.day {
+  cursor: pointer;
+}
+
+/* Estilizando os dias fora do mês */
+.noday {
+  color: #ccc;
+}
+
+.destaque {
+  background-color: red;
+}
+
