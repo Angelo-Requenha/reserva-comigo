@@ -14,7 +14,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <title>Alterra - Tickets</title>
+    <title>Cliente</title>
   </head>
   <body>
     <main>
@@ -31,23 +31,6 @@
                 alt="Logo"
               />
             </div>
-          </div>
-          <div class="sidebar-search_input">
-            <form class="d-flex sidebar-form" role="search">
-              <input
-                class="form-control search-input"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                id="botao_colorido"
-                class="btn btn-outline-success search-button"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
           </div>
           <ul class="nav nav-pills flex-column mb-auto sidebar-ul">
             <li class="nav-item">
@@ -98,7 +81,7 @@
         </div>
       </section>
       <section class="content">
-        {% block header %} {% include 'main/header.html' %} {% endblock %}
+        {% block header %} {% endblock %}
         {%block content %} {% endblock %}
       </section>
     </main>

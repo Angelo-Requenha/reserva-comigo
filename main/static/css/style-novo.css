@@ -345,11 +345,46 @@ header {
   flex-grow: 1; /* Ocupa todo o espaço restante */
 }
 
-.feed_container img {
-  width: 100px; /* Define a largura da imagem */
-  height: 100px; /* Define a altura da imagem */
-  position: absolute; /* Posiciona a imagem absolutamente */
-  right: 10px; /* Coloca a imagem 10px da borda direita */
-  top: 50%; /* Centraliza verticalmente */
-  transform: translateY(-50%); /* Ajusta para centralizar verticalmente */
+/* CALENDARIO */
+.disponivel {
+  background-color: green;
+}
+.indisponivel {
+  background-color: red;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+}
+
+/* Estilizando os dias da semana */
+.weekday {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilizando os dias do mês */
+.day {
+  cursor: pointer;
+}
+
+/* Estilizando os dias fora do mês */
+.noday {
+  color: #ccc;
 }
