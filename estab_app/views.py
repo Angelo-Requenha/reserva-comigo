@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from users.models import CustomUser 
 from .models import DiaMarcado
 import calendar
@@ -35,14 +36,14 @@ def pagina_estab(request, info_especifica):
     template_name = "pagina_estab_cliente.html" if request.user.tipo == 'C' else "pagina_estab_estab.html"
     return render(request, template_name, context)
 
+@login_required
 def salvar(request):
     if request.method == 'POST':
         year = int(request.POST['year'])
         month = int(request.POST['month'])
         day = int(request.POST['day'])
         
-        if DiaMarcado.objects.filter(ano=year, mes=month, dia=day).exists():
-            
+        if DiaMarcado.objects.filter(ano=year, mes=month, dia=day, email_usuario=request.user.email).exists():
             context = {
                 'year': year,
                 'month': month,
@@ -52,8 +53,6 @@ def salvar(request):
             
             return render(request, 'profile.html', context)
         
-        DiaMarcado.objects.create(ano=year, mes=month, dia=day)
+        DiaMarcado.objects.create(ano=year, mes=month, dia=day, email_usuario=request.user.email)
         return redirect(reverse('estab_app:profile'))
-
-
 

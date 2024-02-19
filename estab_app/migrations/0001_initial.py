@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('ano', models.IntegerField()),
                 ('mes', models.IntegerField()),
                 ('dia', models.IntegerField()),
+                ('email_usuario', models.EmailField(max_length=254)),
             ],
         ),
     ]
