@@ -7,10 +7,8 @@ def schedule (request):
     return render(request, 'estab_app/schedule.html')
 
 def pagina_estab(request, info_especifica):
-<<<<<<< HEAD
     info = CustomUser.objects.filter(id=info_especifica)
     print(info)
-=======
     datas = DataDisponibilidade.objects.all()
     
     cal = calendar.HTMLCalendar(calendar.SUNDAY)
@@ -24,7 +22,6 @@ def pagina_estab(request, info_especifica):
         'info': info,
         'calendario': html_calendar,
         }
->>>>>>> dev-mendes
     
     context = {
         'info': info,
