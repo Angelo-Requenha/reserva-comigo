@@ -32,23 +32,6 @@
               />
             </div>
           </div>
-          <div class="sidebar-search_input">
-            <form class="d-flex sidebar-form" role="search">
-              <input
-                class="form-control search-input"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                id="botao_colorido"
-                class="btn btn-outline-success search-button"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
-          </div>
           <ul class="nav nav-pills flex-column mb-auto sidebar-ul">
             <li class="nav-item">
               <a href="{% url 'reserva_app:sobre_nos' %}">Sobre nós</a>
@@ -98,7 +81,7 @@
         </div>
       </section>
       <section class="content">
-        {% block header %} {% include 'main/header.html' %} {% endblock %}
+        {% block header %} {% endblock %}
         {%block content %} {% endblock %}
       </section>
     </main>
