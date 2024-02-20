@@ -2,11 +2,7 @@
 name = "reserva-comigo"
 version = "0.1.0"
 description = ""
-<<<<<<< HEAD
-authors = ["None"]
-=======
 authors = ["Victor Luís Zuchi <zuchii.victor@gmail.com>"]
->>>>>>> 0bd8c6e2aeb4341e073a5f454a98c3a5d9723aeb
 readme = "README.md"
 
 [tool.poetry.dependencies]

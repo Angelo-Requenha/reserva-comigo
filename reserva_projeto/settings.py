@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "main",
     "reserva_app",
-    "cliente",
     "estabelecimento",
     "users",
     "cliente_app",
