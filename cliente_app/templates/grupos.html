@@ -2,31 +2,18 @@
 {% load static %}
 
 {% block content %}
-    <section class='botoes_grupo'>
-        <input type='button' value="Criar grupo" class="btn btn-outline-success" id="botao_colorido"></input>
-    </section>
-
-    <!-- Adicione o formulário de criação de grupo aqui -->
-    <form method="post">
-        {% csrf_token %}
-        {{ grupo_form.as_p }}
-        <button type="submit" class="btn btn-primary">Salvar</button>
-    </form>
-
+    
     <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
         {% csrf_token %}
         <button type="submit" class="botao_logout">Logout</button>
-      </form>
+    </form>
     
-    {% for grupo in grupos %}
-    <section class="principal">
-        <div>
-            <div class='grupos'>
-                <h2 class='grupo_nome'>{{ grupo.nome }}</h2>
-                <p>{{ grupo.criador }}</p>
-            </div>
+    {% for grupo in grupos_lista %}
+    <a href="{% url 'cliente_app:grupo_infos' grupo.id %}" class="feed_container">
+        <div class="feed_div"> 
+            <h1>{{ grupo.nome }}</h1>
         </div>
-    </section>
+    </a>
     {% endfor %}
 
 {% endblock %}
