@@ -1,4 +1,5 @@
 from django.db import models
+from cliente_app.models import Grupo
 
 # Create your models here.
 
@@ -8,6 +9,7 @@ class DiaMarcado(models.Model):
     mes = models.IntegerField()
     dia = models.IntegerField()
     email_usuario = models.EmailField()
+    grupo_id = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"{self.dia}/{self.mes}/{self.ano}"
