@@ -17,7 +17,7 @@ class GrupoForm(forms.ModelForm):
 
     class Meta:
         model = Grupo
-        fields = ['nome', 'membros']
+        fields = ['nome', 'membros', 'ano', 'mes', 'dia', 'duracao']
         widgets = {
             'data_hora': forms.DateTimeInput(attrs={'class': 'datetime-input'}),
         }
