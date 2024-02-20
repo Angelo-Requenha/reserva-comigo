@@ -30,9 +30,11 @@ def pagina_estab(request, info_especifica):
         'year': year,
         'month': month,
         'calendar_html': calendar_html,
+        'user': request.user
         }
     
-    return render(request, 'pagina_estab.html', context)
+    template_name = "pagina_estab_cliente.html" if request.user.tipo == 'C' else "pagina_estab_estab.html"
+    return render(request, template_name, context)
 
 @login_required
 def salvar(request):

@@ -24,6 +24,11 @@
     <button type="submit">Registrar Endereço</button>
   </form>
 
+  <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="botao_logout">Logout</button>
+  </form>
+
   <h2>Calendário</h2>
   <form action="{% url 'estab_app:profile' %}" method="get">
       <label for="year">Ano:</label>

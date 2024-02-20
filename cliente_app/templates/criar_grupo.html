@@ -1,0 +1,26 @@
+{% extends 'main/base_cliente.html' %}
+
+{% load static %} 
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Grupos</title>
+</head>
+<body>
+
+<h2>Cadastro de Grupo</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+    <input type="submit" value="Cadastrar Grupo">
+</form>
+
+</body>
+</html>
+
+
+{% endblock %}

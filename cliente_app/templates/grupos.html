@@ -12,6 +12,11 @@
         {{ grupo_form.as_p }}
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
+
+    <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="botao_logout">Logout</button>
+      </form>
     
     {% for grupo in grupos %}
     <section class="principal">

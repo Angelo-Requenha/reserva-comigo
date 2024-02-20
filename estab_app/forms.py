@@ -1,8 +1,5 @@
-# calendario_app/forms.py
 from django import forms
 
-class DiaForm(forms.Form):
-    dia = forms.IntegerField(label='Dia', min_value=1, max_value=31)
 
 class MesForm(forms.Form):
     mes = forms.ChoiceField(label='Mês', choices=[
