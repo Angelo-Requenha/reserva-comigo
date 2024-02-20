@@ -27,7 +27,7 @@ def criar_grupo(request, info_especifica):
             grupo = form.save(commit=False)
             grupo.estabelecimento = info_estabelecimento
             grupo.save()
-        return redirect('grupos.html')
+        return redirect('/cliente/grupos/')
 
     else:
         form = GrupoForm()

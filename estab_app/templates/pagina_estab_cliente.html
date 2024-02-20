@@ -3,48 +3,46 @@
 {% load static %} 
 {% block content %}
 
-    {% for info in info %}
-        <p>Telefone para contato: {{ info.telefone }}</p>
-        <p>Nome do Estabelecimento: {{ info.first_name }}</p>
-        <p>Email: {{ info.email }}</p>
-        <p>Endereço: {{ info.userprofile.endereco }}</p>
-        <p>Capacidade máxima de pessoas: {{ info.userprofile.capacidade_pessoas }}</p>
-        <p>Valor do aluguel: R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</p>
-        <div>
-            {% if info.fotosestab.foto1 %}
-            <img src="{{ info.fotosestab.foto1.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto2 %}
-            <img src="{{ info.fotosestab.foto2.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto3 %}
-            <img src="{{ info.fotosestab.foto3.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto4 %}
-            <img src="{{ info.fotosestab.foto4.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto5 %}
-            <img src="{{ info.fotosestab.foto5.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto6 %}
-            <img src="{{ info.fotosestab.foto6.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-        </div>
+    <p>Telefone para contato: {{ info.telefone }}</p>
+    <p>Nome do Estabelecimento: {{ info.first_name }}</p>
+    <p>Email: {{ info.email }}</p>
+    <p>Endereço: {{ info.userprofile.endereco }}</p>
+    <p>Capacidade máxima de pessoas: {{ info.userprofile.capacidade_pessoas }}</p>
+    <p>Valor do aluguel: R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</p>
+    <div>
+        {% if info.fotosestab.foto1 %}
+        <img src="{{ info.fotosestab.foto1.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto2 %}
+        <img src="{{ info.fotosestab.foto2.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto3 %}
+        <img src="{{ info.fotosestab.foto3.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto4 %}
+        <img src="{{ info.fotosestab.foto4.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto5 %}
+        <img src="{{ info.fotosestab.foto5.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+        {% if info.fotosestab.foto6 %}
+        <img src="{{ info.fotosestab.foto6.url }}" alt="Foto de Estabelecimento"
+        width="100"
+        height="150">
+        {% endif %}
+    </div>
 
-        <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
-    {% endfor %}
+    <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
 
     <h2>Calendário</h2>
     <form action="{% url 'estab_app:pagina_estab' user.id %}" method="get">
@@ -58,8 +56,6 @@
     <hr>
     {{ calendar_html|safe }}
 
-
-
     <script>
         // Seleciona todos os spans dentro de td
         var spans = document.querySelectorAll('td span');
@@ -70,6 +66,5 @@
             span.parentNode.classList.add('destaque');
         });
     </script>
-
 
 {% endblock %}

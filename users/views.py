@@ -85,15 +85,21 @@ class CustomLoginView(LoginView):
             return reverse_lazy('cliente_app:grupos')
 
 
-def generate_calendar(year, month):
+def generate_calendar(year, month, email):
     cal = calendar.HTMLCalendar().formatmonth(int(year), int(month))
     highlighted_days = []
-    for day in range(1, calendar.monthrange(year, month)[1] + 1):
-        if DiaMarcado.objects.filter(ano=year, mes=month, dia=day).exists():
-            highlighted_days.append(str(day))
+    
+    # Filtrando os dias marcados para o usuário com o email fornecido
+    marked_days = DiaMarcado.objects.filter(ano=year, mes=month, email_usuario=email)
+    
+    # Adicionando os dias marcados à lista de dias destacados
+    for marked_day in marked_days:
+        highlighted_days.append(marked_day.dia)
+    
     for day in highlighted_days:
         highlighted_day = f'<span><strong>{day}</strong></span>'
         cal = cal.replace(f'>{day}<', f'>{highlighted_day}<')
+        
     return cal
 
 @login_required
@@ -101,9 +107,11 @@ def register_profile(request):
     user_profile = request.user.userprofile
     user_fotos = get_object_or_404(FotosEstab, email=request.user)
     
+    user_email = request.user.email
+    
     year = int(request.GET.get('year', 2024))
     month = int(request.GET.get('month', 2))
-    calendar_html = generate_calendar(year, month)
+    calendar_html = generate_calendar(year, month, user_email)
 
 
     if request.method == 'POST':
