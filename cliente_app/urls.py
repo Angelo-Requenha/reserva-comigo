@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import grupos, feed
+from .views import *
 
 app_name = 'cliente_app'
 
