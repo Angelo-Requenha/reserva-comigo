@@ -98,7 +98,8 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 6%;
+  width: 15%; /* Defina o tamanho desejado para as imagens */
+  margin-bottom: 10px; /* Adicione algum espaço entre as imagens */
 }
 
 h1,
@@ -112,7 +113,7 @@ p {
 h1 {
   color: white;
   text-align: center;
-  font-family: "M PLUS 1p";
+  font-family: "Paytone One";
   font-style: normal;
   font-weight: 200;
   line-height: normal;
@@ -123,24 +124,31 @@ h1 {
   margin: auto;
   width: 70%;
   padding: 10px;
+  font-family: "M PLUS 1p";
+  font-weight: 100;
 }
 
 .texto_usuario h4,
 .texto_espaco h4 {
   color: #db5609;
-  font-size: 2.5rem;
+  font-size: 2rem; /* Tamanho menor para os títulos */
+  margin-bottom: 0; /* Remova o espaço abaixo do título */
 }
 
 .texto_usuario img,
 .texto_espaco img {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px; /* Adicione algum espaço entre as imagens */
-  transition: transform 0.3s ease-in-out;
+  float: right; /* Posicione a imagem à direita do texto */
+  margin-left: 20px; /* Adicione algum espaço entre a imagem e o texto */
 }
 
 .texto_usuario,
 .texto_espaco {
   background-color: #eeeeee;
+}
+
+.texto_usuario p,
+.texto_espaco p {
+  margin-bottom: 20px; /* Adicione algum espaço abaixo do parágrafo */
 }
 
 h4 {
@@ -241,8 +249,22 @@ footer {
 .animacao {
   opacity: 0;
   transition: opacity 1.3s ease-in-out;
+  font-family: "M PLUS 1p";
+  font-weight: 100;
+  font-weight: bold;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.animacao p {
+  text-align: left; /* Alinha o texto à esquerda */
 }
 
 .animacao-ativa {
   opacity: 1;
+}
+
+.animacao img {
+  display: block; /* Torna a imagem um bloco para que ela fique abaixo do texto */
+  margin: 20px auto 0; /* Adiciona margem acima da imagem e centraliza horizontalmente */
+  width: 200px; /* Define a largura da imagem */
 }
