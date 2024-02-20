@@ -42,11 +42,6 @@
         {% endif %}
     </div>
 
-    <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
-        {% csrf_token %}
-        <button type="submit" class="botao_logout">Logout</button>
-      </form>
-
     <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
 
     <h2>Calendário</h2>
