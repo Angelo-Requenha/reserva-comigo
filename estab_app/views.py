@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from users.models import CustomUser 
 from .models import DiaMarcado
-from .forms import DiaForm, MesForm, AnoForm
 import calendar
 from django.urls import reverse
 
@@ -54,4 +53,3 @@ def salvar(request):
         
         DiaMarcado.objects.create(ano=year, mes=month, dia=day, email_usuario=request.user.email)
         return redirect(reverse('estab_app:profile'))
-
