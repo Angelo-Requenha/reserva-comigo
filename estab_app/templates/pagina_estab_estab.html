@@ -3,13 +3,14 @@
 {% load static %} 
 {% block content %}
 
-    {% for info in info %}
-        <p>Telefone para contato: {{ info.telefone }}</p>
-        <p>Nome do Estabelecimento: {{ info.first_name }}</p>
-        <p>Email: {{ info.email }}</p>
-        <p>Endereço: {{ info.userprofile.endereco }}</p>
-        <p>Capacidade máxima de pessoas: {{ info.userprofile.capacidade_pessoas }}</p>
-        <p>Valor do aluguel: R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</p>
+
+    <p>Telefone para contato: {{ info.telefone }}</p>
+    <p>Nome do Estabelecimento: {{ info.first_name }}</p>
+    <p>Email: {{ info.email }}</p>
+    <p>Endereço: {{ info.userprofile.endereco }}</p>
+    <p>Capacidade máxima de pessoas: {{ info.userprofile.capacidade_pessoas }}</p>
+    <p>Valor do aluguel: R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</p>
+    <div>
         {% if info.fotosestab.foto1 %}
         <img src="{{ info.fotosestab.foto1.url }}" alt="Foto de Estabelecimento"
         width="100"
@@ -43,7 +44,6 @@
     </div>
 
 
-    {% endfor %}
 
     <h2>Calendário</h2>
     <form action="{% url 'estab_app:pagina_estab' user.id %}" method="get">
