@@ -75,4 +75,3 @@ def salvar(request):
         
         DiaMarcado.objects.create(ano=year, mes=month, dia=day, email_usuario=user_email)
         return redirect(reverse('estab_app:profile'))
-
