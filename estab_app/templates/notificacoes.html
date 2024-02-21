@@ -1,0 +1,13 @@
+{% extends 'main/base_estab.html' %}
+
+{% load static %} 
+{% block content %}
+
+{% for notificacao in notificacoes %}
+    <p>{{ notificacao.mensagem }}</p>
+    <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'aceitar' %}">Aceitar</a>
+    <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'recusar' %}">Recusar</a>
+{% endfor %}
+
+
+{% endblock %}

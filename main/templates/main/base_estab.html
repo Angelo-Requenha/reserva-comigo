@@ -57,6 +57,9 @@
             <li class="nav-item">
               <a href="{% url 'estab_app:pagina_estab' request.user.id %}">Minha página</a>
             </li>
+            <li class="nav-item">
+              <a href="{% url 'estab_app:notificacoes' %}">Notificações</a>
+            </li>
           </ul>
           <hr />
           {% if user.is_authenticated %}

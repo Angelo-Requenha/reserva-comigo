@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from users.models import CustomUser 
 from .models import DiaMarcado
+from cliente_app.models import Notificacao, Grupo
 import calendar
 from django.urls import reverse
 
@@ -75,3 +76,43 @@ def salvar(request):
         
         DiaMarcado.objects.create(ano=year, mes=month, dia=day, email_usuario=user_email)
         return redirect(reverse('estab_app:profile'))
+
+
+
+def pedido_reserva(request, notificacao_id, acao):
+    notificacao = get_object_or_404(Notificacao, id=notificacao_id)
+
+    # Verifique se o usuário logado é o estabelecimento associado à notificação
+    if request.user != notificacao.estabelecimento:
+        return redirect('pagina_estab')  # Redirecione para uma página de erro ou faça algo apropriado
+
+    # Verifique se a notificação está pendente
+    if notificacao.status == 'pendente':
+        grupo = notificacao.grupo
+
+        if acao == 'aceitar':
+            # Atualize o status do grupo para 'confirmado'
+            grupo.status = 'confirmado'
+            grupo.save()
+
+            # Atualize o status da notificação para 'confirmado'
+            notificacao.status = 'confirmado'
+            notificacao.save()
+
+        elif acao == 'recusar':
+            # Exclua o grupo, pois o estabelecimento recusou
+            grupo.delete()
+
+            # Atualize o status da notificação para 'recusado'
+            notificacao.status = 'recusado'
+            notificacao.save()
+
+    return redirect('notificacoes')
+
+@login_required
+def pagina_de_notificacoes(request):
+    estabelecimento = get_object_or_404(CustomUser, id = request.user.id)
+    notificacoes = Notificacao.objects.filter(estabelecimento=estabelecimento)
+
+
+    return render(request, 'notificacoes.html', {'notificacoes': notificacoes})

@@ -1,5 +1,5 @@
 from django.db import models
-from cliente_app.models import Grupo
+
 
 # Create your models here.
 

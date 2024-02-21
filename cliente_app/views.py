@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from users.models import CustomUser 
-from .models import Grupo
+from users.models import CustomUser
+from .models import Grupo, Notificacao
 from .forms import GrupoForm
 
 
@@ -36,6 +36,13 @@ def criar_grupo(request, info_especifica):
             grupo = form.save(commit=False)            
             grupo.estabelecimento = info_estabelecimento
             grupo.save()
+                    
+            Notificacao.objects.create(
+                grupo=grupo,
+                estabelecimento=info_estabelecimento,
+                mensagem='Pedido de reserva pendente',
+            )
+            
             membros = form.cleaned_data['membros']
             grupo.membros.set(membros)
             grupo.save()  # Salve novamente para garantir que as associações sejam salvas
@@ -45,3 +52,5 @@ def criar_grupo(request, info_especifica):
         form = GrupoForm()
 
     return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
+
+
