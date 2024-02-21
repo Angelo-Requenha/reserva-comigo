@@ -9,8 +9,17 @@ from .forms import GrupoForm
 
 @login_required
 def grupos(request):
+    todos_os_grupos = Grupo.objects.all()
+    grupos_do_usuario = []
+
+    # Verifica se o usuário está entre os membros de cada grupo
+    for grupo in todos_os_grupos:
+        if grupo.membros.filter(id=request.user.id).exists():
+            grupos_do_usuario.append(grupo)
+            print(grupos_do_usuario)
+    
     grupos_lista = Grupo.objects.all()
-    context = {'grupos_lista': grupos_lista}
+    context = {'grupos_lista': grupos_do_usuario}
     return render(request, 'grupos.html', context)
 
 def grupo_infos(request, info_especifica):
@@ -33,12 +42,15 @@ def criar_grupo(request, info_especifica):
     if request.method == 'POST':
         form = GrupoForm(request.POST)
         if form.is_valid():
-            grupo = form.save(commit=False)
+            grupo = form.save(commit=False)            
             grupo.estabelecimento = info_estabelecimento
             grupo.save()
+            membros = form.cleaned_data['membros']
+            grupo.membros.set(membros)
+            grupo.save()  # Salve novamente para garantir que as associações sejam salvas
         return redirect('/cliente/grupos/')
 
     else:
         form = GrupoForm()
 
-    return render(request, 'criar_grupo.html', {'form': form})
+    return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
