@@ -103,16 +103,12 @@ def pedido_reserva(request, notificacao_id, acao):
             # Exclua o grupo, pois o estabelecimento recusou
             grupo.delete()
 
-            # Atualize o status da notificação para 'recusado'
-            notificacao.status = 'recusado'
-            notificacao.save()
-
-    return redirect('notificacoes')
+    return redirect('/estab/notificacoes')
 
 @login_required
 def pagina_de_notificacoes(request):
     estabelecimento = get_object_or_404(CustomUser, id = request.user.id)
     notificacoes = Notificacao.objects.filter(estabelecimento=estabelecimento)
-
+    
 
     return render(request, 'notificacoes.html', {'notificacoes': notificacoes})

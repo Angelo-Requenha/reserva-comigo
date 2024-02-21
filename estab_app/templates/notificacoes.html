@@ -4,9 +4,13 @@
 {% block content %}
 
 {% for notificacao in notificacoes %}
-    <p>{{ notificacao.mensagem }}</p>
+{% if notificacao.status == 'pendente' %}
+    <p>{{ notificacao.mensagem }} de {{ notificacao.grupo.nome }}</p>
+    <p>Data solicitada: {{ notificacao.grupo.dia }}/{{ notificacao.grupo.mes }}/{{ notificacao.grupo.ano }}</p>
     <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'aceitar' %}">Aceitar</a>
     <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'recusar' %}">Recusar</a>
+{% endif %}
+    <p></p>
 {% endfor %}
 
 
