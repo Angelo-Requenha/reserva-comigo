@@ -72,7 +72,7 @@ def salvar(request):
                 'error_message': 'Este dia já está marcado no calendário!'
             }
             
-            return render(request, 'profile.html', context)
+            return render(request, 'estab_app/profile.html', context)
         
         DiaMarcado.objects.create(ano=year, mes=month, dia=day, email_usuario=user_email)
         return redirect(reverse('estab_app:profile'))
@@ -98,6 +98,17 @@ def pedido_reserva(request, notificacao_id, acao):
             # Atualize o status da notificação para 'confirmado'
             notificacao.status = 'confirmado'
             notificacao.save()
+
+            year = grupo.ano
+            month = grupo.mes
+            day = grupo.dia
+            email = request.user.email
+
+            if DiaMarcado.objects.filter(ano=year, mes=month, dia=day, email_usuario=email).exists():
+                mensagem = 'Você já tem uma reserva cadastrada para esta data!'
+                return render (request, 'notificacoes.html', {'mensagem':mensagem})
+            else:
+                DiaMarcado.objects.create(ano=year, mes=month, dia=day, email_usuario=email)
 
         elif acao == 'recusar':
             # Exclua o grupo, pois o estabelecimento recusou

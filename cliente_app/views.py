@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from users.models import CustomUser
 from .models import Grupo, Notificacao
+from estab_app.models import DiaMarcado
 from .forms import GrupoForm
+
+
 
 
 # Create your views here.
@@ -42,20 +45,31 @@ def criar_grupo(request, info_especifica):
     if request.method == 'POST':
         form = GrupoForm(request.POST)
         if form.is_valid():
-            grupo = form.save(commit=False)            
-            grupo.estabelecimento = info_estabelecimento
-            grupo.save()
-                    
-            Notificacao.objects.create(
-                grupo=grupo,
-                estabelecimento=info_estabelecimento,
-                mensagem='Pedido de reserva pendente',
-            )
+            grupo = form.save(commit=False)
+
+            year = grupo.ano 
+            month = grupo.mes
+            day = grupo.dia
+            email = info_estabelecimento.email
+
+            if DiaMarcado.objects.filter(ano=year, mes=month, dia=day, email_usuario=email).exists():   
+                mensagem = 'Este dia já está marcado no calendário!'
+                return render(request, 'criar_grupo.html', {'form': form, 'mensagem':mensagem})
             
-            membros = form.cleaned_data['membros']
-            grupo.membros.set(membros)
-            grupo.save()  # Salve novamente para garantir que as associações sejam salvas
-        return redirect('/cliente/grupos/')
+            else:
+                grupo.estabelecimento = info_estabelecimento
+                grupo.save()
+                        
+                Notificacao.objects.create(
+                    grupo=grupo,
+                    estabelecimento=info_estabelecimento,
+                    mensagem='Pedido de reserva pendente',
+                )
+
+                membros = form.cleaned_data['membros']
+                grupo.membros.set(membros)
+                grupo.save()  # Salve novamente para garantir que as associações sejam salvas
+            return redirect('/cliente/grupos/')
 
     else:
         form = GrupoForm()
