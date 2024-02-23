@@ -9,8 +9,17 @@ from .forms import GrupoForm
 
 @login_required
 def grupos(request):
+    todos_os_grupos = Grupo.objects.all()
+    grupos_do_usuario = []
+
+    # Verifica se o usuário está entre os membros de cada grupo
+    for grupo in todos_os_grupos:
+        if grupo.membros.filter(id=request.user.id).exists():
+            grupos_do_usuario.append(grupo)
+            print(grupos_do_usuario)
+    
     grupos_lista = Grupo.objects.all()
-    context = {'grupos_lista': grupos_lista}
+    context = {'grupos_lista': grupos_do_usuario}
     return render(request, 'grupos.html', context)
 
 def grupo_infos(request, info_especifica):
