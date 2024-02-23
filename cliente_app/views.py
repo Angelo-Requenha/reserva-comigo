@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from users.models import CustomUser
+from users.models import CustomUser, UserProfile
 from .models import Grupo, Notificacao
 from estab_app.models import DiaMarcado
 from .forms import GrupoForm
