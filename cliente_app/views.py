@@ -33,12 +33,15 @@ def criar_grupo(request, info_especifica):
     if request.method == 'POST':
         form = GrupoForm(request.POST)
         if form.is_valid():
-            grupo = form.save(commit=False)
+            grupo = form.save(commit=False)            
             grupo.estabelecimento = info_estabelecimento
             grupo.save()
+            membros = form.cleaned_data['membros']
+            grupo.membros.set(membros)
+            grupo.save()  # Salve novamente para garantir que as associações sejam salvas
         return redirect('/cliente/grupos/')
 
     else:
         form = GrupoForm()
 
-    return render(request, 'criar_grupo.html', {'form': form})
+    return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})

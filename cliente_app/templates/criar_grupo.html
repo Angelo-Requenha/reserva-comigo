@@ -14,7 +14,33 @@
 <form method="post">
     {% csrf_token %}
     
-    {{ form.as_p }}
+    {{ form.nome.label_tag }}
+    {{ form.nome }}
+    <br>
+    <br>
+    <br>
+
+    {{ form.membros.label_tag }}
+    {{ form.membros }}
+    <br>
+    <br>
+    <br>
+
+    {{ form.dia.label_tag }}
+    {{ form.dia }}
+    /
+    {{ form.mes }}
+    /
+    {{ form.ano }}
+    <br>
+    <br>
+    <br>
+
+    {{ form.duracao.label_tag }}
+    {{ form.duracao }} {% if info.userprofile.tipo_horario == 'hora' %} Horas {% else %} Noites {% endif %}
+    <br>
+    <br>
+    <br>
 
     <input type="submit" value="Cadastrar Grupo">
 </form>
