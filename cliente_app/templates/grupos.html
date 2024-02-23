@@ -1,19 +1,20 @@
-{% extends "main/base_cliente.html" %}
-{% load static %}
+{% extends "main/base_cliente.html" %} {% load static %} {% block content %}
 
-{% block content %}
-    
-    <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
-        {% csrf_token %}
-        <button type="submit" class="botao_logout">Logout</button>
-    </form>
-    
+<section class="w-full flex justify-center">
+  <div class="w-[80%] mt-20">
+
+
     {% for grupo in grupos_lista %}
-    <a href="{% url 'cliente_app:grupo_infos' grupo.id %}" class="feed_container">
-        <div class="feed_div"> 
-            <h1>{{ grupo.nome }}</h1>
-        </div>
+    <a
+      href="{% url 'cliente_app:grupo_infos' grupo.id %}"
+      class="feed_container"
+    >
+      <div class="feed_div">
+        <h1>{{ grupo.nome }}</h1>
+      </div>
     </a>
     {% endfor %}
+  </div>
+</section>
 
 {% endblock %}

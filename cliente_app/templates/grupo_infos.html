@@ -1,8 +1,44 @@
-{% extends "main/base_cliente.html" %}
-{% load static %}
+{% extends "main/base_cliente.html" %} {% load static %} {% block content %}
 
-{% block content %}
-    
-  {{ info }}
+<section class="w-full flex justify-center">
+  <div class="w-[80%] mt-20">
+    <h1>Detalhes do Grupo</h1>
 
+    {% for grupo in info %}
+    <h2>{{ grupo.nome }}</h2>
+    <p>Status: {{ grupo.status }}</p>
+
+    <h3>Membros:</h3>
+    <ul>
+      {% for membro in grupo.membros.all %}
+      <li>{{ membro.first_name }} {{ membro.last_name }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Informações do Estabelecimento:</h3>
+    {% if grupo.estabelecimento.userprofile %}
+    <p>Endereço: {{ grupo.estabelecimento.userprofile.endereco }}</p>
+    <p>País: {{ grupo.estabelecimento.userprofile.pais }}</p>
+    <p>CEP: {{ grupo.estabelecimento.userprofile.cep }}</p>
+    <p>
+      Valor do Aluguel: R$ {{ grupo.estabelecimento.userprofile.valor_aluguel }}
+    </p>
+    <p>
+      Capacidade de Pessoas: {{ grupo.estabelecimento.userprofile.capacidade_pessoas }}
+    </p>
+    <p>
+      Tipo de Horário: {{ grupo.estabelecimento.userprofile.get_tipo_horario_display }}
+    </p>
+
+    <h3>Localização no Mapa:</h3>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    {{ mapa|safe }}
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    {% else %}
+    <p>Informações do estabelecimento não disponíveis.</p>
+
+    {% endif %} {% endfor %}
+  </div>
+</section>
 {% endblock %}

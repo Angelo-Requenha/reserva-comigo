@@ -45,6 +45,7 @@
       <input type="hidden" id="year" name="year" value="{{ year }}">
       <input type="hidden" id="month" name="month" value="{{ month }}">
       <input type="submit" value="Salvar Dia">
+      <p>{{error_message}}</p>
   </form>
   <hr>
   {{ calendar_html|safe }}

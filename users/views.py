@@ -144,4 +144,10 @@ def register_profile(request):
         'calendar_html': calendar_html,
         }
 
-    return render(request, 'estab_app/profile.html', context)
+    return render(request, 'estab_app/profile.html', {
+        'profile_form': profile_form,
+        'photos_form': photos_form,
+        'year': year,
+        'month': month,
+        'calendar_html': calendar_html,
+        })
