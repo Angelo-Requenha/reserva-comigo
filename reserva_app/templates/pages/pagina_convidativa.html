@@ -125,12 +125,61 @@
           <div class="mx-9 inline-block"><img class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none" src="{% static 'images/svg/parceiros/13.svg' %}" alt=""></div>
           <div class="mx-9 inline-block"><img class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none" src="{% static 'images/svg/parceiros/14.svg' %}" alt=""></div>
       </div>
+    </section>
+
+    <footer>
+      <div class="footer">
+        <h4>Interressado?</h4>
+        <p>Nossa equipe adoraria ouvir o que tens a dizer:</p>
+        <div class="team-icons">
+          <a href="https://linktr.ee/qr/085307c3-2b49-44f0-a07c-ddf184e329e4?utm_source=qr_code" target="_blank">
+            <img src="{% static 'images/foto_angelo.jpg' %}" alt="Angelo Requenha">
+            <span>Angelo Requenha</span>
+          </a>
+          <a href="https://linktr.ee/qr/18d1239c-c2d7-4eb8-b38e-16545f3ab82c?utm_source=qr_code" target="_blank">
+            <img src="{% static 'images/foto_mendes.jpg' %}" alt="Victor Mendes">
+            <span>Victor Mendes</span>
+          </a>
+          <a href="https://www.linkedin.com/in/isabela-caroline-reiter?fromQR=1" target="_blank">
+            <img src="{% static 'images/foto_isa.jpg' %}" alt="Isabela Reiter">
+            <span>Isabela Reiter</span>
+          </a>
+          <a href="https://linktr.ee/qr/76f77ba9-fcf9-4d1a-b87b-d82cc2a227ec?utm_source=qr_code" target="_blank">
+            <img src="{% static 'images/foto_ivanir.jpg' %}" alt="Ivanir Stano">
+            <span>Ivanir Stano</span>
+          </a>
+          <a href="https://linktr.ee/qr/4db0e89b-e4f5-46c3-9e8b-5d8401092d9f?utm_source=qr_code" target="_blank">
+            <img src="{% static 'images/foto_fabio.jpg' %}" alt="Fabio Peixe">
+            <span>Fabio Peixe</span>
+          </a>
+          <a href="https://linktr.ee/victorzuchi" target="_blank">
+            <img src="{% static 'images/foto_zuchi.jpg' %}" alt="Victor Zuchi">
+            <span>Victor Zuchi</span>
+          </a>
+        </div>
+        <br>
+        <p>© 2024 Reserva Comigo. Todos os direitos reservados.</p>
   </div>
   <div class="w-[90%] my-12 mt-36 flex items-center justify-center">
       <hr class="w-[80%]">
       <div class="mx-15 w-full text-center">
           <h2 class="text-[#111827] font-bold text-3xl">Comece tudo isso agora com <strong class="text-[#F38423]">apenas 1 click!</strong></h2>
       </div>
+    </footer>
+
+    <script src="{% static 'js/animacao.js' %}"></script>
+    <script>
+      window.addEventListener('scroll', function(){
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var body = document.querySelector('body');
+        var speed = 0.5; // Ajuste a velocidade conforme necessário
+        body.style.backgroundPositionY = scrollTop * speed + 'px';
+      });
+    </script>
+  </body>
+  
+</html>
+
       <hr class="w-[80%]">
   </div>
   <div>

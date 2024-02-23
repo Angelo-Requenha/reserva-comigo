@@ -1,0 +1,54 @@
+<!-- register_address.html -->
+
+{% extends 'main/base_estab.html' %}
+
+{% block content %}
+{% load static %}
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <link rel="stylesheet" type="text/css" href="{% static 'schedule/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'schedule/css/bootstrap-theme.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'schedule/css/font-awesome.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'schedule/css/schedule.css' %}">
+  </head>
+  <body>
+
+  <div class="container">
+      <h1>Django Schedule Test</h1>
+      <div id="calendar"></div>
+  </div>
+
+  <script src="{% static 'schedule/js/jquery.min.js' %}"></script>
+  <script src="{% static 'schedule/js/jquery-ui.min.js' %}"></script>
+  <script src="{% static 'schedule/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'schedule/js/schedule.js' %}"></script>
+
+  <script>
+      $(document).ready(function () {
+          $('#calendar').fullCalendar({
+              header: {
+                  left: 'prev,next today',
+                  center: 'title',
+                  right: 'month,agendaWeek,agendaDay'
+              },
+              events: [
+                  {
+                      title: 'Test Event',
+                      start: '2024-02-15T10:00:00',
+                      end: '2024-02-15T12:00:00',
+                  },
+                  // Adicione mais eventos conforme necessário
+              ],
+              eventClick: function (event) {
+                  alert('Event: ' + event.title);
+              }
+          });
+      });
+  </script>
+
+  </body>
+  </html>
+
+  {% endblock %}

@@ -227,9 +227,44 @@ footer {
   margin: auto;
   background-color: #303030;
   width: 100%;
-  height: 100px;
+  height: 325px;
   color: #ffffff;
   text-align: center;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.team-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.team-icons a {
+  position: relative;
+  text-decoration: none !important;
+}
+
+.team-icons img {
+  width: 60px; /* Ajuste o tamanho conforme necessário */
+  height: 70px;
+  border-radius: 50%; /* Para tornar a imagem circular, ajuste conforme necessário */
+  border: 3px solid #db5609;
+  transition: transform 0.3s, border 0.3s;
+  text-decoration: none;
+}
+
+.team-icons a:hover img {
+  transform: scale(1.1); /* Aumenta a imagem em 20% no hover, ajuste conforme necessário */
+  border: 3px solid rgb(40, 237, 60); /* Cor e largura da borda no hover, ajuste conforme necessário */
+}
+
+.team-icons span {
+  color: #ffffff;
+  margin-top: 5px; /* Espaço abaixo do nome */
+  text-underline-position: unset;
+  text-decoration: none !important; /* Remover o efeito de link */
 }
 
 .animacao {
