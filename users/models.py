@@ -28,8 +28,8 @@ class UserProfile(models.Model):
     endereco = models.CharField(verbose_name="Endereço", max_length=255, blank=True, null=True)
     pais = models.CharField(verbose_name="País", max_length=255, blank=True, null=True)
     cep = models.CharField(verbose_name="CEP", max_length=9, blank=True, null=True)
-    longitude = models.CharField(verbose_name="Longitude",max_length=50, null=True, blank=True)
-    latitude = models.CharField(verbose_name="Latitude",max_length=50, null=True, blank=True)
+    longitude = models.IntegerField(verbose_name="Longitude",max_length=50, null=True, blank=True)
+    latitude = models.IntegerField(verbose_name="Latitude",max_length=50, null=True, blank=True)
 
     valor_aluguel = models.DecimalField(max_digits=10, decimal_places=2, default=0)  
     capacidade_pessoas = models.PositiveIntegerField(default=0)  
