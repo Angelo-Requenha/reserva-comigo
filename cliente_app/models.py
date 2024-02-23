@@ -8,6 +8,11 @@ STATUS_CHOICES = [
         ('recusado', 'Recusado'),
     ]
 
+STATUS_PAGAMENTO_CHOICES = [
+        ('pendente', 'Pendente'),
+        ('Pago', 'Pago'),
+    ]
+
 class Grupo(models.Model):
     nome = models.CharField(verbose_name= 'Nome do grupo', max_length=255)
     membros = models.ManyToManyField(CustomUser)

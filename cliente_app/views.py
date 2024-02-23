@@ -27,10 +27,13 @@ def grupos(request):
 
 def grupo_infos(request, info_especifica):
     info = Grupo.objects.filter(id=info_especifica)
+    grupo = Grupo.objects.get(id=info_especifica)
+    valor_por_membro = grupo.estabelecimento.userprofile.valor_aluguel / grupo.membros.count()
+
     context = {
         'info': info,
-    }
-    
+        'valor_membro':valor_por_membro,
+    }    
     return render(request, 'grupo_infos.html', context)
 
 @login_required
@@ -75,5 +78,3 @@ def criar_grupo(request, info_especifica):
         form = GrupoForm()
 
     return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
-
-
