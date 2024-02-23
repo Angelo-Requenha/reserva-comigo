@@ -2,36 +2,54 @@
 
 <!DOCTYPE html>
 <html class="overflow-x-hidden" lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/input.css' %}">
-    <link rel="stylesheet" href="{% static 'css/sobre_nos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-    <link rel="shortcut icon" href="img/Reserva_ico_.ico" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/input.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/sobre_nos.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <link rel="shortcut icon" href="img/Reserva_ico_.ico" type="image/x-icon" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+      rel="stylesheet"
+    />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Reserva Comigo</title>
-</head>
-<body>
-    {% block header %}
-        {% include 'main/header.html' %}
-    {% endblock %}
+  </head>
+  <body>
+    {% block header %} {% include 'main/header.html' %} {% endblock %}
     <main>
-        {%block content %} 
-        {% endblock %}
-        
-        {% block footer %}
-          {% include 'main/footer.html' %}
-        {% endblock %}
+      {%block content %} {% endblock %} {% block footer %} 
+      {% include 'main/footer.html' %} {% endblock %}
     </main>
+    <script>
+      function zoomIn(element) {
+        element.querySelector("img").style.transform = "scale(1.1)";
+      }
 
-</body>
+      function zoomOut(element) {
+        element.querySelector("img").style.transform = "scale(1)";
+      }
+
+      $(document).ready(function () {
+        $(".single-item").slick({
+          infinite: true,
+          slidesToShow: 7,
+          slidesToScroll: 2,
+          autoplay: true,
+          autoplaySpeed: 2000,
+        });
+      });
+    </script>
+  </body>
 </html>
