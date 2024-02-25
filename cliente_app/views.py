@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from users.models import CustomUser, UserProfile
-from .models import Grupo, Notificacao
+from .models import Grupo, Notificacao, StatusPagamentoMembro
 from estab_app.models import DiaMarcado
 from .forms import GrupoForm
 
@@ -28,7 +28,14 @@ def grupos(request):
 def grupo_infos(request, info_especifica):
     info = Grupo.objects.filter(id=info_especifica)
     grupo = Grupo.objects.get(id=info_especifica)
-    valor_por_membro = grupo.estabelecimento.userprofile.valor_aluguel / grupo.membros.count()
+    valor_por_membro = grupo.duracao * grupo.estabelecimento.userprofile.valor_aluguel / grupo.membros.count()
+    user_id = request.user.id
+
+    if request.method == 'POST':
+        pagamento = get_object_or_404(StatusPagamentoMembro, membro = user_id, grupo=grupo)
+        pagamento.status_pagamento = 'pago'
+        pagamento.save()
+        return redirect('cliente_app:grupo_infos', info_especifica=info_especifica)
 
     context = {
         'info': info,
@@ -72,9 +79,18 @@ def criar_grupo(request, info_especifica):
                 membros = form.cleaned_data['membros']
                 grupo.membros.set(membros)
                 grupo.save()  # Salve novamente para garantir que as associações sejam salvas
+
+                for membro in membros:
+                    StatusPagamentoMembro.objects.create(grupo=grupo, membro=membro, status_pagamento='pendente')
             return redirect('/cliente/grupos/')
 
     else:
         form = GrupoForm()
 
     return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
+
+
+
+
+
+

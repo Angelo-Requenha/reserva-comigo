@@ -8,7 +8,12 @@
   
   {% for grupo in info %}
     <h2>{{ grupo.nome }}</h2>
-    <p>Status: {{ grupo.status }}</p>
+    {% if grupo.status == 'pendente' %}
+      <p>Status: Reserva pendente de confirmação</p>
+    {% else %}
+    <p>Status: Reserva confirmada</p>
+    {% endif %}
+
     
     <h3>Membros:</h3>
     <table>
@@ -20,15 +25,23 @@
         </tr>
       </thead>
       <tbody>
-        {% for membro in grupo.membros.all %}
-          <tr>
-            <td>{{ membro.first_name }} {{ membro.last_name }}</td>
-            <td>{{ valor_membro }}</td>
-          </tr>
-        {% endfor %}
+        {% for membro_rel in grupo.statuspagamentomembro_set.all %}
+        <tr>
+          <td>{{ membro_rel.membro.first_name }} {{ membro_rel.membro.last_name }}</td>
+          <td>{{ valor_membro }}</td>
+          <td>{{ membro_rel.status_pagamento }}</td>
+        </tr>
+      {% endfor %}
       </tbody>
     </table>
-    
+
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" name="realizar_pagamento">Realizar Pagamento</button>
+    </form>
+    <br>
+
     <h3>Informações do Estabelecimento:</h3>
     {% if grupo.estabelecimento.userprofile %}
       <p>Endereço: {{ grupo.estabelecimento.userprofile.endereco }}</p>
@@ -36,7 +49,6 @@
       <p>CEP: {{ grupo.estabelecimento.userprofile.cep }}</p>
       <p>Valor do Aluguel: R$ {{ grupo.estabelecimento.userprofile.valor_aluguel }}</p>
       <p>Capacidade de Pessoas: {{ grupo.estabelecimento.userprofile.capacidade_pessoas }}</p>
-      <p>Tipo de Horário: {{ grupo.estabelecimento.userprofile.get_tipo_horario_display }}</p>
 
       <h3>Localização no Mapa:</h3>
       <div id="map"></div>
@@ -76,6 +88,7 @@
       <p>Informações do estabelecimento não disponíveis.</p>
     {% endif %}
   {% endfor %}
+
 
   
 
