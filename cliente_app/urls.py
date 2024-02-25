@@ -7,5 +7,5 @@ app_name = 'cliente_app'
 urlpatterns = [
     path('grupos/', grupos, name='grupos'),
     path('feed/', feed, name='feed'),
-    path('grupo_infos/<int:info_especifica>/', grupo_infos, name='grupo_infos')
+    path('grupo_infos/<int:info_especifica>/<int:grupo_id>/', grupo_infos, name='grupo_infos')
 ]

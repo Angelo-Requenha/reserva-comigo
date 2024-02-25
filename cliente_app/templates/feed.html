@@ -8,47 +8,53 @@
       <div class="text-center">
         <h1 class="text-[#111827] font-bold text-3xl my-5">Lista de estabelecimentos</h1>
       </div>
+      <input type="text" id="inputPesquisa" onkeyup="filtrarUsuarios()" placeholder="Pesquisar por nome...">
 
       <!-- Estabelecimentos -->
       <div>
         {% for usuario in usuarios %}
-          <div class="flex justify-center">
-            <a class="box w-3/5 my-5 flex" href="{% url 'estab_app:pagina_estab' usuario.id %}">
-              <div class="w-[20%]">
-                <img class="w-full h-3/4" src="img/Burguer-King.jpg" alt="" />
-              </div>
-              <div class="w-3/4 p-4 flex flex-col justify-between">
-                <div>
-                  <!-- Div para colocar o nome do estabelecimento -->
-                  <h1 class="font-bold text-xl">{{ usuario.first_name }}</h1>
+          {% if usuario.fotosestab.foto1 %}
+            <div class="flex justify-center">
+              <a class="box w-3/5 my-5 flex" href="{% url 'estab_app:pagina_estab' usuario.id %}">
+                <div class="w-[20%]">
+                    <img class="w-full h-3/4" src="{{ usuario.fotosestab.foto1.url }}" alt="Foto de Estabelecimento" width="100" height="150">
                 </div>
-                <div>
-                  <!-- Descrição do estabelecimento -->
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dignissimos voluptatum expedita maxime dolor sunt amet, suscipit quibusdam fugiat, nostrum facilis rem, eaque dolorem harum tempora! Mollitia quas assumenda delectus?</p>
+                <div class="w-3/4 p-4 flex flex-col justify-between">
+                  <div>
+                    <!-- Div para colocar o nome do estabelecimento -->
+                    <h1 class="font-bold text-xl">{{ usuario.first_name }}</h1>
+                  </div>
+                  <div>
+                    <!-- Descrição do estabelecimento -->
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dignissimos voluptatum expedita maxime dolor sunt amet, suscipit quibusdam fugiat, nostrum facilis rem, eaque dolorem harum tempora! Mollitia quas assumenda delectus?</p>
+                  </div>
+                  <div class="flex mt-1">
+                    <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
+                    </svg>
+                    <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
+                    </svg>
+                    <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
+                    </svg>
+                    <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
+                    </svg>
+                    <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path>
+                    </svg>
+                  </div>
                 </div>
-                <div class="flex mt-1">
-                  <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
-                  </svg>
-                  <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
-                  </svg>
-                  <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
-                  </svg>
-                  <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"></path>
-                  </svg>
-                  <svg class="w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26ZM12.0006 15.968L16.2473 18.3451L15.2988 13.5717L18.8719 10.2674L14.039 9.69434L12.0006 5.27502L9.96214 9.69434L5.12921 10.2674L8.70231 13.5717L7.75383 18.3451L12.0006 15.968Z"></path>
-                  </svg>
-                </div>
-              </div>
-            </a>
-          </div>
+              </a>
+            </div>
+          {% endif %}
         {% endfor %}
 
       </div>
     </div>
+
+    
+    
   </section>
 {% endblock %}

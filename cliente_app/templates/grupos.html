@@ -1,18 +1,27 @@
 {% extends "main/base_cliente.html" %} {% load static %} {% block content %}
 
-<section class="w-full flex justify-center">
+<section class="geral w-full flex justify-center">
   <div class="w-[80%] mt-20">
-
-
+    <input type="text" id="inputPesquisa" onkeyup="filtrarUsuarios()" placeholder="Pesquisar por nome...">
     {% for grupo in grupos_lista %}
-    <a
-      href="{% url 'cliente_app:grupo_infos' grupo.id %}"
-      class="feed_container"
-    >
-      <div class="feed_div">
-        <h1>{{ grupo.nome }}</h1>
-      </div>
-    </a>
+    <div class="flex justify-center">
+      <a class="box w-3/5 my-5 flex" href="{% url 'cliente_app:grupo_infos' grupo.estabelecimento_id grupo.id %}">
+        <div class="w-[20%]">
+          <img class="w-full h-3/4" src="img/Burguer-King.jpg" alt="" />
+        </div>
+        <div class="w-3/4 p-4 flex flex-col justify-between">
+          <div>
+            <!-- Div para colocar o nome do grupo -->
+            <h1 class="font-bold text-xl">{{ grupo.nome }}</h1>
+          </div>
+          <div>
+            <!-- Descrição do grupo -->
+            
+          </div>
+          
+        </div>
+      </a>
+    </div>
     {% endfor %}
   </div>
 </section>

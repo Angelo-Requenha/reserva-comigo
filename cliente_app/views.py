@@ -4,8 +4,7 @@ from users.models import CustomUser, UserProfile
 from .models import Grupo, Notificacao, StatusPagamentoMembro
 from estab_app.models import DiaMarcado
 from .forms import GrupoForm
-
-
+import folium
 
 
 # Create your views here.
@@ -15,19 +14,18 @@ def grupos(request):
     todos_os_grupos = Grupo.objects.all()
     grupos_do_usuario = []
 
-    # Verifica se o usuário está entre os membros de cada grupo
     for grupo in todos_os_grupos:
         if grupo.membros.filter(id=request.user.id).exists():
             grupos_do_usuario.append(grupo)
             print(grupos_do_usuario)
     
-    grupos_lista = Grupo.objects.all()
     context = {'grupos_lista': grupos_do_usuario}
     return render(request, 'grupos.html', context)
 
-def grupo_infos(request, info_especifica):
-    info = Grupo.objects.filter(id=info_especifica)
-    grupo = Grupo.objects.get(id=info_especifica)
+def grupo_infos(request, info_especifica, grupo_id):
+    info = Grupo.objects.filter(id=grupo_id)
+    
+    grupo = Grupo.objects.get(id=grupo_id)
     valor_por_membro = grupo.duracao * grupo.estabelecimento.userprofile.valor_aluguel / grupo.membros.count()
     user_id = request.user.id
 
@@ -37,16 +35,31 @@ def grupo_infos(request, info_especifica):
         pagamento.save()
         return redirect('cliente_app:grupo_infos', info_especifica=info_especifica)
 
+    lat, lon = UserProfile.objects.filter(email_id=info_especifica).values_list('latitude', flat=True).first(), UserProfile.objects.filter(email_id=info_especifica).values_list('longitude', flat=True).first()
+
+    
+    print()
+
+    mapa = folium.Map(location=[lat, lon], zoom_start=12, width='50%', height='50%')
+
+    folium.Marker([lat, lon], popup='Florianópolis').add_to(mapa)
+    
     context = {
         'info': info,
+        'mapa': mapa._repr_html_(),
         'valor_membro':valor_por_membro,
-    }    
+    }
+    
     return render(request, 'grupo_infos.html', context)
 
 @login_required
 def feed(request):
     usuarios = CustomUser.objects.filter(tipo='E')
-    context = {'usuarios': usuarios}
+    
+    context = {
+        'usuarios': usuarios,
+        
+        }
     return render(request, 'feed.html', context)
 
 def criar_grupo(request, info_especifica):
@@ -92,9 +105,4 @@ def criar_grupo(request, info_especifica):
         form = GrupoForm()
 
     return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
-
-
-
-
-
 

@@ -6,86 +6,39 @@
 
     {% for grupo in info %}
     <h2>{{ grupo.nome }}</h2>
-    {% if grupo.status == 'pendente' %}
-      <p>Status: Reserva pendente de confirmação</p>
-    {% else %}
-    <p>Status: Reserva confirmada</p>
-    {% endif %}
+    <p>Status: {{ grupo.status }}</p>
 
-    
     <h3>Membros:</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Valor a Pagar</th>
-          <th>Status do Pagamento</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for membro_rel in grupo.statuspagamentomembro_set.all %}
-        <tr>
-          <td>{{ membro_rel.membro.first_name }} {{ membro_rel.membro.last_name }}</td>
-          <td>{{ valor_membro }}</td>
-          <td>{{ membro_rel.status_pagamento }}</td>
-        </tr>
+    <ul>
+      {% for membro in grupo.membros.all %}
+      <li>{{ membro.first_name }} {{ membro.last_name }}</li>
       {% endfor %}
-      </tbody>
-    </table>
-
-    <br>
-    <form method="post">
-      {% csrf_token %}
-      <button type="submit" name="realizar_pagamento">Realizar Pagamento</button>
-    </form>
-    <br>
+    </ul>
 
     <h3>Informações do Estabelecimento:</h3>
     {% if grupo.estabelecimento.userprofile %}
-      <p>Endereço: {{ grupo.estabelecimento.userprofile.endereco }}</p>
-      <p>País: {{ grupo.estabelecimento.userprofile.pais }}</p>
-      <p>CEP: {{ grupo.estabelecimento.userprofile.cep }}</p>
-      <p>Valor do Aluguel: R$ {{ grupo.estabelecimento.userprofile.valor_aluguel }}</p>
-      <p>Capacidade de Pessoas: {{ grupo.estabelecimento.userprofile.capacidade_pessoas }}</p>
+    <p>Endereço: {{ grupo.estabelecimento.userprofile.endereco }}</p>
+    <p>
+      Valor do Aluguel: R$ {{ grupo.estabelecimento.userprofile.valor_aluguel }}
+    </p>
+    <p>
+      Capacidade de Pessoas: {{ grupo.estabelecimento.userprofile.capacidade_pessoas }}
+    </p>
+    <p>
+      Tipo de Horário: {{ grupo.estabelecimento.userprofile.get_tipo_horario_display }}
+    </p>
 
-      <h3>Localização no Mapa:</h3>
-      <div id="map"></div>
-      <div id="latitude" data-latitude="{{ grupo.estabelecimento.userprofile.latitude }}"></div>
-      <div id="longitude" data-longitude="{{ grupo.estabelecimento.userprofile.longitude }}"></div>
-      
-      <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Ta6Dty0RKOYkQDjM3bToETR3d6Yi358&callback=initMap" ></script>
-      
-      
-      <script>
-      let map;
-      function initMap() {
-        var latitudeString = document.getElementById('latitude').getAttribute('data-latitude');
-        var longitudeString = document.getElementById('longitude').getAttribute('data-longitude');
-    
-    
-        // Converte as strings para números   
-        var latitude = parseFloat(latitudeString);
-        var longitude = parseFloat(longitudeString);
-        
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: { lat: latitude, lng: longitude },
-          zoom: 15
-        });
-        
-        var marker = new google.maps.Marker({
-          position: { lat: latitude, lng: longitude },
-          map: map,
-          title: 'Local do Estabelecimento'
-        });
-      }
-      window.initMap = initMap;
-      console.log('initMap function is called.');
-      </script>
+    <h3>Localização no Mapa:</h3>
+    <div class="mapa">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        {{ mapa|safe }}
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    </div>
 
     {% else %}
-      <p>Informações do estabelecimento não disponíveis.</p>
-    {% endif %}
-  {% endfor %}
+    <p>Informações do estabelecimento não disponíveis.</p>
 
-
+    {% endif %} {% endfor %}
+  </div>
+</section>
 {% endblock %}
