@@ -1,12 +1,10 @@
-{% extends "main/base_cliente.html" %}
-{% load static %}
+{% extends "main/base_cliente.html" %} {% load static %} {% block content %}
 
-{% block content %}
+<section class="w-full flex justify-center">
+  <div class="w-[80%] mt-20">
+    <h1>Detalhes do Grupo</h1>
 
-
-  <h1>Detalhes do Grupo</h1>
-  
-  {% for grupo in info %}
+    {% for grupo in info %}
     <h2>{{ grupo.nome }}</h2>
     {% if grupo.status == 'pendente' %}
       <p>Status: Reserva pendente de confirmação</p>
@@ -92,6 +90,7 @@
 
   
 
+    {% endif %} {% endfor %}
+  </div>
+</section>
 {% endblock %}
-
-

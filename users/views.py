@@ -70,7 +70,7 @@ class CustomLoginView(LoginView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             if self.request.user.tipo == 'C':
-                return redirect('cliente_app:grupos')
+                return redirect('reserva_app:pagina_convidativa')
             if self.request.user.tipo == 'E':
                 return redirect('estab_app:profile')
         return super().dispatch(request, *args, **kwargs)
@@ -78,11 +78,11 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
 
         if self.request.user.tipo == 'C':
-            return reverse_lazy('cliente_app:grupos')
+            return reverse_lazy('reserva_app:pagina_convidativa')
         elif self.request.user.tipo == 'E':
             return reverse_lazy('estab_app:profile')
         else:
-            return reverse_lazy('cliente_app:grupos')
+            return reverse_lazy('reserva_app:pagina_convidativa')
 
 
 def generate_calendar(year, month, email):
@@ -144,4 +144,10 @@ def register_profile(request):
         'calendar_html': calendar_html,
         }
 
-    return render(request, 'estab_app/profile.html', context)
+    return render(request, 'estab_app/profile.html', {
+        'profile_form': profile_form,
+        'photos_form': photos_form,
+        'year': year,
+        'month': month,
+        'calendar_html': calendar_html,
+        })
