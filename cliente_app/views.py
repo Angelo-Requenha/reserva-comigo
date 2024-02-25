@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from users.models import CustomUser, UserProfile
-from .models import Grupo, Notificacao
+from .models import Grupo, Notificacao, StatusPagamentoMembro
 from estab_app.models import DiaMarcado
 from .forms import GrupoForm
 import folium
@@ -24,6 +24,16 @@ def grupos(request):
 
 def grupo_infos(request, info_especifica, grupo_id):
     info = Grupo.objects.filter(id=grupo_id)
+    
+    grupo = Grupo.objects.get(id=grupo_id)
+    valor_por_membro = grupo.duracao * grupo.estabelecimento.userprofile.valor_aluguel / grupo.membros.count()
+    user_id = request.user.id
+
+    if request.method == 'POST':
+        pagamento = get_object_or_404(StatusPagamentoMembro, membro = user_id, grupo=grupo)
+        pagamento.status_pagamento = 'pago'
+        pagamento.save()
+        return redirect('cliente_app:grupo_infos', info_especifica=info_especifica)
 
     lat, lon = UserProfile.objects.filter(email_id=info_especifica).values_list('latitude', flat=True).first(), UserProfile.objects.filter(email_id=info_especifica).values_list('longitude', flat=True).first()
 
@@ -37,6 +47,7 @@ def grupo_infos(request, info_especifica, grupo_id):
     context = {
         'info': info,
         'mapa': mapa._repr_html_(),
+        'valor_membro':valor_por_membro,
     }
     
     return render(request, 'grupo_infos.html', context)
@@ -80,7 +91,10 @@ def criar_grupo(request, info_especifica):
 
                 membros = form.cleaned_data['membros']
                 grupo.membros.set(membros)
-                grupo.save()  # Salve novamente para garantir que as associações sejam salvas
+                
+
+                for membro in membros:
+                    StatusPagamentoMembro.objects.create(grupo=grupo, membro=membro, status_pagamento='pendente')
             return redirect('/cliente/grupos/')
 
     else:

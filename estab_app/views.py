@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from users.models import CustomUser 
 from .models import DiaMarcado
-from cliente_app.models import Notificacao, Grupo
+from cliente_app.models import Notificacao
 import calendar
 from django.urls import reverse
 
