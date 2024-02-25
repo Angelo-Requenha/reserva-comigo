@@ -71,4 +71,11 @@
     background-color: red;
   }
   
-  
+  .geral {
+    min-height: 600px;
+  }
+
+  /* MAPA */
+  .mapa {
+    justify-self: end;
+  }

@@ -12,11 +12,9 @@ from django.urls import reverse
 def generate_calendar(year, month, email):
     cal = calendar.HTMLCalendar().formatmonth(int(year), int(month))
     highlighted_days = []
-    
-    # Filtrando os dias marcados para o usuário com o email fornecido
+
     marked_days = DiaMarcado.objects.filter(ano=year, mes=month, email_usuario=email)
-    
-    # Adicionando os dias marcados à lista de dias destacados
+
     for marked_day in marked_days:
         highlighted_days.append(marked_day.dia)
     
@@ -27,20 +25,15 @@ def generate_calendar(year, month, email):
     return cal
 
 
-
 def pagina_estab(request, info_especifica):
     year = int(request.GET.get('year', 2024))
     month = int(request.GET.get('month', 2))
 
-    # Filtrando o CustomUser pelo id e obtendo o primeiro objeto do queryset
     info = CustomUser.objects.filter(id=info_especifica).first()
-    
+
     if not info:
-        # Tratar o caso em que nenhum CustomUser é encontrado com o id fornecido
-        # Por exemplo, você pode retornar uma resposta de erro ou redirecionar para outra página
         return HttpResponse("CustomUser não encontrado com o ID fornecido.")
 
-    # Verificando se info não é None antes de acessar seu atributo email
     calendar_html = generate_calendar(year, month, info.email if info else None)
     
     context = {
@@ -61,7 +54,6 @@ def salvar(request):
         month = int(request.POST['month'])
         day = int(request.POST['day'])
         
-        # Obtendo o e-mail do usuário autenticado
         user_email = request.user.email
         
         if DiaMarcado.objects.filter(ano=year, mes=month, dia=day, email_usuario=user_email).exists():
@@ -82,20 +74,16 @@ def salvar(request):
 def pedido_reserva(request, notificacao_id, acao):
     notificacao = get_object_or_404(Notificacao, id=notificacao_id)
 
-    # Verifique se o usuário logado é o estabelecimento associado à notificação
     if request.user != notificacao.estabelecimento:
-        return redirect('pagina_estab')  # Redirecione para uma página de erro ou faça algo apropriado
+        return redirect('pagina_estab')  
 
-    # Verifique se a notificação está pendente
     if notificacao.status == 'pendente':
         grupo = notificacao.grupo
 
         if acao == 'aceitar':
-            # Atualize o status do grupo para 'confirmado'
             grupo.status = 'confirmado'
             grupo.save()
 
-            # Atualize o status da notificação para 'confirmado'
             notificacao.status = 'confirmado'
             notificacao.save()
 
@@ -111,7 +99,6 @@ def pedido_reserva(request, notificacao_id, acao):
                 DiaMarcado.objects.create(ano=year, mes=month, dia=day, email_usuario=email)
 
         elif acao == 'recusar':
-            # Exclua o grupo, pois o estabelecimento recusou
             grupo.delete()
 
     return redirect('/estab/notificacoes')

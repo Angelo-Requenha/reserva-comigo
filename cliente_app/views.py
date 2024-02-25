@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from users.models import CustomUser, UserProfile
 from .models import Grupo, Notificacao
 from estab_app.models import DiaMarcado
 from .forms import GrupoForm
 import folium
-
 
 
 # Create your views here.
@@ -15,25 +14,24 @@ def grupos(request):
     todos_os_grupos = Grupo.objects.all()
     grupos_do_usuario = []
 
-    # Verifica se o usuário está entre os membros de cada grupo
     for grupo in todos_os_grupos:
         if grupo.membros.filter(id=request.user.id).exists():
             grupos_do_usuario.append(grupo)
             print(grupos_do_usuario)
     
-    grupos_lista = Grupo.objects.all()
     context = {'grupos_lista': grupos_do_usuario}
     return render(request, 'grupos.html', context)
 
-def grupo_infos(request, info_especifica):
-    info = Grupo.objects.filter(id=info_especifica)
+def grupo_infos(request, info_especifica, grupo_id):
+    info = Grupo.objects.filter(id=grupo_id)
 
     lat, lon = UserProfile.objects.filter(email_id=info_especifica).values_list('latitude', flat=True).first(), UserProfile.objects.filter(email_id=info_especifica).values_list('longitude', flat=True).first()
 
-    # Crie um mapa usando a biblioteca folium
-    mapa = folium.Map(location=[lat, lon], zoom_start=12)
+    
+    print()
 
-    # Adicione um marcador
+    mapa = folium.Map(location=[lat, lon], zoom_start=12, width='50%', height='50%')
+
     folium.Marker([lat, lon], popup='Florianópolis').add_to(mapa)
     
     context = {
@@ -46,7 +44,11 @@ def grupo_infos(request, info_especifica):
 @login_required
 def feed(request):
     usuarios = CustomUser.objects.filter(tipo='E')
-    context = {'usuarios': usuarios}
+    
+    context = {
+        'usuarios': usuarios,
+        
+        }
     return render(request, 'feed.html', context)
 
 def criar_grupo(request, info_especifica):

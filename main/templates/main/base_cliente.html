@@ -33,6 +33,7 @@
       {%block content %} {% endblock %} {% block footer %} 
       {% include 'main/footer.html' %} {% endblock %}
     </main>
+    
     <script>
       function zoomIn(element) {
         element.querySelector("img").style.transform = "scale(1.1)";
@@ -51,6 +52,27 @@
           autoplaySpeed: 2000,
         });
       });
+    
+      function filtrarUsuarios() {
+        var input, filtro, usuarios, usuario, nome, i;
+        input = document.getElementById('inputPesquisa'); // Obtém o elemento de entrada de pesquisa
+        filtro = input.value.toUpperCase(); // Converte o texto da entrada para maiúsculas para uma comparação sem distinção entre maiúsculas e minúsculas
+        usuarios = document.getElementsByClassName('box'); // Obtém todos os elementos com a classe 'box', que contêm informações de usuário
+    
+        // Itera sobre todos os elementos de usuário
+        for (i = 0; i < usuarios.length; i++) {
+          usuario = usuarios[i];
+          nome = usuario.getElementsByClassName('font-bold')[0]; // Obtém o elemento que contém o nome do usuário
+    
+          // Verifica se o nome do usuário corresponde ao filtro de pesquisa
+          if (nome.innerText.toUpperCase().indexOf(filtro) > -1) {
+            usuario.style.display = ''; // Exibe o elemento se corresponder ao filtro
+          } else {
+            usuario.style.display = 'none'; // Oculta o elemento se não corresponder ao filtro
+          }
+        }
+      }
     </script>
+
   </body>
 </html>
