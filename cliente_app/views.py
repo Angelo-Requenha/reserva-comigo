@@ -82,6 +82,13 @@ def criar_grupo(request, info_especifica):
             else:
                 grupo.estabelecimento = info_estabelecimento
                 grupo.save()
+                
+                DiaMarcado.objects.create(
+                    ano=year, 
+                    mes=month, 
+                    dia=day, 
+                    email_usuario=email
+                )
                         
                 Notificacao.objects.create(
                     grupo=grupo,
@@ -91,14 +98,11 @@ def criar_grupo(request, info_especifica):
 
                 membros = form.cleaned_data['membros']
                 grupo.membros.set(membros)
-                
+                grupo.save()  # Salve novamente para garantir que as associações sejam salvas
 
-                for membro in membros:
-                    StatusPagamentoMembro.objects.create(grupo=grupo, membro=membro, status_pagamento='pendente')
             return redirect('/cliente/grupos/')
 
     else:
         form = GrupoForm()
 
     return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
-
