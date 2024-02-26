@@ -26,6 +26,7 @@ class ClienteForm(UserCreationForm):
             'telefone': 'Telefone',
             'password1': 'Senha',
             'password2': 'Confirme a senha',
+
         }
         widgets = {
             'tipo': forms.HiddenInput(attrs={'value': 'C'}),
@@ -72,7 +73,7 @@ class UserProfileForm(forms.ModelForm):
 	class Meta:
 		model = UserProfile
 		fields = ('endereco',  'cep',
-		 'pais', 'longitude', 'latitude', 'valor_aluguel', 'capacidade_pessoas', 'tipo_horario')
+		 'pais', 'longitude', 'latitude', 'valor_aluguel', 'capacidade_pessoas', 'tipo_horario', 'descricao')
           
 
 class FotosEstabForm(forms.ModelForm):
