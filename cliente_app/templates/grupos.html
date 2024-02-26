@@ -2,17 +2,23 @@
 
 <section class="geral w-full flex justify-center">
   <div class="w-[80%] mt-20">
-    <input type="text" id="inputPesquisa" onkeyup="filtrarUsuarios()" placeholder="Pesquisar por nome...">
+    <input
+        class="peer outline-none text-sm text-gray-700 pr-2"
+        type="text"
+        id="search"
+        placeholder="Search something.." 
+      type="text" id="inputPesquisa" onkeyup="filtrarUsuarios()" placeholder="Pesquisar por nome..." />
+
     {% for grupo in grupos_lista %}
-    <div class="flex justify-center">
-      <a class="box w-3/5 my-5 flex" href="{% url 'cliente_app:grupo_infos' grupo.estabelecimento_id grupo.id %}">
-        <div class="w-[20%]">
-          <img class="w-full h-3/4" src="img/Burguer-King.jpg" alt="" />
-        </div>
+    <div class="flex justify-center h-1/4">
+      <a class="box w-3/5 my-5 flex border-2 border-black rounded-md mb-1" href="{% url 'cliente_app:grupo_infos' grupo.estabelecimento_id grupo.id %}">
         <div class="w-3/4 p-4 flex flex-col justify-between">
           <div>
             <!-- Div para colocar o nome do grupo -->
-            <h1 class="font-bold text-xl">{{ grupo.nome }}</h1>
+            <h1 class="font-bold text-xl"><strong class="text-[#F38423]">{{ grupo.nome }}</strong></h1>
+            {% for membro in grupo.membros.all %}
+            {{ membro.first_name }} {{ membro.last_name }} - 
+            {% endfor %}
           </div>
           <div>
             <!-- Descrição do grupo -->

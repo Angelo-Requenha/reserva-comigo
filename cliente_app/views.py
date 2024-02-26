@@ -82,7 +82,6 @@ def criar_grupo(request, info_especifica):
             else:
                 grupo.estabelecimento = info_estabelecimento
                 grupo.save()
-
                 DiaMarcado.objects.create(
                     ano=year, 
                     mes=month, 
@@ -105,4 +104,3 @@ def criar_grupo(request, info_especifica):
         form = GrupoForm()
 
     return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
-
