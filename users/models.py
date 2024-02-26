@@ -31,7 +31,7 @@ class UserProfile(models.Model):
     longitude = models.CharField(verbose_name="Longitude", max_length=50, null=True, blank=True)
     latitude = models.CharField(verbose_name="Latitude", max_length=50, null=True, blank=True)
 
-    descricao = models.CharField(verbose_name="Descrição", max_length=400, null=False, blank=False)
+    descricao = models.CharField(verbose_name="Descrição", max_length=400, null=False, blank=False, default="")
 
     valor_aluguel = models.DecimalField(max_digits=10, decimal_places=2, default=0)  
     capacidade_pessoas = models.PositiveIntegerField(default=0)  

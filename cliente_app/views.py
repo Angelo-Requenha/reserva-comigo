@@ -33,7 +33,7 @@ def grupo_infos(request, info_especifica, grupo_id):
         pagamento = get_object_or_404(StatusPagamentoMembro, membro = user_id, grupo=grupo)
         pagamento.status_pagamento = 'pago'
         pagamento.save()
-        return redirect('cliente_app:grupo_infos', info_especifica=info_especifica)
+        return redirect('cliente_app:grupo_infos', info_especifica=info_especifica, grupo_id=grupo_id)
 
     lat, lon = UserProfile.objects.filter(email_id=info_especifica).values_list('latitude', flat=True).first(), UserProfile.objects.filter(email_id=info_especifica).values_list('longitude', flat=True).first()
 
