@@ -3,10 +3,12 @@
 {% block content %}
   <h1>Registro de Estabelecimento</h1>
   <p>Cadastre-se usando o formulário abaixo</p>
-  <form method="post" class="form">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Registrar</button>
+
+
+    <button type="submit">Criar minha conta</button>
   </form>
 
   <!-- Adicione isso no final do seu template base.html -->
@@ -15,5 +17,5 @@
       $(document).ready(function() {
           $('[title]').tooltip();  // Inicializar tooltips para todos os elementos com o atributo 'title'
       });
-  </script>
+  </script> 
 {% endblock %}
