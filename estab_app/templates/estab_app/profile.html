@@ -11,7 +11,7 @@
   <!-- Adicione um input para a pesquisa de endereço -->
   <input id="autocomplete" placeholder="Digite seu endereço" onFocus="geolocate()" type="text"></input>
 
-  <form method="post" action="{% url 'estab_app:profile' %}" enctype="multipart/form-data">
+  <form method="post" class="formulario_fotos" action="{% url 'estab_app:profile' %}" enctype="multipart/form-data">
     {% csrf_token %}
 
     <!-- Campos do formulário de perfil -->
@@ -23,6 +23,43 @@
 
     <button type="submit">Registrar Endereço</button>
   </form>
+
+  <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="botao_logout">Logout</button>
+  </form>
+
+  <h2>Calendário</h2>
+  <form action="{% url 'estab_app:profile' %}" method="get">
+      <label for="year">Ano:</label>
+      <input type="text" id="year" name="year" value="{{ year }}">
+      <label for="month">Mês:</label>
+      <input type="text" id="month" name="month" value="{{ month }}">
+      <input type="submit" value="Atualizar">
+  </form>
+
+  <form action="{% url 'estab_app:salvar'%}" method="post">
+      {% csrf_token %}
+      <label for="day">Dia a ser marcado:</label>
+      <input type="text" id="day" name="day">
+      <input type="hidden" id="year" name="year" value="{{ year }}">
+      <input type="hidden" id="month" name="month" value="{{ month }}">
+      <input type="submit" value="Salvar Dia">
+      <p>{{error_message}}</p>
+  </form>
+  <hr>
+  {{ calendar_html|safe }}
+
+  <script>
+      // Seleciona todos os spans dentro de td
+      var spans = document.querySelectorAll('td span');
+
+      // Itera sobre os spans encontrados
+      spans.forEach(function(span) {
+          // Acessa o pai do span (o td) e adiciona a classe nele
+          span.parentNode.classList.add('destaque');
+      });
+  </script>
 
   <!-- Inclua a biblioteca do Google Places Autocomplete -->
   <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Ta6Dty0RKOYkQDjM3bToETR3d6Yi358&libraries=places&callback=initAutocomplete"></script>

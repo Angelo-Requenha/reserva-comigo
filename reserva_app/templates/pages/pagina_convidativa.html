@@ -1,33 +1,36 @@
-{% load static %}
+{% extends "base_cliente.html" %} {% load static %}ntos em memórias
+inesquecíveis, com apenas um clique, Reserva Comigo! {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/pagina_convidativa.css' %}" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <title>Reserva-Comigo</title>
-  </head>
-  <body>
-    <header>
-        <div class="navbar1">
-            <a href="{% url 'users:register_cliente' %}">Registro de Usuário</a>
-            <a href="{% url 'users:register_estab' %}">Registro de Estabelecimento</a>
-        </div>
-        <img src="{% static 'images/logo_fundotransparente.png' %}" alt="" />
-        <div class="navbar2">
-            <a href="{% url 'users:login' %}">Login</a>
+<section class="w-full flex flex-col justify-center">
+  <div class="mb-10">
+    <div class="relative">
+      <img
+        class="img_top w-screen h-[800px] object-cover"
+        src="{% static 'images/img/restaurant.jpg' %}"
+        alt=""
+      />
+      <div
+        class="absolute inset-0 w-full flex flex-col items-center justify-center text-white"
+      >
+        <div class="w-1/2 text-center">
+          <h1 class="text-5xl font-bold mb-12">
+            Transforme seus momentos em memórias inesquecíveis, com apenas um
+            clique, <br /><strong
+              class="bg-gradient-to-r from-[#F38423] to-[#4D96E2] bg-clip-text text-transparent"
+              >Reserva Comigo!</strong
+            >
+          </h1>
+          <a
+            class="inline-block transition px-24 py-3 text-lg font-medium text-white bg-[#F38423] border border-none rounded hover:bg-[#c9630a] focus:outline-none line"
+            href=""
+            >Fazer reserva!</a
+          >
         </div>
     </header>
 
     <div class="logo">
-      <h1>Sua Reserva, Sua Experiência!</h1>
+      
+      <h1>Sua Reserva, Sua Experiência</h1>
       <br />
       <div class="texto_convidativo">
         <p>
@@ -39,74 +42,131 @@
         </p>
       </div>
     </div>
-    <main>
-      <div class="texto_usuario">
-        <br />
-        <h1>Bem-Vindo Usuário</h1>
+  </div>
+</section>
+<section class="w-full flex flex-col justify-center items-center">
+  <div class="w-full flex items-center justify-center my-20">
+    <div class="w-4/5 flex items-center justify-between">
+      <div class="w-1/2 flex justify-end">
+        <div class="w-[70%] text-justify">
+          <h2 class="text-[#111827] font-bold text-3xl my-5">
+            O que é o <strong class="text-[#4D96E2]">Reserva</strong>
+            <strong class="text-[#F38423]">Comigo?</strong>
+          </h2>
+          <p class="text-xl">
+            Reserva Comigo é um webapp inovador que simplifica o processo de reservas em grupo. Da escolha do local ao pagamento, todos colaboram, transformando a dinâmica para uma experiência inclusiva. Utiliza tecnologia avançada para conectar pessoas e espaços, facilitando memórias coletivas de forma inovadora, redefinindo a experiência de reservas em grupo de forma descomplicada.
 
-        <br /><br />
-        <h4>Tenha Escolha Ativa:</h4>
-        <br />
-        <div class="texto_convidativo">
-          <p class="animacao">
-            Seja o protagonista nas decisões de reserva, escolhendo locais,
-            datas e horários de forma colaborativa.
           </p>
         </div>
-        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
-
-        <br /><br />
-        <h4>Crie Grupos Personalizados:</h4>
-        <br />
-        <div class="texto_convidativo">
-          <p class="animacao">
-            Forme grupos exclusivos para eventos específicos, tornando a reserva
-            mais adaptável às suas necessidades.
-          </p>
-        </div>
-        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
-
-        <br /><br />
-        <h4>Vote e Decida em Conjunto:</h4>
-        <br />
-        <div class="texto_convidativo">
-          <p class="animacao">
-            Participe de votações dentro do grupo para determinar o melhor dia,
-            horário e local para todos.
-          </p>
-        </div>
-        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
-
-        <br /><br />
-        <h4>Pagamento Integrado:</h4>
-        <br />
-        <div class="texto_convidativo">
-          <p class="animacao">
-            Realize pagamentos coletivos com todos os convidados do seu grupo de
-            forma integrada no próprio aplicativo, sem complicações.
-          </p>
-        </div>
-        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
-
-        <br /><br />
-        <h4>Um Feed Personalizado:</h4>
-        <br />
-        <div class="texto_convidativo">
-          <p class="animacao">
-            Fique conectado e crie memórias com quem você ama, acesse nosso feed
-            personalizado e escolha os melhores estabelecimentos perto de você.
-          </p>
-        </div>
-        <br /><img
-          src="{% static 'images/imagem_sem_imagem.png' %}"
+      </div>
+      <div class="w-4/5">
+        <img
+          class="w-full"
+          src="{% static 'images/img/Lugare_reserva_comigo.png' %}"
           alt=""
-        /><br />
+        />
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="text-center my-10">
+      <h2 class="text-[#111827] font-bold text-3xl my-5">
+        Veja porque o <strong class="text-[#4D96E2]">Reserva Comigo</strong> é a
+        melhor escolha!
+      </h2>
+      <div class="w-full flex justify-center text-white">
+        <div
+          class="box-shadow rounded-2xl relative w-[20%] h-[500px] m-5 overflow-hidden"
+          onmouseover="zoomIn(this)"
+          onmouseout="zoomOut(this)"
+        >
+          <img
+            class="rounded-2xl h-full object-cover transition duration-500"
+            src="{% static 'images/img/img_1.jpg' %}"
+            alt=""
+          />
+          <div
+            class="rounded-2xl absolute inset-0 bg-gradient-to-b from-transparent to-black flex flex-col justify-end p-4"
+          >
+            <h3 class="text-2xl font-bold">Reservas em Grupo</h3>
+            <p>
+              Uma experiência colaborativa e transparente, onde todos têm voz. Os usuários podem criar eventos, votar em datas e locais, garantindo uma experiência objetiva e direcionada. Uma ferramenta essencial para criar memórias coletivas inesquecíveis.
+            </p>
+          </div>
+        </div>
+        <div
+          class="box-shadow rounded-2xl relative w-[20%] h-[500px] m-5 overflow-hidden"
+          onmouseover="zoomIn(this)"
+          onmouseout="zoomOut(this)"
+        >
+          <img
+            class="rounded-2xl h-full object-cover transition duration-500"
+            src="{% static 'images/img/img_2.jpg' %}"
+            alt=""
+          />
+          <div
+            class="rounded-2xl absolute inset-0 bg-gradient-to-b from-transparent to-black flex flex-col justify-end p-4"
+          >
+            <h3 class="text-2xl font-bold">Praticidade</h3>
+            <p>
+              Permite a participação ativa de todos. Uma forma simplificada de reservas em grupo com interface intuitiva, divisão de custos integrada.
+            </p>
+          </div>
+        </div>
+        <div
+          class="box-shadow rounded-2xl relative w-[20%] h-[500px] m-5 overflow-hidden"
+          onmouseover="zoomIn(this)"
+          onmouseout="zoomOut(this)"
+        >
+          <img
+            class="rounded-2xl h-full object-cover transition duration-500"
+            src="{% static 'images/img/img_3.jpg' %}"
+            alt=""
+          />
+          <div
+            class="rounded-2xl absolute inset-0 bg-gradient-to-b from-transparent to-black flex flex-col justify-end p-4"
+          >
+            <h3 class="text-2xl font-bold">Pagamento automatico</h3>
+            <p>
+              Divisão de custos integrada e flexibilidade de pagamento. Prático e eficiente.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-center my-5">
+        <a
+          class="flex items-center text-xl transition px-12 py-2 font-medium text-white bg-[#4D96E2] border border-none rounded hover:bg-[#3c77b6] focus:outline-none line"
+          href=""
+          ><svg
+            class="w-9 mr-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M17 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9V3H15V1H17V3ZM4 9V19H20V9H4ZM6 11H8V13H6V11ZM6 15H8V17H6V15ZM10 11H18V13H10V11ZM10 15H15V17H10V15Z"
+            ></path></svg>Reservar agora mesmo!</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="w-full flex flex-col items-center">
+  <div class="my-10">
+    <div class="text-center mt-12">
+      <h2 class="text-[#111827] font-bold text-3xl">
+        Como isso <strong class="text-[#F38423]">funciona?</strong>
+      </h2>
+    </div>
+    <div class="flex items-center justify-center">
+      <div class="w-1/2 flex justify-end">
+        <img class="w-[180px] mt-5" src="img/line.png" alt="" />
       </div>
 
       <div class="texto_espaco">
         <br />
         <h1>Bem-Vindo Estabelecimento</h1>
 
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
         <br /><br />
         <h4>Agenda Personalizada:</h4>
         <br />
@@ -116,9 +176,8 @@
             uma agenda personalizada.
           </p>
         </div>
-        <br /><br />
-        <br /><img src="{% static 'images/agenda.jpeg' %}" alt="" />
-        
+
+        <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
         <br /><br />
         <h4>Aceite ou Recuse Reservas:</h4>
         <br />
@@ -128,9 +187,8 @@
             disponibilidade do seu espaço.
           </p>
         </div>
-        <br /><br />
+
         <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
-        
         <br /><br />
         <h4>Estilize seu Perfil:</h4>
         <br />
@@ -140,9 +198,8 @@
             perfil do seu estabelecimento.
           </p>
         </div>
-        <br /><br />
+
         <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
-        
         <br /><br />
         <h4>Pagamento Seguro e Atrativo:</h4>
         <br />
@@ -152,9 +209,8 @@
             que o pagamento seja a parte mais fácil ao reservar.
           </p>
         </div>
-        <br /><br />
+
         <br /><img src="{% static 'images/imagem_sem_imagem.png' %}" alt="" />
-        
         <br /><br />
         <h4>Integração Eficiente:</h4>
         <br />
@@ -165,30 +221,141 @@
             proposta.
           </p>
         </div>
-        <br />
       </div>
-    </main>
+    </div>
+    <div class="text-center my-5">
+      <a
+        class="inline-block transition px-40 py-3 text-lg font-medium text-white bg-[#F38423] border border-none rounded hover:bg-[#c9630a] focus:outline-none line"
+        href=""
+        >Saber mais</a
+      >
+    </div>
+  </div>
+  <div class="my-12">
+    <h2 class="text-[#111827] font-bold text-3xl">
+      Conheça nossas <strong class="text-[#4D96E2]">empresas parceiras!</strong>
+    </h2>
+  </div>
+  <div id="slideshow" class="overflow-auto w-4/5 flex justify-center">
+    <div class="single-item flex overflow-hidden whitespace-nowrap">
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/1.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/2.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/3.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/4.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/5.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/6.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/7.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/8.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/9.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/10.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/11.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/12.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/13.svg' %}"
+          alt=""
+        />
+      </div>
+      <div class="mx-9 inline-block">
+        <img
+          class="w-28 h-28 mx-12 cursor-pointer transition filter grayscale hover:filter-none"
+          src="{% static 'images/svg/parceiros/14.svg' %}"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+  <div class="w-[90%] my-12 mt-36 flex items-center justify-center">
+    <hr class="w-[80%]" />
+    <div class="mx-15 w-full text-center">
+      <h2 class="text-[#111827] font-bold text-3xl">
+        Comece tudo isso agora com
+        <strong class="text-[#F38423]">apenas 1 click!</strong>
+      </h2>
+    </div>
+    <hr class="w-[80%]" />
+  </div>
+  <div>
+    <img class="w-[600px] my-14" src="svg/Reserva.svg" alt="" />
+    <a
+      class="flex justify-center text-xl transition my-24 px-12 py-2 font-medium text-white bg-[#4D96E2] border border-none rounded-3xl hover:bg-[#3c77b6] focus:outline-none line"
+      href=""
+      >Começar a reservar!</a
+    >
+  </div>
+</section>
 
-    <section class="secao_botao">
-      <div class="div_botao">
-        <a href="{% url 'reserva_app:init_page' %}">Junte-se a nós</a>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footer">
-        <p>Todos os direitos reservados</p>
-      </div>
-    </footer>
-    <script src="{% static 'js/animacao.js' %}"></script>
-    <script>
-      window.addEventListener('scroll', function(){
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        var body = document.querySelector('body');
-        var speed = 0.5; // Ajuste a velocidade conforme necessário
-        body.style.backgroundPositionY = scrollTop * speed + 'px';
-      });
-    </script>
-  </body>
-  
-</html>
+{% endblock %}

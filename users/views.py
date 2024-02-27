@@ -2,16 +2,12 @@ from django.views.generic.edit import CreateView
 from .models import CustomUser, UserProfile, FotosEstab
 from .forms import ClienteForm, EstabelecimentoForm, CustomAuthenticationForm, UserProfileForm, FotosEstabForm
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect, render, reverse, get_object_or_404
-from django.conf import settings
-from django.views.generic import FormView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.views import View
-from django.utils.decorators import method_decorator
-
+from estab_app.models import DiaMarcado
+import calendar
 
 class register_cliente(CreateView):
     model = CustomUser
@@ -74,7 +70,7 @@ class CustomLoginView(LoginView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             if self.request.user.tipo == 'C':
-                return redirect('cliente_app:grupos')
+                return redirect('reserva_app:pagina_convidativa')
             if self.request.user.tipo == 'E':
                 return redirect('estab_app:profile')
         return super().dispatch(request, *args, **kwargs)
@@ -82,18 +78,40 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
 
         if self.request.user.tipo == 'C':
-            return reverse_lazy('cliente_app:grupos')
+            return reverse_lazy('reserva_app:pagina_convidativa')
         elif self.request.user.tipo == 'E':
             return reverse_lazy('estab_app:profile')
         else:
-            return reverse_lazy('cliente_app:grupos')
+            return reverse_lazy('reserva_app:pagina_convidativa')
 
+
+def generate_calendar(year, month, email):
+    cal = calendar.HTMLCalendar().formatmonth(int(year), int(month))
+    highlighted_days = []
+    
+    # Filtrando os dias marcados para o usuário com o email fornecido
+    marked_days = DiaMarcado.objects.filter(ano=year, mes=month, email_usuario=email)
+    
+    # Adicionando os dias marcados à lista de dias destacados
+    for marked_day in marked_days:
+        highlighted_days.append(marked_day.dia)
+    
+    for day in highlighted_days:
+        highlighted_day = f'<span><strong>{day}</strong></span>'
+        cal = cal.replace(f'>{day}<', f'>{highlighted_day}<')
+        
+    return cal
 
 @login_required
 def register_profile(request):
     user_profile = request.user.userprofile
     user_fotos = get_object_or_404(FotosEstab, email=request.user)
     
+    user_email = request.user.email
+    
+    year = int(request.GET.get('year', 2024))
+    month = int(request.GET.get('month', 2))
+    calendar_html = generate_calendar(year, month, user_email)
 
 
     if request.method == 'POST':
@@ -117,5 +135,19 @@ def register_profile(request):
     else:
         profile_form = UserProfileForm(instance=user_profile)
         photos_form = FotosEstabForm(instance=user_fotos)
+        
+        context = {
+        'profile_form': profile_form,
+        'photos_form': photos_form,
+        'year': year,
+        'month': month,
+        'calendar_html': calendar_html,
+        }
 
-    return render(request, 'estab_app/profile.html', {'profile_form': profile_form, 'photos_form': photos_form})
+    return render(request, 'estab_app/profile.html', {
+        'profile_form': profile_form,
+        'photos_form': photos_form,
+        'year': year,
+        'month': month,
+        'calendar_html': calendar_html,
+        })

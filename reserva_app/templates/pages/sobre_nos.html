@@ -3,21 +3,46 @@
 
 {% block content %}
 
-<div class="caixa_texto_borda_laranja">
-    <h2 class="titulo">Sobre Nós</h2> <br>
-    <p class="texto">Somos um grupo dedicado de estudantes provenientes do Entra21, unidos por uma paixão compartilhada pela web e design. 
-        Equipados com habilidades diversas e uma visão coletiva, estamos determinados a criar algo singular e valioso para a nossa comunidade. </br>
+<section class="w-full flex justify-between ">
 
-    </br>Os integrantes que compõem esse projeto são Angelo Requenha, Fábio Henrique Peixe, Isabela Caroline Reiter, Ivanir Stano e Victor Gomes Mendes e Victor Zuchi. 
-         Juntos criaram um aplicativo web chamado "Reserva Comigo". </br>
-    </br>O "Reserva Comigo" nasceu a partir de diversas conversas em grupo, onde perceberam a necessidade de simplificar o processo de reserva 
-        de espaços para atividades diversas. e da percepção coletiva de que a praticidade e a eficiência são fundamentais em nosso cotidiano.
-    </br>     
-    </br>O aplicativo visa proporcionar uma experiência ágil e descomplicada ao garantir o espaço perfeito para seus momentos especiais. 
-         Seja ao reservar uma quadra para uma animada partida de futebol entre amigos ou agendar um espaço para celebrar um aniversário, nossa 
-         plataforma intuitiva facilita a criação de grupos e a realização de pagamentos, tornando todo o processo mais fluido e fácil.
-        </p>
+    </div>
+        <div class="container mt-20">
+            <div class="content1">
+                <h2>Prazer em conhecê-lo!</h2>
+                <p class="psobre_nos">Somos a equipe ReservaComigo! Conheça um pouco mais sobre o nosso projeto --> </p>
+            </div>
+            <div class="videosobrenos" id="videosobrenos">
+                <iframe class="animatedin" width="560" height="315" src="https://www.youtube.com/embed/W6cCUkFXtRQ?si=yaUZztrcuY6blvg5&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;disablekb=1&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=1&amp;showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        
+        
+            <div class="image">
+                <img src="{% static 'images/ideia.png' %}" alt="Descrição da outra imagem">
+            </div>
+            <div class="content1">
+                <h2>Como surgimos?</h2>
+                <p class="psobre_nos">A inspiração surgiu da observação de que muitas reservas em grupo são organizadas por apenas uma pessoa.</p>
+            </div>
+        
+        
+            <div class="content1">
+                <h2>O que é o ReservaComigo?</h2>
+                <p class="psobre_nos">O aplicativo propõe uma abordagem inovadora ao permitir que todos os membros participem ativamente do agendamento e pagamento colaborativo, redefinindo e aprimorando a experiência de reservas coletivas e superando as limitações do modelo tradicional.</p>
+            </div>
+            <div class="image">
+                <img src="{% static 'images/questao.png' %}" alt="Descrição da imagem">
+            </div>
+        
+            <div class="image">
+                <img src="{% static 'images/missao.png' %}" alt="Descrição da imagem">
+            </div>
+            <div class="content1">
+                <h2>Missão</h2>
+                <p class="psobre_nos">Revolucionar, agilizar e facilitar todas as reservas feitas em grupo. </p>
+            </div>
+        </div>
 
-</div>
+        <div class="w-[10%]"></div>
+    </section>
 
 {% endblock %}
