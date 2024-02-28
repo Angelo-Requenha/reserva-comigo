@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from .models import CustomUser, UserProfile, FotosEstab
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
@@ -14,6 +14,24 @@ class ClienteForm(UserCreationForm):
 
         self.fields['password1'].widget.attrs['title'] = 'Sua senha precisa conter pelo menos 8 caracteres. Sua senha não pode ser uma senha comumente utilizada. Sua senha não pode ser inteiramente numérica.'
         self.fields['password2'].widget.attrs['title'] = 'Informe a mesma senha informada anteriormente, para verificação.'
+
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['email'].label = ''
+
+        self.fields['first_name'].widget.attrs['placeholder'] = 'Nome'
+        self.fields['first_name'].label = ''
+
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Sobrenome'
+        self.fields['last_name'].label = ''
+
+        self.fields['telefone'].widget.attrs['placeholder'] = 'Telefone'
+        self.fields['telefone'].label = ''
+
+        self.fields['password1'].widget.attrs['placeholder'] = 'Crie uma senha'
+        self.fields['password1'].label = ''
+
+        self.fields['password2'].widget.attrs['placeholder'] = 'Confirme sua senha'
+        self.fields['password2'].label = ''
 
     class Meta:
         model = CustomUser
@@ -40,6 +58,21 @@ class EstabelecimentoForm(UserCreationForm):
 
         self.fields['password1'].widget.attrs['title'] = 'Sua senha precisa conter pelo menos 8 caracteres. Sua senha não pode ser uma senha comumente utilizada. Sua senha não pode ser inteiramente numérica.'
         self.fields['password2'].widget.attrs['title'] = 'Informe a mesma senha informada anteriormente, para verificação.'
+
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['email'].label = ''
+
+        self.fields['first_name'].widget.attrs['placeholder'] = 'Nome'
+        self.fields['first_name'].label = ''
+
+        self.fields['telefone'].widget.attrs['placeholder'] = 'Telefone'
+        self.fields['telefone'].label = ''
+
+        self.fields['password1'].widget.attrs['placeholder'] = 'Crie uma senha'
+        self.fields['password1'].label = ''
+
+        self.fields['password2'].widget.attrs['placeholder'] = 'Confirme sua senha'
+        self.fields['password2'].label = ''
 
     class Meta:
         model = CustomUser
@@ -114,18 +147,16 @@ class FotosEstabForm(forms.ModelForm):
         if not any(cleaned_data.get(foto) for foto in ['foto1', 'foto2', 'foto3', 'foto4', 'foto5', 'foto6']):
             raise forms.ValidationError('Pelo menos uma foto deve ser fornecida.')
         
-class EstabelecimentoProfileForm(UserCreationForm):
+class EstabelecimentoProfileForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ['foto_perfil', 'email', 'first_name', 'telefone', 'password1', 'password2']
+        fields = ['foto_perfil', 'email', 'first_name', 'telefone']
         labels = {
             'foto_perfil': 'Foto de Perfil',
             'email': 'Email',
             'first_name': 'Nome do estabelecimento',
             'telefone': 'Telefone',
-            'password1': 'Altere sua senha',
-            'password2': 'Confirme a senha'
         }
     def __init__(self, *args, **kwargs):
         super(EstabelecimentoProfileForm, self).__init__(*args, **kwargs)
@@ -138,15 +169,12 @@ class EstabelecimentoProfileForm(UserCreationForm):
         self.fields['telefone'].widget.attrs['placeholder'] = 'Telefone'
         self.fields['telefone'].label = ''
 
-        self.fields['password1'].widget.attrs['placeholder'] = 'Sua nova senha'
-        self.fields['password1'].label = ''
+        self.fields['password'].widget.attrs['style'] = 'display:none;'
+        self.fields['password'].label = ''
+        self.fields['password'].help_text = ''
 
-        self.fields['password2'].widget.attrs['placeholder'] = 'Confirme sua senha'
-        self.fields['password2'].label = ''
+    def clean_password(self):
+        # Limpeza do campo de senha
+        return self.initial.get('password', '')
 
-        self.fields['password1'].help_text = ''
-        self.fields['password2'].help_text = ''
-
-        self.fields['password1'].widget.attrs['title'] = 'Sua senha precisa conter pelo menos 8 caracteres. Sua senha não pode ser uma senha comumente utilizada. Sua senha não pode ser inteiramente numérica.'
-        self.fields['password2'].widget.attrs['title'] = 'Informe a mesma senha informada anteriormente, para verificação.'
 

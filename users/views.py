@@ -111,7 +111,7 @@ def register_profile(request):
     if request.method == 'POST':
         profile_form = UserProfileForm(request.POST, instance=user_profile)
         photos_form = FotosEstabForm(request.POST, request.FILES, instance=user_fotos)
-        register_form = EstabelecimentoProfileForm(request.POST, instance=request.user)
+        register_form = EstabelecimentoProfileForm(request.POST, request.FILES, instance=request.user)
 
 
         if profile_form.is_valid() and photos_form.is_valid() and register_form.is_valid():
@@ -134,6 +134,7 @@ def register_profile(request):
         photos_form = FotosEstabForm(instance=user_fotos)
         register_form = EstabelecimentoProfileForm(instance=request.user)
         user = request.user
+   
         
         context = {
         'profile_form': profile_form,

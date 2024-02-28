@@ -18,9 +18,13 @@
       <h3>Adicione os dados do seu perfil</h3>
       <div class="profile-photo-field">
         <label for="foto_perfil">Foto de perfil:</label>
-        <button class="profile-photo-button">
-          <img id="profile-photo-preview" class="profile-photo-image" src="{{ user.foto_perfil.url }}" alt="Foto de Perfil">
-        </button>
+        {% if user.foto_perfil %}
+          <button class="profile-photo-button">
+            <img id="profile-photo-preview" class="profile-photo-image" src="{{ user.foto_perfil.url }}" alt="Foto de Perfil">
+          </button>
+        {% else %}
+          <img src="{% static 'images/imagem_sem_imagem.png' %}" alt="Foto" class="current-photo">
+        {% endif %}
       </div>
       {{ register_form.as_p }}
     </div>
@@ -33,13 +37,24 @@
     </div>
   </div> 
 
-  <div class="form-section-photos">
-    <h3>Adicione as fotos do seu estabelecimento</h3>
-    {{ photos_form.as_p }}
+  <div id="photo-section">
+    {% for field in photos_form.visible_fields %}
+      <div class="photo-container">
+      {% if field.value %}
+        <img src="{{ field.value.url }}" alt="Foto" class="current-photo">
+      {% else %}
+        <img src="{% static 'images/imagem_sem_imagem.png' %}" alt="Foto" class="current-photo">
+      {% endif %}
+        <input type="file" name="{{ field.name }}" accept="image/*" class="hidden-input">
+        <button type="button" class="change-photo-btn">Escolher Nova Foto</button>
+        <button type="button" class="remove-photo-btn">Remover Foto</button>
+      </div>
+    {% endfor %}
   </div>
 
 
-    <button type="submit">Registrar Endereço</button>
+  <button type="submit" style="justify-content: center; padding: 10px; background-color: #db5609; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Registrar Endereço</button>
+
   </form>
   <script src="{% static 'js/autocomplete.js' %}"></script>
   <!-- Inclua a biblioteca do Google Places Autocomplete -->
@@ -51,4 +66,49 @@
       });
     });
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Adicionar Nova Foto
+      $('#add-photo-btn').on('click', function () {
+        var newPhotoContainer = '<div class="photo-container">' +
+                                  '<img src="C:\Users\fabio\OneDrive\Área de Trabalho\Repositórios\reserva-comigo\main\static\images\imagem_sem_imagem.png" alt="Foto" class="current-photo">' +
+                                  '<input type="file" name="nova_foto" accept="image/*" class="hidden-input">' +
+                                  '<button type="button" class="change-photo-btn">Escolher Nova Foto</button>' +
+                                  '<button type="button" class="remove-photo-btn">Remover Foto</button>' +
+                                '</div>';
+        $('#photo-section').append(newPhotoContainer);
+      });
+  
+      // Escolher Nova Foto
+      $(document).on('click', '.change-photo-btn', function () {
+        $(this).siblings('.hidden-input').click();
+      });
+  
+      // Atualizar Visualização da Foto ao escolher um arquivo
+      $(document).on('change', '.hidden-input', function () {
+        var input = this;
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $(input).siblings('.current-photo').attr('src', e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      });
+  
+      // Remover Foto
+      $(document).on('click', '.remove-photo-btn', function () {
+        var photoContainer = $(this).parent();
+        var input = photoContainer.find('.hidden-input');
+        var placeholderImage = 'C:\Users\fabio\OneDrive\Área de Trabalho\Repositórios\reserva-comigo\main\static\images\imagem_sem_imagem.png';
+  
+        // Substituir a foto por uma foto padrão
+        input.replaceWith(input.val('').clone(true));
+        photoContainer.find('.current-photo').attr('src', placeholderImage);
+      });
+    });
+  </script>
+  
+  
 {% endblock %}
