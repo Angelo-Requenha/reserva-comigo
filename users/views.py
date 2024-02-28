@@ -19,7 +19,7 @@ class register_cliente(CreateView):
             if self.request.user.tipo == 'C':
                 return redirect('cliente_app:grupos')
             if self.request.user.tipo == 'E':
-                return redirect('estab_app:profile')
+                return redirect('estab_app:notificacoes')
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -42,7 +42,7 @@ class register_estab(CreateView):
             if self.request.user.tipo == 'C':
                 return redirect('cliente_app:grupos')
             if self.request.user.tipo == 'E':
-                return redirect('estab_app:profile')
+                return redirect('estab_app:notificacoes')
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -72,7 +72,7 @@ class CustomLoginView(LoginView):
             if self.request.user.tipo == 'C':
                 return redirect('reserva_app:pagina_convidativa')
             if self.request.user.tipo == 'E':
-                return redirect('estab_app:profile')
+                return redirect('estab_app:notificacoes')
         return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
@@ -80,7 +80,7 @@ class CustomLoginView(LoginView):
         if self.request.user.tipo == 'C':
             return reverse_lazy('reserva_app:pagina_convidativa')
         elif self.request.user.tipo == 'E':
-            return reverse_lazy('estab_app:profile')
+            return reverse_lazy('estab_app:notificacoes')
         else:
             return reverse_lazy('reserva_app:pagina_convidativa')
 

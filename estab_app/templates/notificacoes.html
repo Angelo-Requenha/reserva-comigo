@@ -3,17 +3,54 @@
 {% load static %} 
 {% block content %}
 
+<style>
+    .notification-container {
+        border: 2px solid #db5609;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+    }
 
-{% for notificacao in notificacoes %}
-{% if notificacao.status == 'pendente' %}
-    <p>{{ notificacao.mensagem }} de {{ notificacao.grupo.nome }}</p>
-    <p>Data solicitada: {{ notificacao.grupo.dia }}/{{ notificacao.grupo.mes }}/{{ notificacao.grupo.ano }}</p>
-    <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'aceitar' %}">Aceitar</a>
-    <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'recusar' %}">Recusar</a>
-    {{ mensagem }}
-{% endif %}
+    .notification-actions {
+        margin-top: 5px;
+    }
 
-{% endfor %}
+    .accept-btn, .reject-btn {
+        padding: 5px 10px;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+    }
 
+    .accept-btn {
+        background-color: #4CAF50; /* Green */
+    }
+
+    .reject-btn {
+        background-color: #f44336; /* Red */
+    }
+    .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+<div class="center-content">
+    {% for notificacao in notificacoes %}
+        {% if notificacao.status == 'pendente' %}
+            <div class="notification-container">
+                <p>{{ notificacao.mensagem }} de {{ notificacao.grupo.nome }}</p>
+                <p>Data solicitada: {{ notificacao.grupo.dia }}/{{ notificacao.grupo.mes }}/{{ notificacao.grupo.ano }}</p>
+                <div class="notification-actions">
+                    <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'aceitar' %}" class="accept-btn">Aceitar</a>
+                    <a href="{% url 'estab_app:pedido_reserva' notificacao.id 'recusar' %}" class="reject-btn">Recusar</a>
+                </div>
+                {{ mensagem }}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
 
 {% endblock %}
