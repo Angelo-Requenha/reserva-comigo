@@ -53,7 +53,15 @@
         }
 
         .mapa {
-          margin-top: 20px;
+          margin-top: 30px;
+        }
+
+        .foto {
+          width: 80px; /* Adjust the width as needed */
+          height: 80px; /* Adjust the height as needed */
+          border-radius: 50%;
+          display: block; /* Ensures the image is treated as a block element */
+          margin: 0 auto; 
         }
 
         /* Add more styles as needed */
@@ -70,6 +78,7 @@
         <table>
           <thead>
             <tr>
+              <th>Membros</th>
               <th>Nome</th>
               <th>Valor a Pagar</th>
               <th>Status do Pagamento</th>
@@ -78,6 +87,7 @@
           <tbody>
             {% for membro_rel in grupo.statuspagamentomembro_set.all %}
               <tr>
+                <td><img src="{{ membro_rel.membro.foto_perfil.url }}" alt="Foto de perfil" class="foto"></td>
                 <td>{{ membro_rel.membro.first_name }} {{ membro_rel.membro.last_name }}</td>
                 <td>{{ valor_membro }}</td>
                 <td>{{ membro_rel.status_pagamento }}</td>
@@ -93,14 +103,15 @@
         </form>
         <br>
 
-        <h3>Informações do Estabelecimento:</h3>
+        <h2>Informações do Estabelecimento:</h2>
         {% if grupo.estabelecimento.userprofile %}
           <p>Endereço: {{ grupo.estabelecimento.userprofile.endereco }}</p>
+          <p>Descrição: {{ grupo.estabelecimento.userprofile.descricao }}</p>
           <p>Valor do Aluguel: R$ {{ grupo.estabelecimento.userprofile.valor_aluguel }}</p>
           <p>Capacidade de Pessoas: {{ grupo.estabelecimento.userprofile.capacidade_pessoas }}</p>
           <p>Tipo de Horário: {{ grupo.estabelecimento.userprofile.get_tipo_horario_display }}</p>
 
-          <h3>Localização no Mapa:</h3>
+          <h2>Localização no Mapa:</h2>
           <div class="mapa">
             <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
             {{ mapa|safe }}
