@@ -17,7 +17,7 @@
             <li><strong>Endereço:</strong> {{ info.userprofile.endereco }}</li>
             <li><strong>Capacidade máxima de pessoas:</strong> {{ info.userprofile.capacidade_pessoas }}</li>
             <li><strong>Valor do aluguel:</strong> R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</li>
-            <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
+            <a href="{% url 'estab_app:criar_grupo' info.id %}" class="criar-btn">Criar Grupo</a>
         </ul>
     </div>
 
@@ -143,17 +143,16 @@
   }
 
   .container {
-    display: flex;
     justify-content: space-between;
     align-items: center; /* Center items vertically */
-    margin: 30px;
+    margin: 50px;
     width: 80%; /* Adjust as needed */
   }
 
   .info-estab {
     width: 100%;
     max-width: 600px;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 30px;
@@ -342,6 +341,14 @@
     background-color: #fff
 }
 
+.criar-btn {
+  background-color: #db5609; /* Cor verde - pode ser ajustada conforme desejado */
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+}
+ 
 
 </style>
 {% endblock %}
