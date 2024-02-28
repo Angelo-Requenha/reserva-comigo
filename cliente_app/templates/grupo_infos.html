@@ -87,7 +87,13 @@
           <tbody>
             {% for membro_rel in grupo.statuspagamentomembro_set.all %}
               <tr>
-                <td><img src="{{ membro_rel.membro.foto_perfil.url }}" alt="Foto de perfil" class="foto"></td>
+                {% if membro_rel.membro.foto_perfil %}
+                  <td><img src="{{ membro_rel.membro.foto_perfil.url }}" alt="Foto de perfil" class="foto"></td>
+
+                {% else %} 
+                  <td><img src="" alt="Foto de perfil" class="foto"></td>
+                  
+                {% endif %}
                 <td>{{ membro_rel.membro.first_name }} {{ membro_rel.membro.last_name }}</td>
                 <td>{{ valor_membro }}</td>
                 <td>{{ membro_rel.status_pagamento }}</td>
