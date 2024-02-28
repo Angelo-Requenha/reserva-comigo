@@ -13,11 +13,11 @@
       <!-- Estabelecimentos -->
       <div>
         {% for usuario in usuarios %}
-          {% if usuario.fotosestab.foto1 %}
+          {% if usuario.foto_perfil %}
             <div class="flex justify-center">
               <a class="box w-3/5 my-5 flex" href="{% url 'estab_app:pagina_estab' usuario.id %}">
                 <div class="w-[20%]">
-                    <img class="w-full h-3/4" src="{{ usuario.fotosestab.foto1.url }}" alt="Foto de Estabelecimento" width="100" height="150">
+                    <img class="w-full h-3/4" src="{{ usuario.foto_perfil.url }}" alt="Foto de Estabelecimento" width="100" height="150">
                 </div>
                 <div class="w-3/4 p-4 flex flex-col justify-between">
                   <div>

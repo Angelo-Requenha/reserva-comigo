@@ -4,72 +4,223 @@
 {% block content %}
 
 
-<section class="w-full flex justify-center">
-    
-    <div class="w-[80%] mt-20 mb-20">
-        <p>Telefone para contato: {{ info.telefone }}</p>
-        <p>Nome do Estabelecimento: {{ info.first_name }}</p>
-        <p>Email: {{ info.email }}</p>
-        <p>Endereço: {{ info.userprofile.endereco }}</p>
-        <p>Capacidade máxima de pessoas: {{ info.userprofile.capacidade_pessoas }}</p>
-        <p>Valor do aluguel: R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</p>
-        <div>
-            {% if info.fotosestab.foto1 %}
-            <img src="{{ info.fotosestab.foto1.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto2 %}
-            <img src="{{ info.fotosestab.foto2.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto3 %}
-            <img src="{{ info.fotosestab.foto3.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto4 %}
-            <img src="{{ info.fotosestab.foto4.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto5 %}
-            <img src="{{ info.fotosestab.foto5.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-            {% if info.fotosestab.foto6 %}
-            <img src="{{ info.fotosestab.foto6.url }}" alt="Foto de Estabelecimento"
-            width="100"
-            height="150">
-            {% endif %}
-        </div>
+<h1>Página do Estabelecimento</h1>
 
-        <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
+<div class="container">
+    <div class="info-estab">
+        <h1 style="text-align: center; font-size: 28px;">Dados do Estabelecimento</h1>
+        <ul style="list-style: none; padding: 0; text-align: center; font-size: 18px;">
+            <li><strong>Nome do Estabelecimento:</strong> {{ info.first_name }}</li>
+            <li><strong>Descrição:</strong> {{ info.userprofile.descricao }}</li>
+            <li><strong>Telefone para contato:</strong> {{ info.telefone }}</li>
+            <li><strong>Email:</strong> {{ info.email }}</li>
+            <li><strong>Endereço:</strong> {{ info.userprofile.endereco }}</li>
+            <li><strong>Capacidade máxima de pessoas:</strong> {{ info.userprofile.capacidade_pessoas }}</li>
+            <li><strong>Valor do aluguel:</strong> R$ {{ info.userprofile.valor_aluguel }} por {{ info.userprofile.tipo_horario }}</li>
+            <a href="{% url 'estab_app:criar_grupo' info.id %}">Criar Grupo</a>
+        </ul>
+    </div>
 
+
+
+    <div class="calendar-container">
         <h2>Calendário</h2>
-        <form action="{% url 'estab_app:pagina_estab' user.id %}" method="get">
+    
+        <form action="{% url 'estab_app:profile' %}" method="get" class="calendar-form">
             <label for="year">Ano:</label>
             <input type="text" id="year" name="year" value="{{ year }}">
             <label for="month">Mês:</label>
             <input type="text" id="month" name="month" value="{{ month }}">
-            <input type="submit" value="Atualizar">
+            <button type="submit">Atualizar</button>
         </form>
-
+    
         <hr>
-        {{ calendar_html|safe }}
-
+    
+        <div class="calendar-content">
+          {{ calendar_html|safe }}
+        </div>
+    
         <script>
             // Seleciona todos os spans dentro de td
             var spans = document.querySelectorAll('td span');
-
+    
             // Itera sobre os spans encontrados
             spans.forEach(function(span) {
                 // Acessa o pai do span (o td) e adiciona a classe nele
                 span.parentNode.classList.add('destaque');
             });
         </script>
+        
     </div>
-</section>
+</div>
+<div class="slider">
+    <div class="slides">
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <input type="radio" name="radio-btn" id="radio5">
+        <input type="radio" name="radio-btn" id="radio6">
+        {% if info.fotosestab.foto1 %}
+        <div class="slide first">
+            <img src="{{ info.fotosestab.foto1.url }}" alt="Imagem 1" >
+        </div>
+        {% endif %}
+        {% if info.fotosestab.foto2 %}
+        <div class="slide">
+            <img src="{{ info.fotosestab.foto2.url }}" alt="Imagem 2" >
+        </div>
+        {% endif %}
+        {% if info.fotosestab.foto3 %}
+        <div class="slide">
+            <img src="{{ info.fotosestab.foto3.url }}" alt="Imagem 3" >
+        </div>
+        {% endif %}
+        {% if info.fotosestab.foto4 %}
+        <div class="slide">
+            <img src="{{ info.fotosestab.foto4.url }}" alt="Imagem 4" >
+        </div>
+        {% endif %}
+        {% if info.fotosestab.foto5 %}
+        <div class="slide">
+            <img src="{{ info.fotosestab.foto5.url }}" alt="Imagem 5" >
+        </div>
+        {% endif %}
+        {% if info.fotosestab.foto6 %}
+        <div class="slide">
+            <img src="{{ info.fotosestab.foto6.url }}" alt="Imagem 6" >
+        </div>
+        {% endif %}
+
+        <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+            <div class="auto-btn4"></div>
+            <div class="auto-btn5"></div>
+            <div class="auto-btn6"></div>
+        </div>
+    </div>
+
+    <div class="manual-navigation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+        <label for="radio5" class="manual-btn"></label>
+        <label for="radio6" class="manual-btn"></label>
+    </div>
+</div>
+
+
+
+<script src="{% static 'js/slides.js' %}"></script>
+
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #333;
+  }
+
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 36px;
+  }
+
+  h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+    margin: 30px;
+    width: 80%; /* Adjust as needed */
+  }
+
+  .info-estab {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .estab-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .estab-info {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .calendar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .calendar-form {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .calendar-form label {
+    margin-right: 10px;
+  }
+
+  .calendar-form input {
+    padding: 10px;
+  }
+
+  .calendar-content {
+    margin-top: 20px;
+  }
+
+  .calendar-content table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .calendar-content table th, .calendar-content table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .calendar-content table th {
+    background-color: #db5609;
+    color: #fff;
+  }
+
+  .calendar-content td.destaque {
+    background-color: #f5f5f5;
+  }
+</style>
 {% endblock %}

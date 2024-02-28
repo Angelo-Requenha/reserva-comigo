@@ -4,6 +4,7 @@ from users.models import CustomUser, UserProfile
 from .models import Grupo, Notificacao, StatusPagamentoMembro
 from estab_app.models import DiaMarcado
 from .forms import GrupoForm
+from users.forms import ClienteProfileForm
 import folium
 
 
@@ -104,3 +105,15 @@ def criar_grupo(request, info_especifica):
         form = GrupoForm()
 
     return render(request, 'criar_grupo.html', {'form': form, 'info': info_estabelecimento})
+
+def profile_edit(request):
+    user = request.user  
+    if request.method == 'POST':
+        form = ClienteProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('/cliente/profile_edit/')  
+    else:
+        form = ClienteProfileForm(instance=user)
+
+    return render(request, 'profile_edit.html', {'form': form})

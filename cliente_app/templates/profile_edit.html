@@ -1,0 +1,87 @@
+{% extends "main/base_cliente.html" %} 
+{% load static %} 
+{% block content %}
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-container {
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+
+  }
+
+  input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #817878;
+  }
+
+  .save-btn {
+    background-color: #db5609;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+</style>
+
+<div class="container">
+  <div class="form-container">
+    <h2 class="text-center">Editar Perfil</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="{{ form.foto_perfil.id_for_label }}">Foto de Perfil</label>
+        {{ form.foto_perfil }}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.email.id_for_label }}">Email</label>
+        {{ form.email }}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.first_name.id_for_label }}">Nome do Estabelecimento</label>
+        {{ form.first_name }}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.last_name.id_for_label }}">Sobrenome</label>
+        {{ form.last_name }}
+      </div>
+
+      <div class="form-group">
+        <label for="{{ form.telefone.id_for_label }}">Telefone</label>
+        {{ form.telefone }}
+      </div>
+
+      <button type="submit" class="save-btn">Salvar Alterações</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

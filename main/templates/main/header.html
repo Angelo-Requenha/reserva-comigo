@@ -41,7 +41,7 @@
               </div>
                 {% if user.is_authenticated %}
                     <!-- Conteúdo para usuários autenticados -->
-                    <p class="mr-5">{{ user.first_name }}</p>
+                    <a href="{% url 'cliente_app:profile_edit' %}" class="mr-5">{{ user.first_name }}</a>
                     <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
                         {% csrf_token %}
                         <button type="submit" class="botao_logout">Logout</button>

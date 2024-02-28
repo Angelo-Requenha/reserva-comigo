@@ -178,3 +178,36 @@ class EstabelecimentoProfileForm(UserChangeForm):
         return self.initial.get('password', '')
 
 
+class ClienteProfileForm(UserChangeForm):
+
+    class Meta:
+        model = CustomUser
+        fields = ['foto_perfil', 'email', 'first_name', 'last_name', 'telefone']
+        labels = {
+            'foto_perfil': 'Foto de Perfil',
+            'email': 'Email',
+            'first_name': 'Nome do estabelecimento',
+            'last_name': 'Sobrenome',
+            'telefone': 'Telefone',
+        }
+    def __init__(self, *args, **kwargs):
+        super(ClienteProfileForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['email'].label = ''
+
+        self.fields['first_name'].widget.attrs['placeholder'] = 'Nome '
+        self.fields['first_name'].label = ''
+        
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Sobrenome '
+        self.fields['last_name'].label = ''
+
+        self.fields['telefone'].widget.attrs['placeholder'] = 'Telefone'
+        self.fields['telefone'].label = ''
+
+        self.fields['password'].widget.attrs['style'] = 'display:none;'
+        self.fields['password'].label = ''
+        self.fields['password'].help_text = ''
+
+    def clean_password(self):
+        # Limpeza do campo de senha
+        return self.initial.get('password', '')
