@@ -1,0 +1,78 @@
+.section-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .address-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .submit-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+
+.form-section-register,
+.form-section-profile {
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 60px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    max-width: 800px;
+}
+
+.profile-photo-field {
+    margin: 10px auto;
+  }
+  
+  .profile-photo-input {
+    display: none;
+  }
+  
+  .profile-photo-button {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: 100px; /* Ajuste o tamanho conforme necessário */
+    border: 1px solid #ddd;
+    border-radius: 50%; /* Formato oval */
+    background-color: #fff;
+    cursor: pointer;
+    overflow: hidden; /* Add this line */
+    display: flex; /* Add this line */
+    align-items: center; /* Add this line */
+    justify-content: center; /* Add this line */
+    padding: 5px;
+    margin: 0 auto;
+  }
+  
+  .profile-photo-button:hover {
+    background-color: #ccc;
+  }
+  
+  .profile-photo-image {
+    width: 100%; /* Ajusta a largura da imagem para ocupar 100% do botão */
+    height: 100%; /* Ajusta a altura da imagem para ocupar 100% do botão */
+    border-radius: 50%; /* Formato oval */
+  }
+  
+  
+

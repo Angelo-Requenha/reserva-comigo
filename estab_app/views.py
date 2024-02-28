@@ -47,6 +47,18 @@ def pagina_estab(request, info_especifica):
     template_name = "pagina_estab_cliente.html" if request.user.tipo == 'C' else "pagina_estab_estab.html"
     return render(request, template_name, context)
 
+def calendario (request):
+    user_email = request.user.email
+    year = int(request.GET.get('year', 2024))
+    month = int(request.GET.get('month', 2))
+    calendar_html = generate_calendar(year, month, user_email)
+    error_message = 'Data já cadastrada!'
+
+    return render(request, 'estab_app/calendario.html', 
+        {'year': year,
+        'month': month,
+        'calendar_html': calendar_html,})
+
 @login_required
 def salvar(request):
     if request.method == 'POST':

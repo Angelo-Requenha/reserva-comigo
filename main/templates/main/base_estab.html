@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/style-novo.css' %}" />
     <link rel="stylesheet" href="{% static 'css/usermenu.css' %}" />
     <link rel="stylesheet" href="{% static 'css/sobre_nos.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/carrossel.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/profile_form.css' %}" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link
@@ -16,6 +18,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Reserva Comigo Estabelecimento</title>
   </head>
   <body>
@@ -46,6 +49,9 @@
             </li>
             <li class="nav-item">
               <a href="{% url 'estab_app:notificacoes' %}">Notificações</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'estab_app:calendario' %}">Calendário</a>
             </li>
           </ul>
           <hr />
@@ -81,7 +87,12 @@
               <a href="{% url 'users:login' %}">Fazer login</a>
               {% endif %}
             </div>
-            {% block usermenu %} {% include 'main/usermenu.html' %} {% endblock %}
+            <form action="{% url 'users:logout' %}" method="post" style="display: inline;">
+              {% csrf_token %}
+              <button type="submit" class="botao_logout" style="border: none; background-color: transparent; cursor: pointer;">
+                Logout
+              </button>
+            </form>
           </div>
         </div>
       </section>
@@ -92,6 +103,5 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="{% static 'js/autocomplete.js' %}"></script>
   </body>
 </html>

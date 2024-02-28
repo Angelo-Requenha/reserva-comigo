@@ -1,0 +1,122 @@
+{% extends 'main/base_estab.html' %}
+
+{% block content %}
+{% load static %}
+  <div class="calendar-container">
+    <h2>Calendário</h2>
+
+    <form action="{% url 'estab_app:profile' %}" method="get" class="calendar-form">
+        <label for="year">Ano:  </label>
+        <input type="text" id="year" name="year" value="{{ year }}">
+        <label for="month">Mês:  </label>
+        <input type="text" id="month" name="month" value="{{ month }}">
+        <button type="submit">Atualizar</button>
+    </form>
+
+    <form action="{% url 'estab_app:salvar'%}" method="post" class="event-form">
+        {% csrf_token %}
+        <label for="day">Dia a ser marcado:</label>
+        <input type="text" id="day" name="day">
+        <input type="hidden" id="year" name="year" value="{{ year }}">
+        <input type="hidden" id="month" name="month" value="{{ month }}">
+        <button type="submit">Salvar Dia</button>
+        <p class="error-message">{{ error_message }}</p>
+    </form>
+
+    <hr>
+
+    <div class="calendar-content">
+      {{ calendar_html|safe }}
+    </div>
+
+    <script>
+        // Seleciona todos os spans dentro de td
+        var spans = document.querySelectorAll('td span');
+
+        // Itera sobre os spans encontrados
+        spans.forEach(function(span) {
+            // Acessa o pai do span (o td) e adiciona a classe nele
+            span.parentNode.classList.add('destaque');
+        });
+    </script>
+  </div>
+
+  <style>
+.calendar-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Estilos para o formulário de atualização do calendário */
+.calendar-form {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-form label, .event-form label {
+  margin-right: -2px;
+}
+
+.calendar-form input, .event-form input {
+  padding: 10px;
+  margin-right: 5px;
+}
+
+/* Estilos para o formulário de eventos */
+.event-form {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-form button {
+  background-color: #db5609; /* Cor verde - pode ser ajustada conforme desejado */
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para a mensagem de erro */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Estilos para o conteúdo do calendário */
+.calendar-content {
+  margin-top: 20px;
+  width: 100%;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+/* Estilos para os dias destacados no calendário */
+.calendar-content td.destaque {
+  background-color: #efe8e8; /* Cor de fundo para os dias destacados */
+}
+
+/* Estilos gerais para o calendário */
+.calendar-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-content table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.calendar-content table th {
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: #db5609; /* Cor de fundo para os cabeçalhos da tabela */
+  color: white;
+}
+
+  </style>
+{% endblock %}
