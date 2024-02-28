@@ -83,12 +83,6 @@ def criar_grupo(request, info_especifica):
             else:
                 grupo.estabelecimento = info_estabelecimento
                 grupo.save()
-                DiaMarcado.objects.create(
-                    ano=year, 
-                    mes=month, 
-                    dia=day, 
-                    email_usuario=email
-                )
                         
                 Notificacao.objects.create(
                     grupo=grupo,
