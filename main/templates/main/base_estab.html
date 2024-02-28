@@ -18,8 +18,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Reserva Comigo Estabelecimento</title>
+    <title>Alterra - Tickets</title>
   </head>
   <body>
     <main>
@@ -51,7 +50,7 @@
               <a href="{% url 'estab_app:notificacoes' %}">Notificações</a>
             </li>
             <li class="nav-item">
-              <a href="{% url 'estab_app:calendario' %}">Calendário</a>
+              <a href="{% url 'estab_app:pagina_estab' user.first_name %}">Pagina publica</a>
             </li>
           </ul>
           <hr />

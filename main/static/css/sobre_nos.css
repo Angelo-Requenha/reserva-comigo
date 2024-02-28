@@ -12,9 +12,8 @@
 .psobre_nos {
     max-width: 90%;
     margin-left: auto;
-    text-align: center;
-    margin: 0;
-    padding-top: 15px;
+    text-align: justify;
+    margin: 0 auto;
 }
 
 
@@ -51,10 +50,4 @@
     flex: 10;
 }
 
-.image {
-    animation: fadeIn 2s ease-in-out; /* Duração da animação: 1 segundo */
-}
 
-.animatedin {
-    animation: fadeIn 2s ease-in-out; /* Duração da animação: 1 segundo */
-}

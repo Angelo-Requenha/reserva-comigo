@@ -7,7 +7,8 @@ from cliente_app.models import Notificacao
 import calendar
 from django.urls import reverse
 
-# Create your views here.
+def schedule (request):
+    return render(request, 'estab_app/schedule.html')
 
 def generate_calendar(year, month, email):
     cal = calendar.HTMLCalendar().formatmonth(int(year), int(month))

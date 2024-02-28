@@ -3,44 +3,41 @@
 
 {% block content %}
 
-<section class="w-full flex justify-between ">
+<div class="container">
+    <div class="content1">
+        <h2>Prazer em conhecê-lo!</h2>
+        <p class="psobre_nos">Somos a equipe ReservaComigo! Formada por Angelo Miguel Requenha, Fabio Henrique Peixe, Isabela Caroline Reiter, Ivanir Stano, Victor Gomes Mendes e Victor Luís Zuchi. </p>
+    </div>
+    <div class="videosobrenos" id="videosobrenos">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/W6cCUkFXtRQ?si=yaUZztrcuY6blvg5&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
     </div>
-        <div class="container mt-20">
-            <div class="content1">
-                <h2>Prazer em conhecê-lo!</h2>
-                <p class="psobre_nos">Somos a equipe ReservaComigo! Conheça um pouco mais sobre o nosso projeto --> </p>
-            </div>
-            <div class="videosobrenos" id="videosobrenos">
-                <iframe class="animatedin" width="560" height="315" src="https://www.youtube.com/embed/W6cCUkFXtRQ?si=yaUZztrcuY6blvg5&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;disablekb=1&amp;iv_load_policy=3&amp;modestbranding=1&amp;rel=1&amp;showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        
-        
-            <div class="image">
-                <img src="{% static 'images/ideia.png' %}" alt="Descrição da outra imagem">
-            </div>
-            <div class="content1">
-                <h2>Como surgimos?</h2>
-                <p class="psobre_nos">A inspiração surgiu da observação de que muitas reservas em grupo são organizadas por apenas uma pessoa.</p>
-            </div>
-        
-        
-            <div class="content1">
-                <h2>O que é o ReservaComigo?</h2>
-                <p class="psobre_nos">O aplicativo propõe uma abordagem inovadora ao permitir que todos os membros participem ativamente do agendamento e pagamento colaborativo, redefinindo e aprimorando a experiência de reservas coletivas e superando as limitações do modelo tradicional.</p>
-            </div>
-            <div class="image">
-                <img src="{% static 'images/questao.png' %}" alt="Descrição da imagem">
-            </div>
-        
-            <div class="image">
-                <img src="{% static 'images/missao.png' %}" alt="Descrição da imagem">
-            </div>
-            <div class="content1">
-                <h2>Missão</h2>
-                <p class="psobre_nos">Revolucionar, agilizar e facilitar todas as reservas feitas em grupo. </p>
-            </div>
-        </div>
+
+    <div class="image">
+        <img src="{% static 'images/questao.png' %}" alt="Descrição da outra imagem">
+    </div>
+    <div class="content1">
+        <h2>O que é o ReservaComigo?</h2>
+        <p class="psobre_nos">A ideia veio a partir do pensamento de que existem varias reservas em grupo que são organziadas por uma pessoa só.</p>
+    </div>
+
+
+    <div class="content1">
+        <h2>Missão</h2>
+        <p class="psobre_nos">Revolucionar, agilizar e facilitar todas as reservas feitas em grupo.</p>
+    </div>
+    <div class="image">
+        <img src="{% static 'images/missao.png' %}" alt="Descrição da imagem">
+    </div>
+
+    <div class="image">
+        <img src="{% static 'images/urso-carinhoso.png' %}" alt="Descrição da imagem">
+    </div>
+    <div class="content1">
+        <h2>Nova Missão</h2>
+        <p class="psobre_nos">Texto sobre a nova missão aqui.</p>
+    </div>
+</div>
 
         <div class="w-[10%]"></div>
     </section>
