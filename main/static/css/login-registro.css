@@ -36,8 +36,8 @@ html {
     content: "";
     position: absolute;
     z-index: -1;
-    width: calc(35% + 10px);
-    height: calc(80% + 10px);
+    width: calc(80% + 170px);
+    height: calc(100% + 10px);
     background: linear-gradient(45deg, #16DBDA, #DB5609, #16DBDA);
     background-size: 300%;
     border-radius: 10px;

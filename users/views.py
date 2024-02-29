@@ -106,13 +106,12 @@ def generate_calendar(year, month, email):
 def register_profile(request):
     user_profile = request.user.userprofile
     user_fotos = get_object_or_404(FotosEstab, email=request.user)
-
+    user = request.user  # Move a definição de user para fora do bloco else
 
     if request.method == 'POST':
         profile_form = UserProfileForm(request.POST, instance=user_profile)
         photos_form = FotosEstabForm(request.POST, request.FILES, instance=user_fotos)
         register_form = EstabelecimentoProfileForm(request.POST, request.FILES, instance=request.user)
-
 
         if profile_form.is_valid() and photos_form.is_valid() and register_form.is_valid():
             profile_form.save()
@@ -133,14 +132,12 @@ def register_profile(request):
         profile_form = UserProfileForm(instance=user_profile)
         photos_form = FotosEstabForm(instance=user_fotos)
         register_form = EstabelecimentoProfileForm(instance=request.user)
-        user = request.user
    
-        
-        context = {
+    context = {
         'profile_form': profile_form,
         'photos_form': photos_form,
-        'register_form':register_form,
-        'user':user,
-        }
+        'register_form': register_form,
+        'user': user
+        }  
 
     return render(request, 'estab_app/profile.html', context)

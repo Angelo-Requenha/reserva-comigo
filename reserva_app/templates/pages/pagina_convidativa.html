@@ -20,11 +20,18 @@ inesquecíveis, com apenas um clique, Reserva Comigo! {% block content %}
               >Reserva Comigo!</strong
             >
           </h1>
-          <a
+          {% if user.is_authenticated %}
+            <a
+              class="inline-block transition px-24 py-3 text-lg font-medium text-white bg-[#F38423] border border-none rounded hover:bg-[#c9630a] focus:outline-none line"
+              href="{% url 'cliente_app:feed' %}"
+              >Fazer reserva!</a>
+          {% else %}
+            <a
             class="inline-block transition px-24 py-3 text-lg font-medium text-white bg-[#F38423] border border-none rounded hover:bg-[#c9630a] focus:outline-none line"
-            href=""
-            >Fazer reserva!</a
-          >
+            href="{% url 'reserva_app:registro_c_e' %}"
+            >Fazer reserva!</a>
+          {% endif %}
+            
         </div>
       </div>
     </div>

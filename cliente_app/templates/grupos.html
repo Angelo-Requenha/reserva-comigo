@@ -10,7 +10,7 @@
       type="text" id="inputPesquisa" onkeyup="filtrarUsuarios()" placeholder="Pesquisar por nome..." />
 
     {% for grupo in grupos_lista %}
-    <div class="flex justify-center h-1/4">
+    <div class="flex justify-center h-[150px]">
       <a class="box w-3/5 my-5 flex border-2 border-black rounded-md mb-1" href="{% url 'cliente_app:grupo_infos' grupo.estabelecimento_id grupo.id %}">
         <div class="w-3/4 p-4 flex flex-col justify-between">
           <div>
