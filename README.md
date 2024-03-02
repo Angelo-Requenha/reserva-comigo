@@ -1,6 +1,8 @@
 # RESERVA-COMIGO
 
-O Reserva Comigo é um webapp concebido para redefinir a experiência de reservas em grupo, proporcionando uma abordagem inovadora e descomplicada. 
+O Reserva Comigo é um webapp concebido para redefinir a experiência de reservas em grupo, proporcionando uma abordagem inovadora e descomplicada.  
+
+(A localização não será salva devido a chave da API do google maps não estar validada)
 
 # DIAGRAMA DO PROJETO
 
